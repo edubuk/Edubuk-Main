@@ -6,7 +6,7 @@ interface NavLink {
   name: string;
   path: string;
 }
-const Navbar = (): JSX.Element => {
+const Navbar = ()=> {
   const location = useLocation();
   const [isOpen, setOpen] = useState<boolean>(false);
   console.log("Path", location);
