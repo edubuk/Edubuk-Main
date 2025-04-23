@@ -11,6 +11,9 @@ export default {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      fontFamily: {
+                "open": ['open-serif']
+            },
       colors: {},
       backgroundImage: {},
       animation: {

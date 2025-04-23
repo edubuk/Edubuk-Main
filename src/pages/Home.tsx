@@ -86,31 +86,31 @@ const Home = ()=>{
     }, []);
 
     return (
-  <div className=" flex flex-col gap-12">
+  <div className=" flex flex-col gap-12 font-open">
     <div className="flex flex-col p-4">
-    <p className="font- text-[#F14419] uppercase text-[30px] sm:text-[40px] md:text-[50px] font-bold">
+    <p className="font- text-[#F14419] uppercase text-center sm:text-start text-[25px] sm:text-[40px] md:text-[50px] font-bold">
       International Olympiad
     </p>
-    <p className="font-sans text-[#03257E] uppercase text-[30px] sm:text-[40px] md:text-[50px] font-bold">
+    <p className="font-sans text-[#03257E] uppercase text-center sm:text-start text-[25px] sm:text-[40px] md:text-[50px] font-bold">
       AI & Emerging Technologies (No Code)
     </p>
 
     <div
-  className="mx-auto relative w-full aspect-[16/9] lg:aspect-[16/7] rounded-[8px] bg-cover bg-center"
+  className="mx-auto relative w-full aspect-[16/9] lg:aspect-[16/7] rounded-[8px] bg-cover bg-center mt-3"
   style={{ backgroundImage: `url(${images[current]})` }}
 >
       {/* Optional overlay */}
       <div className="absolute inset-0 bg-black/20 rounded-[8px]"></div>
 
       {/* Text content on image */}
-      <div className="absolute top-[15px] md:top-[25px] left-[47px] z-10 flex flex-col w-fit">
+      <div className="absolute top-[15px] md:top-[25px] left-[25px] z-10 flex flex-col w-fit">
         <p className="bg-[#F14419] text-white md:text-[25px] text-[10px] p-2">
           India | Singapore | Dubai
         </p>
         <p className="bg-[#006666] text-white md:text-[25px] text-[10px] p-2">
           Open for class 7 to 12
         </p>
-        <a href="#register" className="absolute left-34 top-26 md:top-32 text-[#F14419] bg-[#ffffff] hover:bg-[#F14419] hover:text-white transition-all rounded-4xl py-1 px-4 sm:py-2 sm:px-6 text-[15px] md:text-[20px] z-10 font-bold cursor-pointer">
+        <a href="#register" className="absolute top-20 md:top-32  text-[#F14419] bg-[#ffffff] hover:bg-[#F14419] hover:text-white transition-all rounded-4xl py-1 px-4 sm:py-2 sm:px-6 text-[10px] md:text-[25px] z-10 font-bold cursor-pointer">
         REGISTER
       </a>
       </div>
@@ -133,76 +133,77 @@ const Home = ()=>{
       ))}
     </div>
     </div>
+    <div>
     <div className="flex flex-col justify-center items-center" id="olympiad">
         <p className=" text-[#03257E] text-[40px] md:text-[60px] font-bold text-center">OLYMPIAD</p>
-        <p className=" text-[#000000] my-6 text-[37px] md:text-[50px] text-center">Acquire Fundamental Knowledge</p>
+        <p className=" text-[#000000] my-6 text-[30px] sm:text-[38px] md:text-[50px] text-center">Acquire Fundamental Knowledge</p>
     </div>
     <div className="flex justify-center items-center flex-wrap gap-4 ">
         <div className="flex justify-start items-center border rounded-full border-[#E6E6E6] gap-2 w-[300px] md:w-[521px]">
             <p className=" text-[#ffffff] bg-[#03257E] rounded-full text-[30px] md:text-[38px] px-4 md:px-5">1</p>
-            <p className="text-[#000000] text-[30px] md:text-[38px]">Artificial Intelligence</p>
+            <p className="text-[#000000] text-[26px] md:text-[38px]">Artificial Intelligence</p>
         </div>
         <div className="flex justify-start items-center border rounded-full border-[#E6E6E6] gap-2 w-[300px] md:w-[521px]">
-            <p className="text-[#ffffff] bg-[#03257E] rounded-full text-[30px] md:text-[38px] px-4 md:px-5">2</p>
-            <p className="text-[#000000] text-[30px] md:text-[38px]">Robotics</p>
+            <p className="text-[#ffffff] bg-[#03257E] rounded-full text-[26px] md:text-[38px] px-4 md:px-5">2</p>
+            <p className="text-[#000000] text-[26px] md:text-[38px]">Robotics</p>
         </div>
         <div className="flex justify-start items-center border rounded-full border-[#E6E6E6] gap-2 w-[300px] md:w-[521px]">
-            <p className="text-[#ffffff] bg-[#03257E] rounded-full text-[30px] md:text-[38px] px-4 md:px-5">3</p>
-            <p className="text-[#000000] text-[30px] md:text-[38px]">Cybersecurity</p>
+            <p className="text-[#ffffff] bg-[#03257E] rounded-full text-[25px] md:text-[38px] px-4 md:px-5">3</p>
+            <p className="text-[#000000] text-[26px] md:text-[38px]">Cybersecurity</p>
         </div>
         <div className="flex justify-start items-center border rounded-full border-[#E6E6E6] gap-2 w-[300px] md:w-[521px]">
-            <p className="text-[#ffffff] bg-[#03257E] rounded-full text-[30px] md:text-[38px] px-4 md:px-5">4</p>
-            <p className="text-[#000000] text-[30px] md:text-[38px]">Data Analytics</p>
+            <p className="text-[#ffffff] bg-[#03257E] rounded-full text-[25px] md:text-[38px] px-4 md:px-5">4</p>
+            <p className="text-[#000000] text-[26px] md:text-[38px]">Data Analytics</p>
         </div>
+      </div>
     </div>
-    <div className="flex flex-col justify-center items-center bg-[#006666] p-4">
-    <p className="text-[#ffffff] md:text-[50px] text-[35px] font-bold uppercase text-center">Concept By:</p>
-    <p className="text-[#ffffff] md:text-[45px] text-[30px] font-light text-center leading-none p-8">IIT, IIM, Alumni,CFA Charterholder,Gold Medalist, Emerging Technologies Consultant,ex-Professors in India & UAE</p>
+    <div>
+    <div className="flex flex-col justify-center items-center bg-[#006666] p-8">
+    <p className="text-[#ffffff] text-[40px] md:text-[60px] font-bold uppercase text-center">Concept By:</p>
+    <p className="text-[#ffffff] my-6 text-[30px] sm:text-[38px] md:text-[50px] font-light text-center leading-none p-4">IIT, IIM, Alumni, CFA Charterholder, Gold Medalist, Emerging Technologies Consultant, ex-Professors in India & UAE</p>
     </div>
-    <div className="flex flex-col items-center justify-center px-4 py-10 space-y-10">
+    <div className="flex flex-col items-center justify-center px-4 py-10 space-y-2">
   <p className="text-[#03257E] text-3xl sm:text-4xl md:text-5xl lg:text-[65px] font-bold uppercase text-center" id="award">
     Awards to be Won!
   </p>
-
   {/* 1. Exciting Prizes */}
-  <div className="flex flex-col md:flex-row items-center justify-center gap-6 w-full max-w-6xl">
-    <img src={award1} alt="Prizes" className="w-28 sm:w-36 md:w-44 h-auto" />
-    <div className="flex items-center gap-4">
-      <img src={arrow} alt="Arrow" className="w-24 sm:w-32 md:w-36 rotate-90 scale-y-[-1] md:rotate-0 " />
-      <p className="text-black text-xl sm:text-2xl md:text-3xl lg:text-4xl text-center md:text-left">
+  <div className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-6 w-full max-w-6xl">
+    <img src={award1} alt="Prizes" className="w-32 h-28 sm:w-36 md:w-44 sm:h-auto" />
+    <div className="flex items-center gap-1">
+      <img src={arrow} alt="Arrow" className="w-26 sm:w-32 md:w-36 rotate-90 scale-y-[-1] md:rotate-0 " />
+      <p className="text-black text-[30px] sm:text-2xl md:text-3xl lg:text-4xl text-center md:text-left">
         Exciting Prizes
       </p>
     </div>
   </div>
 
   {/* 2. Certificates */}
-  <div className="flex flex-col md:flex-row-reverse items-center justify-center gap-6 w-full max-w-6xl">
-    <img src={award2} alt="Certificates" className="w-28 sm:w-36 md:w-44 h-auto" />
-    <div className="flex items-center gap-4">
-      <p className="text-black text-xl sm:text-2xl md:text-3xl lg:text-4xl text-center md:text-right">
+  <div className="flex flex-col md:flex-row-reverse items-center justify-center gap-2 md:gap-6 w-full max-w-6xl">
+    <img src={award2} alt="Certificates" className="w-32 h-28 sm:w-36 md:w-44 sm:h-auto" />
+    <div className="flex items-center gap-1">
+      <p className="text-black text-[30px] sm:text-2xl md:text-3xl lg:text-4xl text-center md:text-right">
         Certificates
       </p>
-      <img src={arrow} alt="Arrow" className="w-24 sm:w-32 md:w-36 scale-y-[1] md:scale-y-[-1] rotate-90  md:rotate-180" />
+      <img src={arrow} alt="Arrow" className="w-26 sm:w-32 md:w-36 scale-y-[1] md:scale-y-[-1] rotate-90  md:rotate-180" />
     </div>
   </div>
 
   {/* 3. Medals */}
-  <div className="flex flex-col md:flex-row items-center justify-center gap-6 w-full max-w-6xl">
-    <img src={award3} alt="Medals" className="w-28 sm:w-36 md:w-44 h-auto" />
-    <div className="flex items-center gap-4">
-      <img src={arrow} alt="Arrow" className="w-24 sm:w-32 md:w-36 rotate-90 md:rotate-0 scale-y-[-1]" />
-      <p className="text-black text-xl sm:text-2xl md:text-3xl lg:text-4xl text-center md:text-left">
+  <div className="flex flex-col md:flex-row items-center justify-center gap-1 md:gap-6 w-full max-w-6xl">
+    <img src={award3} alt="Medals" className="w-32 h-28 sm:w-36 md:w-44 sm:h-auto" />
+    <div className="flex items-center gap-1">
+      <img src={arrow} alt="Arrow" className="w-26 sm:w-32 md:w-36 rotate-90 md:rotate-0 scale-y-[-1]" />
+      <p className="text-black text-[30px] md:mr-10 sm:text-2xl md:text-3xl lg:text-4xl text-center md:text-left">
         Medals
       </p>
     </div>
   </div>
 </div>
-
-
+</div>
 
     <div className="flex flex-col justify-center items-center bg-[#006666] p-8" id="about">
-    <p className="text-[#ffffff] md:text-[50px] text-[35px] font-bold uppercase text-center">About EDUBUK</p>
-    <p className="text-[#ffffff] md:text-[45px] text-[30px] font-light text-center leading-none p-6">Our platform bridges the gap between education and employment by providing emerging tech courses, verifiable academic & professional credentials and intelligent job matching leveraging  AI and Blockchain Tech</p>
+    <p className="text-[#ffffff] text-[40px] md:text-[60px] font-bold uppercase text-center">About EDUBUK</p>
+    <p className="text-[#ffffff] text-[30px] sm:text-[38px] md:text-[50px] font-light text-center leading-none p-6">Our platform bridges the gap between education and employment by providing emerging tech courses, verifiable academic & professional credentials and intelligent job matching leveraging  AI and Blockchain Tech</p>
     </div>
     <div className="flex justify-center items-center gap-3">
       <span className="w-8 h-8 rounded-full bg-[#03257E]"></span>
@@ -210,7 +211,7 @@ const Home = ()=>{
       <span className="w-8 h-8 rounded-full bg-[#F14419]"></span>
     </div>
     <div className="flex flex-col justify-center items-center p-8 gap-8">
-    <p className="text-[#03257E] text-[50px] font-semibold uppercase text-center">Meet Our executives</p>
+    <p className="text-[#03257E] text-[30px] sm:text-[38px] md:text-[50px] font-bold sm:font-semibold uppercase text-center">Meet Our executives</p>
     <div className=" flex justify-center items-center flex-wrap gap-8">
       <div>
         <img src={team1} alt="CEO Img" className="w-[250px] h-[250px]"></img>
@@ -240,7 +241,7 @@ const Home = ()=>{
       <span className="w-8 h-8 rounded-full bg-[#F14419]"></span>
     </div>
     <div className="flex flex-col justify-center items-center p-8 gap-8">
-    <p className="text-[#03257E] text-[50px] font-semibold uppercase text-center">MEET OUR ADVISORS</p>
+    <p className="text-[#03257E] text-[30px] sm:text-[38px] md:text-[50px] font-bold sm:font-semibold uppercase text-center">MEET OUR ADVISORS</p>
     <div className=" flex justify-center items-baseline flex-wrap gap-8">
       <div>
         <img src={advisor1} alt="CEO Img" className="w-[250px] h-[250px]"></img>

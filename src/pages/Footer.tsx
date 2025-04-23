@@ -62,12 +62,12 @@ const Footer = () => {
         <p className="text-[#000000]">© 2025 Edubukeseal.org | All rights reserved</p>
         <div className="flex justify-center items-center gap-2">
             <p className="text-[#000000] font-semibold">Follow us on:</p>
-            <a><img src={social1} alt="social logo" className="w-5 h-5" ></img></a>
-            <a><img src={social2} alt="social logo" className="w-5 h-5" ></img></a>
-            <a><img src={social3} alt="social logo" className="w-5 h-5" ></img></a>
-            <a><img src={social4} alt="social logo" className="w-5 h-5" ></img></a>
-            <a><img src={social5} alt="social logo" className="w-5 h-5" ></img></a>
-            <a><img src={social6} alt="social logo" className="w-5 h-5" ></img></a>
+            <a href="https://t.me/edubukofficial" target="_blank" rel="no-refferer"><img src={social1} alt="social logo" className="w-5 h-5" ></img></a>
+            <a href="https://www.facebook.com/edubuk.trst/" target="_blank" rel="no-refferer"><img src={social2} alt="social logo" className="w-5 h-5" ></img></a>
+            <a href="https://www.instagram.com/edubuk_/" target="_blank" rel="no-refferer"><img src={social3} alt="social logo" className="w-5 h-5" ></img></a>
+            <a href="https://www.linkedin.com/company/edubuk-ai-web3/" target="_blank" rel="no-refferer"><img src={social4} alt="social logo" className="w-5 h-5" ></img></a>
+            <a href="https://x.com/edubuktrust" target="_blank" rel="no-refferer"><img src={social5} alt="social logo" className="w-5 h-5" ></img></a>
+            <a href="https://www.youtube.com/channel/UC4g4MH4F_JTbd1tqNS5pq1g/videos" target="_blank" rel="no-refferer"><img src={social6} alt="social logo" className="w-5 h-5" ></img></a>
         </div>
       </div>
     </div>
