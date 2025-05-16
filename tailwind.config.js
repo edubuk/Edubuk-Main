@@ -12,24 +12,19 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
-                "open": ['open-serif']
-            },
+        open: ['open-serif'],
+      },
       colors: {},
       backgroundImage: {},
       animation: {
-        'fade-in': 'fadeIn 0.3s ease-out',
-      },
-      
-      animation: {
-        'slide-down': 'slideDown 0.3s ease-out',
+        'slide': 'slide 20s linear infinite',
       },
       keyframes: {
-        slideDown: {
-          '0%': { opacity: 0, transform: 'translateY(-20px)' },
-          '100%': { opacity: 1, transform: 'translateY(0)' },
+        slide: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-100%)' },
         },
       },
-    
     },
   },
   plugins: [tailwindcssAnimate],
