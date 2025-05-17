@@ -4,11 +4,11 @@ import axios from "axios";
 import toast from "react-hot-toast";
 //import Razorpay from "razorpay";
 import SmallLoader from "../Loader/Loader";
+import { useAuth } from "../../context/auth";
 
 interface Props {
   showPopup: boolean;
   setShowPopup: React.Dispatch<React.SetStateAction<boolean>>;
-  email:string;
 }
 
 interface payload {
@@ -16,18 +16,18 @@ interface payload {
   razorpay_order_id: string;
   razorpay_signature: string;
   couponCode?: string;
-  emailId: string;
+  emailId:string;
 }
 
 const API_BASE_URL = "http://localhost:8000";
 
-const PaymentPopup: React.FC<Props> = ({ showPopup, setShowPopup,email }) => {
+const PaymentPopup: React.FC<Props> = ({ showPopup, setShowPopup}) => {
   const [coupon, setCoupon] = useState<string>("");
   const [amount, setAmount] = useState<number>(89);
   const [isCouponValid, setCouponValid] = useState<boolean>(false);
   const [curr, setCurr] = useState<string>("INR");
   const [loading, setLoading] = useState<boolean>(false);
-
+  const [auth] = useAuth();
   const checkOutHandler = async () => {
     try {
       setLoading(true);
@@ -59,7 +59,7 @@ const PaymentPopup: React.FC<Props> = ({ showPopup, setShowPopup,email }) => {
                 razorpay_payment_id: response.razorpay_payment_id,
                 razorpay_order_id: response.razorpay_order_id,
                 razorpay_signature: response.razorpay_signature,
-                emailId: email,
+                emailId: auth.user.email,
               };
 
 

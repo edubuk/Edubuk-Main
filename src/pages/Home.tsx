@@ -1,4 +1,4 @@
-import { useState, useEffect, ChangeEvent, useRef } from "react";
+import { useState, useEffect} from "react";
 import hero1 from '../assets/HeroImg/hero11.jpg';
 import hero2 from '../assets/HeroImg/hero2.png';
 import hero3 from '../assets/HeroImg/hero3.jpg';
@@ -15,20 +15,21 @@ import advisor2 from '../assets/Advisor/advisor2.png';
 import advisor3 from '../assets/Advisor/advisor3.png';
 import advisor4 from '../assets/Advisor/advisor4.png';
 import Footer from "./Footer";
-import toast from "react-hot-toast";
+// import toast from "react-hot-toast";
 import pricingBg from "../assets/pricingBg.png"
 import {instLogos,govLogos,blcLogos,accLogos,mediaLogos,foreignLogos,finLogos } from "./Utils";
 import PaymentPopup from "../components/paymentGateway/razorpay";
-import { colleges } from "./Colleges";
-interface formValue{
-  name:string,
-  college:string,
-  stuClass:string,
-  city:string,
-  country:string
-  phoneNumber:string,
-  email:string,
-}
+// import { colleges } from "./Colleges";
+import { useAuth } from "../context/auth";
+// interface formValue{
+//   name:string,
+//   college:string,
+//   stuClass:string,
+//   city:string,
+//   country:string
+//   phoneNumber:string,
+//   email:string,
+// }
 
 const images = [hero1,hero2,hero3];
 // const logos = [logo1,logo2,logo3,logo4,logo5,logo1,logo2,logo3,logo4,logo5];
@@ -58,33 +59,34 @@ const Home = ()=>{
 
     const [current, setCurrent] = useState(0);
     const [showPopup,setShowPopup] = useState<boolean>(false);
-    const [paymentId,setPaymentId] = useState<string>();
-    const [query, setQuery] = useState("");
-    const [showDropdown, setShowDropdown] = useState(false);
-    const containerRef = useRef<HTMLDivElement>(null);
-    const [formData,setFormData] = useState<formValue>({
-      name:"",
-      college:"",
-      stuClass:"",
-      city:"",
-      country:"",
-      phoneNumber:"",
-      email:""
-    })
+    // const [paymentId,setPaymentId] = useState<string>();
+    // const [query, setQuery] = useState("");
+    // const [showDropdown, setShowDropdown] = useState(false);
+    // const containerRef = useRef<HTMLDivElement>(null);
+    const [auth] = useAuth();
+    // const [formData,setFormData] = useState<formValue>({
+    //   name:"",
+    //   college:"",
+    //   stuClass:"",
+    //   city:"",
+    //   country:"",
+    //   phoneNumber:"",
+    //   email:""
+    // })
 
-    const filteredColleges = colleges.filter((college) =>
-      college.toLowerCase().includes(query.toLowerCase())
-    );
+    // const filteredColleges = colleges.filter((college) =>
+    //   college.toLowerCase().includes(query.toLowerCase())
+    // );
   
-    const handleSelect = (college: string) => {
-      if(college==="other")
-      {
-        setShowDropdown(false);
-      }else{
-      setQuery(college);
-      setShowDropdown(false);
-      }
-    };
+    // const handleSelect = (college: string) => {
+    //   if(college==="other")
+    //   {
+    //     setShowDropdown(false);
+    //   }else{
+    //   setQuery(college);
+    //   setShowDropdown(false);
+    //   }
+    // };
 
     const categories1 = Object.keys(logosByCategory1);
     //const categories2 = Object.keys(logosByCategory2);
@@ -103,112 +105,112 @@ const Home = ()=>{
     
     }, []);
 
-    useEffect(()=>{
-      const paymentId = localStorage.getItem("paymentId");
-      console.log("paymentId",paymentId)
-      const getPaymentId = async()=>{
-        try {
-          let data:any = await fetch(`http://localhost:8000/api/v1/user/getPaymentStatus/${paymentId}`,{
-            method:"GET",
-            headers:{
-              "Content-Type": "application/json",
-            }
-          })
-          data = await data.json();
-          console.log("data",data)
-          if(data)
-          {
-            console.log("data",data)
-            setPaymentId(data.paymentId);
-          }
-        } catch (error) {
-          console.log("error while fetching payments data",error);
-        }
-      }
-      if(paymentId)
-      {
-        getPaymentId();
-      }
+    // useEffect(()=>{
+    //   const paymentId = localStorage.getItem("paymentId");
+    //   console.log("paymentId",paymentId)
+    //   const getPaymentId = async()=>{
+    //     try {
+    //       let data:any = await fetch(`http://localhost:8000/api/v1/user/getPaymentStatus/${paymentId}`,{
+    //         method:"GET",
+    //         headers:{
+    //           "Content-Type": "application/json",
+    //         }
+    //       })
+    //       data = await data.json();
+    //       console.log("data",data)
+    //       if(data)
+    //       {
+    //         console.log("data",data)
+    //         setPaymentId(data.paymentId);
+    //       }
+    //     } catch (error) {
+    //       console.log("error while fetching payments data",error);
+    //     }
+    //   }
+    //   if(paymentId)
+    //   {
+    //     getPaymentId();
+    //   }
   
-    },[]);
+    // },[]);
 
-    useEffect(() => {
-      const handleClickOutside = (event: MouseEvent) => {
-        if (
-          containerRef.current &&
-          !containerRef.current.contains(event.target as Node)
-        ) {
-          setShowDropdown(false);
-        }
-      };
-      document.addEventListener("mousedown", handleClickOutside);
-      return () => document.removeEventListener("mousedown", handleClickOutside);
-    }, []);
+    // useEffect(() => {
+    //   const handleClickOutside = (event: MouseEvent) => {
+    //     if (
+    //       containerRef.current &&
+    //       !containerRef.current.contains(event.target as Node)
+    //     ) {
+    //       setShowDropdown(false);
+    //     }
+    //   };
+    //   document.addEventListener("mousedown", handleClickOutside);
+    //   return () => document.removeEventListener("mousedown", handleClickOutside);
+    // }, []);
   
     const currentCategory1 = categories1[currentCategoryIndex];
     const currentLogos1 = logosByCategory1[currentCategory1];
     //const currentCategory2 = categories2[currentCategoryIndex2];
     // const currentLogos2 = logosByCategory2[currentCategory2];
 
-    const onChangeHandler = (e:ChangeEvent<HTMLInputElement>)=>{
-      e.preventDefault();
-      const {name,value}=e.target;
-      setFormData((prevData)=>({...prevData,[name]:value})) ;
-      console.log("form",formData)
-    }
+    // const onChangeHandler = (e:ChangeEvent<HTMLInputElement>)=>{
+    //   e.preventDefault();
+    //   const {name,value}=e.target;
+    //   setFormData((prevData)=>({...prevData,[name]:value})) ;
+    //   console.log("form",formData)
+    // }
 
-    const regHandler = async(e:any)=>{
-      e.preventDefault();
-      try {
-        if(!formData.name || !formData.college || !formData.stuClass || !formData.country || !formData.phoneNumber || !formData.email )
-        {
-          toast.error("All inputs field are required");
-        }
-        const data:any = await fetch('http://localhost:8000/api/v1/user/registration',{
-          method:"POST",
-          body:JSON.stringify({name:formData.name,college:formData.college,stuClass:formData.stuClass,city:formData.city, country:formData.country, phoneNumber:formData.phoneNumber,email:formData.email}),
-          headers:{
-            "Content-Type": "application/json",
-          }
-        })
+    // const regHandler = async(e:any)=>{
+    //   e.preventDefault();
+    //   try {
+    //     if(!formData.name || !formData.college || !formData.stuClass || !formData.country || !formData.phoneNumber || !formData.email )
+    //     {
+    //       toast.error("All inputs field are required");
+    //     }
+    //     const data:any = await fetch('http://localhost:8000/api/v1/user/registration',{
+    //       method:"POST",
+    //       body:JSON.stringify({name:formData.name,college:formData.college,stuClass:formData.stuClass,city:formData.city, country:formData.country, phoneNumber:formData.phoneNumber,email:formData.email}),
+    //       headers:{
+    //         "Content-Type": "application/json",
+    //       }
+    //     })
 
-        const res = await data.json();
-        console.log("res",res);
-        if(res.success)
-        {
-          localStorage.setItem("email",formData.email);
-          setFormData({
-            name: "",
-            college: "",
-            stuClass:"",
-            city:"",
-            country:"",
-            phoneNumber: "",
-            email: ""
-          });
-          return toast.success(res.message);
-        }
-        if(!res.success)
-        {
-          toast.error(res.message);
-        }
-      } catch (error) {
-        console.log("error while user registration",error);
-        toast.error("something went wrong !");
-      }
-    }
+    //     const res = await data.json();
+    //     console.log("res",res);
+    //     if(res.success)
+    //     {
+    //       localStorage.setItem("email",formData.email);
+    //       setFormData({
+    //         name: "",
+    //         college: "",
+    //         stuClass:"",
+    //         city:"",
+    //         country:"",
+    //         phoneNumber: "",
+    //         email: ""
+    //       });
+    //       return toast.success(res.message);
+    //     }
+    //     if(!res.success)
+    //     {
+    //       toast.error(res.message);
+    //     }
+    //   } catch (error) {
+    //     console.log("error while user registration",error);
+    //     toast.error("something went wrong !");
+    //   }
+    // }
 
-    const buttonHandler = (e:any)=>{
-      e.preventDefault();
-      const data = localStorage.getItem("paymentId");
-      if(data!==paymentId)
-      {
-        setShowPopup(true);
-      }
-      else{
-        regHandler(e);
-      }
-    }
+    // const buttonHandler = (e:any)=>{
+    //   e.preventDefault();
+    //   const data = localStorage.getItem("paymentId");
+    //   if(data!==paymentId)
+    //   {
+    //     setShowPopup(true);
+    //   }
+    //   else{
+    //     regHandler(e);
+    //   }
+    // }
 
     // Auto-slide every 5 seconds
     useEffect(() => {
@@ -448,9 +450,8 @@ const Home = ()=>{
     </div>
     </div>
   <div className="flex flex-wrap items-center justify-center gap-8 p-4">
-    <div className="flex flex-col justify-center items-center">
+    {/* {!auth&&<div className="flex flex-col justify-center items-center">
   <form 
-  onSubmit={()=>setShowPopup(true)}
   className="bg-gray-100 p-6 md:p-8 rounded-lg shadow-md space-y-8 w-screen sm:w-auto" 
   id="register"
 >
@@ -574,9 +575,25 @@ const Home = ()=>{
     Submit
   </button>
 </form>
+</div>} */}
+{
+  auth.user&&<div className="bg-white shadow-md rounded-lg p-6 text-center max-w-md mx-auto mt-8">
+  <h2 className="text-[#006666] text-xl font-semibold mb-4">
+    Get Your Olympiad Registration Code Instantly
+  </h2>
+  <p className="text-gray-600 mb-6">
+    Pay the participation fee to receive your unique Olympiad code and confirm your registration.
+  </p>
+  <button
+    onClick={() => setShowPopup(true)}
+    className="bg-[#006666] text-white px-6 py-2 rounded hover:bg-[#004d4d] transition duration-200"
+  >
+    Proceed Now
+  </button>
 </div>
+}
 {showPopup&&
-  <PaymentPopup showPopup={showPopup} setShowPopup={setShowPopup} email={formData.email}/>
+  <PaymentPopup showPopup={showPopup} setShowPopup={setShowPopup}/>
 }
     <div className="flex justify-center items-center flex-col gap-3 sm:gap-10">
       <div className="text-[#000] w-[400px] uppercase text-2xl md:text-4xl lg:text-5xl font-semibold text-center">
