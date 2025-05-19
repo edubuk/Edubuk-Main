@@ -506,7 +506,7 @@ const Home = ()=>{
       loop
       autoplay
     /></div>
-        <p className="w-full p-4 bg-[#03257E] uppercase text-center text-[20px] sm:text-[30px] md:text-[40px] rounded-b-lg">exciting prizes</p>
+        <p className="text-white w-full p-4 bg-[#03257E] uppercase text-center text-[20px] sm:text-[30px] md:text-[40px] rounded-b-lg">exciting prizes</p>
       </div>
       <div className="flex flex-col justify-center items-center border-1 border-gray-500 rounded-lg">
         <div className="w-[300px] h-[300px] p-8"><DotLottieReact
@@ -514,7 +514,7 @@ const Home = ()=>{
       loop
       autoplay
     /></div>
-        <p className="w-full p-4 bg-[#006666] uppercase text-center text-[20px] sm:text-[30px] md:text-[40px] rounded-b-lg">Certificates</p>
+        <p className="text-white w-full p-4 bg-[#006666] uppercase text-center text-[20px] sm:text-[30px] md:text-[40px] rounded-b-lg">Certificates</p>
       </div>
       <div className="flex flex-col justify-center items-center border-1 border-gray-500 rounded-lg">
         <div className="w-[300px] h-[300px] p-8">
@@ -524,7 +524,7 @@ const Home = ()=>{
       autoplay
     />
         </div>
-        <p className="w-full p-4 bg-[#F14419] uppercase text-center text-[20px] sm:text-[30px] md:text-[40px] rounded-b-lg">Medals</p>
+        <p className="text-white w-full p-4 bg-[#F14419] uppercase text-center text-[20px] sm:text-[30px] md:text-[40px] rounded-b-lg">Medals</p>
       </div>
     </div>
     </div>
