@@ -6,6 +6,7 @@ import social3 from '../assets/Social/social3.png'
 import social4 from '../assets/Social/social4.png'
 import social5 from '../assets/Social/social5.png'
 import social6 from '../assets/Social/social6.png'
+import { MdEmail, MdLocationPin, MdPhone } from "react-icons/md";
 const Footer = () => {
   return (
     <div className="flex flex-col bg-white sm:px-4 gap-4 border-b-8 border-[#006666]">
@@ -26,12 +27,14 @@ const Footer = () => {
       <div className="flex flex-wrap justify-between items-center gap-8 border-b-2 border-t-2 border-gray-300 pb-3 " >
         <img src={logo} alt="logo" className="md:w-[200px] md:h-[200px] w-[152px] h-[152px]"></img>
         <div className="flex flex-col justify-center gap-4 sm:pl-16">
-          <ul className="text-[#000000] list-disc space-y-1">
-            <li className="list-none -ml-6 font-semibold">Our Offices:</li>
-            <li>Hyderabad, India</li>
-            <li>Lucknow, India</li>
-            <li>Dubai, UAE</li>
-          </ul>
+            <div className="font-semibold text-xl text-black uppercase">Contact Us:</div>
+            <div className="flex justify-start gap-2 items-center text-black"><MdEmail />Email: support@edubuk.com</div>
+            <div className="flex justify-start gap-2 items-center text-black"><MdPhone />Phone: +91 9250411261</div>
+        </div>
+        <div className="flex flex-col justify-center gap-4 sm:pl-16">
+            <div className="font-semibold text-xl text-black uppercase">Our Offices:</div>
+            <div className="flex justify-start gap-2 items-center text-black"><MdLocationPin /> Hyderabad, India</div>
+            <div className="flex justify-start gap-2 items-center text-black"><MdLocationPin /> Dubai, UAE</div>
         </div>
       </div>
       <div className="flex justify-center md:justify-between items-center align-middle pb-6 flex-wrap-reverse">

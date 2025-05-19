@@ -1,5 +1,6 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from "../assets/edubuklogo.png";
+import olymLogo from "../assets/olympiadLogo.png";
 import { RxHamburgerMenu,RxCross2 } from "react-icons/rx";
 import { MdLogout } from "react-icons/md";
 import { useState } from "react";
@@ -35,7 +36,12 @@ const Navbar = ()=> {
   return (
     <div className="flex justify-between items-center p-4">
       <img src={logo} className="w-32 h-32 md:w-38 md:h-38"></img>
-      <div className="hidden sm:flex justify-center items-center p-2 gap-6">
+      <RxHamburgerMenu
+    className="flex sm:hidden w-10 h-10 text-[#006666]"
+    onClick={() => setOpen(true)}
+  />
+      <div className="flex justify-center items-center">
+        <div className="hidden sm:flex p-2 gap-6">
         {links.map((link, i) => (
         <a
             key={i}
@@ -57,16 +63,18 @@ const Navbar = ()=> {
         ))}
         <a
           href="#about"
-          className="bg-[#F14419] py-[14px] px-3 text-[#ffffff] rounded-[8px]"
+          className="bg-[#F14419] py-[8px] px-3 text-[#ffffff] rounded-full cursor-pointer"
         >
           About Edubuk
         </a>
         {
         auth.user?<CgProfile className="text-[#006666] w-8 h-8 md:w-10 md:h-10" onClick={()=>setOpenPopup(!openPopup)}/>:
-        <Link to="/login" className="text-black border-1 border-gray-200 rounded py-[14px] px-3 font-bold hover:bg-gray-200">Login</Link>
+                <Link to="/login" className="text-black border-1 border-gray-200 rounded-full py-[8px] px-3 font-bold hover:bg-gray-200">Login</Link>
         }
-      </div>
-      {openPopup&&
+        </div>
+      {
+        auth.user&&<CgProfile className="flex sm:hidden text-[#006666] w-8 h-8 md:w-10 md:h-10" onClick={()=>setOpenPopup(!openPopup)}/>
+        }      {openPopup&&
       <div className="w-[300px] sm:w-[350px] absolute right-2 top-32 p-4 flex flex-col justify-center items-start z-20 bg-white border border-gray-200 rounded shadow-md gap-3">
   <InfoRow label="Name" value={auth.user.name} />
   <InfoRow label="Class" value={auth.user.stuClass} />
@@ -75,15 +83,8 @@ const Navbar = ()=> {
   <button onClick={handleLogout} className="flex justify-center items-center text-[#006666] p-2 border-1 border-gray-200 rounded cursor-pointer">Logout <MdLogout className="ml-1"/></button>
 </div>
      }
-      <div className="relative sm:hidden flex justify-center items-center">
-  <RxHamburgerMenu
-    className="w-10 h-10 text-[#006666]"
-    onClick={() => setOpen(true)}
-  />
-  {
-        auth.user&&<CgProfile className="text-[#006666] w-8 h-8 md:w-10 md:h-10" onClick={()=>setOpenPopup(!openPopup)}/>
-        }
-  {isOpen && (
+</div>
+{isOpen && (
     <div className="fixed inset-0 flex flex-col justify-start items-center gap-4 z-20 bg-white p-6 h-fit animate-slide-down transition-all duration-300 ease-in-out">
     <div className="w-full flex justify-end">
         <RxCross2
@@ -91,7 +92,7 @@ const Navbar = ()=> {
           onClick={() => setOpen(false)}
         />
     </div>
-      {links.map((link, i) => (
+          {links.map((link, i) => (
         <a
           key={i}
           href={link.path}
@@ -108,7 +109,8 @@ const Navbar = ()=> {
 
     </div>
   )}
-</div>
+      <img src={olymLogo} className=" w-32 h-32 md:w-38 md:h-38"></img>
+
 
     </div>
   );

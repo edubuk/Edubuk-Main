@@ -4,7 +4,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 //import Razorpay from "razorpay";
 import SmallLoader from "../Loader/Loader";
-// import { useAuth } from "../../context/auth";
+import { useAuth } from "../../context/auth";
 
 interface Props {
   showPopup: boolean;
@@ -27,9 +27,7 @@ const PaymentPopup: React.FC<Props> = ({ showPopup, setShowPopup,setShowSuccessP
   const [amount, setAmount] = useState<number>(250);
   const [curr, setCurr] = useState<string>("INR");
   const [loading, setLoading] = useState<boolean>(false);
-  const [userName, setUserName] = useState<string>();
-  const [emailId, setEmailId] = useState<string>();
-  // const [auth] = useAuth();
+  const [auth] = useAuth();
   const checkOutHandler = async () => {
     try {
       setLoading(true);
@@ -61,8 +59,8 @@ const PaymentPopup: React.FC<Props> = ({ showPopup, setShowPopup,setShowSuccessP
                 razorpay_payment_id: response.razorpay_payment_id,
                 razorpay_order_id: response.razorpay_order_id,
                 razorpay_signature: response.razorpay_signature,
-                emailId: emailId || "ajeetramverma10@gmail.com",
-                userName: userName || "Ajeet",
+                emailId: auth.user.email || "ajeetramverma10@gmail.com",
+                userName: auth.user.name || "Ajeet",
               };
 
               const res = await axios.post(
@@ -103,13 +101,7 @@ const PaymentPopup: React.FC<Props> = ({ showPopup, setShowPopup,setShowSuccessP
   };
 
   useEffect(() => {
-    const user: any = localStorage.getItem("auth");
-    if (user) {
-      const parsedData = JSON.parse(user);
-      //console.log("user",parsedData);
-      setUserName(parsedData.name);
-      setEmailId(parsedData.email);
-    }
+  
     // Dynamically add Razorpay script to the document
     const script = document.createElement("script");
     script.src = "https://checkout.razorpay.com/v1/checkout.js";

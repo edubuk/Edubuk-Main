@@ -63,7 +63,7 @@ const Home = ()=>{
     const [current, setCurrent] = useState(0);
     const [showPopup,setShowPopup] = useState<boolean>(false);
     const [showSuccessPopup,setShowSuccessPopup]= useState<boolean>(false);
-    // const [paymentId,setPaymentId] = useState<string>();
+   // const [paymentId,setPaymentId] = useState<string>();
     // const [query, setQuery] = useState("");
     // const [showDropdown, setShowDropdown] = useState(false);
     // const containerRef = useRef<HTMLDivElement>(null);
@@ -109,34 +109,31 @@ const Home = ()=>{
     
     // }, []);
 
-    // useEffect(()=>{
-    //   const paymentId = localStorage.getItem("paymentId");
-    //   console.log("paymentId",paymentId)
-    //   const getPaymentId = async()=>{
-    //     try {
-    //       let data:any = await fetch(`http://localhost:8000/api/v1/user/getPaymentStatus/${paymentId}`,{
-    //         method:"GET",
-    //         headers:{
-    //           "Content-Type": "application/json",
-    //         }
-    //       })
-    //       data = await data.json();
-    //       console.log("data",data)
-    //       if(data)
-    //       {
-    //         console.log("data",data)
-    //         setPaymentId(data.paymentId);
-    //       }
-    //     } catch (error) {
-    //       console.log("error while fetching payments data",error);
-    //     }
-    //   }
-    //   if(paymentId)
-    //   {
-    //     getPaymentId();
-    //   }
+    useEffect(()=>{
+      //const paymentId = localStorage.getItem("paymentId");
+      //console.log("paymentId",paymentId)
+      const getPaymentId = async()=>{
+        try {
+          let data:any = await fetch(`http://localhost:8000/api/v1/user/getPaymentStatus/${auth.user.email}`,{
+            method:"GET",
+            headers:{
+              "Content-Type": "application/json",
+            }
+          })
+          data = await data.json();
+          console.log("data",data)
+          if(data)
+          {
+            console.log("data",data)
+            //setPaymentId(data.paymentId);
+          }
+        } catch (error) {
+          console.log("error while fetching payments data",error);
+        }
+      }
+        getPaymentId();
   
-    // },[]);
+    },[]);
 
     // useEffect(() => {
     //   const handleClickOutside = (event: MouseEvent) => {
@@ -467,6 +464,31 @@ const Home = ()=>{
         </div>
       </div>
     </div>
+<div className="flex flex-col justify-center items-center" id="olympiad">
+        <p className=" text-[#03257E] text-[25px] sm:text-[40px] md:text-[50px] font-bold text-center">Watch How It Works</p>
+        {/* <p className=" text-[#000000] my-4 text-[23px] sm:text-[38px] md:text-[48px] text-center">No-Code Skilling in Emerging Technologies</p> */}
+    </div>
+<div className="flex justify-center items-center gap-4 p-4">
+  {/* Left Rectangular Box (Hidden on mobile) */}
+  <div className="hidden sm:block w-32 h-[350px] bg-gray-300 rounded-md shadow-md"></div>
+
+  {/* Video with Fixed Height and 16:9 Aspect Ratio */}
+  <div className="relative w-full max-w-3xl h-[350px]">
+    <iframe
+      className="w-full h-full rounded-lg shadow-lg"
+      src="https://www.youtube.com/embed/Tc5lDlnHH-A?autoplay=1&mute=1"
+      title="Edubuk Presents: AI and Emerging Technologies Hackathon for College Student"
+      allow="autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerPolicy="strict-origin-when-cross-origin"
+      allowFullScreen
+    ></iframe>
+  </div>
+
+  {/* Right Rectangular Box (Hidden on mobile) */}
+  <div className="hidden sm:block w-32 h-[350px] bg-gray-300 rounded-md shadow-md"></div>
+</div>
+
+
     <div>
     <div className="flex flex-col justify-center items-center bg-[#006666] p-6">
     <p className="text-[#ffffff] text-[25px] sm:text-[40px] md:text-[50px] font-bold uppercase text-center">Concept By:</p>
