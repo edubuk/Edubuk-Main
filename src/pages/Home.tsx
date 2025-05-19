@@ -3,9 +3,9 @@ import hero1 from '../assets/HeroImg/hero11.jpg';
 import hero2 from '../assets/HeroImg/hero2.png';
 import hero3 from '../assets/HeroImg/hero3.jpg';
 //import hero3 from '../assets/HeroImg/tempImg.jpeg';
-import award1 from '../assets/AwardImg/award1.png';
-import award2 from '../assets/AwardImg/award2.jpg';
-import award3 from '../assets/AwardImg/award3.png';
+// import award1 from '../assets/AwardImg/award1.png';
+// import award2 from '../assets/AwardImg/award2.jpg';
+// import award3 from '../assets/AwardImg/award3.png';
 import team1 from '../assets/Team/team1.png';
 import team2 from '../assets/Team/team2.png';
 import team3 from '../assets/Team/team3.png';
@@ -21,6 +21,9 @@ import {instLogos,govLogos,blcLogos,accLogos,mediaLogos,foreignLogos,finLogos } 
 import PaymentPopup from "../components/paymentGateway/razorpay";
 // import { colleges } from "./Colleges";
 import { useAuth } from "../context/auth";
+import { Link} from "react-router-dom";
+import { FaLinkedinIn } from "react-icons/fa";
+import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 // interface formValue{
 //   name:string,
 //   college:string,
@@ -34,15 +37,15 @@ import { useAuth } from "../context/auth";
 const images = [hero1,hero2,hero3];
 // const logos = [logo1,logo2,logo3,logo4,logo5,logo1,logo2,logo3,logo4,logo5];
 
-const logosByCategory1: Record<string, string[]> = {
-  "Education institutes":instLogos,
-  "Governments & Regulators":govLogos,
-  "Grants & awards by blockchains":blcLogos,
-  "cloud credits & accelerators":accLogos,
-  "media houses":mediaLogos,
-  "international bodies":foreignLogos,
-  "fintech & banking":finLogos
-};
+// const logosByCategory1: Record<string, string[]> = {
+//   "Education institutes":instLogos,
+//   "Governments & Regulators":govLogos,
+//   "Grants & awards by blockchains":blcLogos,
+//   "cloud credits & accelerators":accLogos,
+//   "media houses":mediaLogos,
+//   "international bodies":foreignLogos,
+//   "fintech & banking":finLogos
+// };
 // const logosByCategory2: Record<string, string[]> = {
 //   "fintech & banking":finLogos,
 //   "international bodies":foreignLogos,
@@ -53,12 +56,13 @@ const logosByCategory1: Record<string, string[]> = {
 //   "Education institutes":instLogos, 
 // };
 
-const SLIDE_DURATION = 10000;
+// const SLIDE_DURATION = 10000;
 
 const Home = ()=>{
 
     const [current, setCurrent] = useState(0);
     const [showPopup,setShowPopup] = useState<boolean>(false);
+    const [showSuccessPopup,setShowSuccessPopup]= useState<boolean>(false);
     // const [paymentId,setPaymentId] = useState<string>();
     // const [query, setQuery] = useState("");
     // const [showDropdown, setShowDropdown] = useState(false);
@@ -88,22 +92,22 @@ const Home = ()=>{
     //   }
     // };
 
-    const categories1 = Object.keys(logosByCategory1);
-    //const categories2 = Object.keys(logosByCategory2);
-    const [currentCategoryIndex, setCurrentCategoryIndex] = useState(0);
-    //const [currentCategoryIndex2, setCurrentCategoryIndex2] = useState(0);
-    const [animateKey, setAnimateKey] = useState(0); // to reset animation
+    // const categories1 = Object.keys(logosByCategory1);
+    // const categories2 = Object.keys(logosByCategory2);
+    // const [currentCategoryIndex, setCurrentCategoryIndex] = useState(0);
+    // const [currentCategoryIndex2, setCurrentCategoryIndex2] = useState(0);
+    //const [animateKey,setAnimatedKey] = useState(0); // to reset animation
     
-    useEffect(() => {
-      const timer1 = setInterval(() => {
-        setCurrentCategoryIndex((prev) => (prev + 1) % categories1.length);
-        //setCurrentCategoryIndex2((prev) => (prev + 1) % categories2.length);
-        setAnimateKey((prev) => prev + 1); // force re-trigger animation
-      }, SLIDE_DURATION);
+    // useEffect(() => {
+    //   const timer1 = setInterval(() => {
+    //     setCurrentCategoryIndex((prev) => (prev + 1) % categories1.length);
+    //     setCurrentCategoryIndex2((prev) => (prev + 1) % categories2.length);
+    //     setAnimateKey((prev) => prev + 1); // force re-trigger animation
+    //   }, SLIDE_DURATION);
   
-      return () => clearInterval(timer1);
+    //   return () => clearInterval(timer1);
     
-    }, []);
+    // }, []);
 
     // useEffect(()=>{
     //   const paymentId = localStorage.getItem("paymentId");
@@ -147,9 +151,9 @@ const Home = ()=>{
     //   return () => document.removeEventListener("mousedown", handleClickOutside);
     // }, []);
   
-    const currentCategory1 = categories1[currentCategoryIndex];
-    const currentLogos1 = logosByCategory1[currentCategory1];
-    //const currentCategory2 = categories2[currentCategoryIndex2];
+    // const currentCategory1 = categories1[currentCategoryIndex];
+    // const currentLogos1 = logosByCategory1[currentCategory1];
+    // const currentCategory2 = categories2[currentCategoryIndex2];
     // const currentLogos2 = logosByCategory2[currentCategory2];
 
     // const onChangeHandler = (e:ChangeEvent<HTMLInputElement>)=>{
@@ -213,6 +217,7 @@ const Home = ()=>{
     // }
 
     // Auto-slide every 5 seconds
+    console.log("auth values",auth.user);
     useEffect(() => {
       const interval = setInterval(() => {
         setCurrent((prev) => (prev + 1) % images.length);
@@ -245,9 +250,12 @@ const Home = ()=>{
         <p className="bg-[#006666] text-white md:text-[25px] text-[10px] p-2">
           Open for class 7 to 12
         </p>
-        <a href="#register" className="absolute top-20 md:top-32  text-[#F14419] bg-[#ffffff] hover:bg-[#F14419] hover:text-white transition-all rounded-4xl py-1 px-4 sm:py-2 sm:px-6 text-[10px] md:text-[25px] z-10 font-bold cursor-pointer">
+        {!auth.user&&<Link to="/sign-up" className="absolute top-20 md:top-32  text-[#F14419] bg-[#ffffff] hover:bg-[#F14419] hover:text-white transition-all rounded-4xl py-1 px-4 sm:py-2 sm:px-8 text-[12px] md:text-[30px] z-10 font-bold cursor-pointer">
         REGISTER
-      </a>
+      </Link>}
+        {auth?.user&&<a href="#register" className="absolute top-20 md:top-32  text-[#F14419] bg-[#ffffff] hover:bg-[#F14419] hover:text-white transition-all rounded-4xl py-1 px-4 sm:py-2 sm:px-8 text-[12px] md:text-[30px] z-10 font-bold cursor-pointer">
+        REGISTER
+      </a>}
       </div>
     </div>
     <p className="text-gray-950 md:text-[25px] text-[10px]">* Students from all streams are eligible</p>
@@ -273,15 +281,15 @@ const Home = ()=>{
     Awards & Recognitions
   </p>
 
-  <div className="flex justify-center flex-col items-center mt-10">
-    <p className="absolute mb-36 text-[#006666] p-2 border-1 border-gray-300 rounded-full w-fit z-10 bg-[#ffffff] uppercase font-bold">{currentCategory1}</p>
+  {/* <div className="flex justify-center flex-col items-center mt-10">
+    <p className="absolute mb-36 text-[#006666] p-2 border-1 border-gray-300 rounded-full w-fit z-10 bg-[#ffffff] uppercase font-bold">Education institutes</p>
     <div className="text-[#006666] p-6 border-1 border-gray-300 rounded-full">
     <div className="overflow-hidden py-4">
         <div
           key={animateKey} 
           className="flex animate-slide whitespace-nowrap"
         >
-          {currentLogos1.concat(currentLogos1).map((logo, index) => (
+          {instLogos.concat(instLogos).map((logo, index) => (
             <img
               key={index}
               src={logo}
@@ -292,17 +300,17 @@ const Home = ()=>{
         </div>
       </div>
     </div>
-  </div>
-  {/* <div className="flex justify-start items-center p-4">
-    <p className="bg-white rounded w-[200px] p-2 text-[#006666] text-center font-bold text-[10px] sm:text-[15px] md:text-[20px] uppercase leading-none animate-slide-in-right shadow-gray-800">
-        {currentCategory1}
+  </div> */}
+  <div className="flex justify-start items-center p-4">
+    <p className="bg-white hidden sm:flex sm:ml-0 rounded w-[200px] p-2 text-[#006666] text-center font-bold text-[10px] sm:text-[15px] md:text-[20px] uppercase leading-none animate-slide-in-right shadow-gray-800">
+        Education institutes
       </p>
-      <div className="overflow-hidden py-4">
+      <div className="overflow-hidden sm:py-4">
         <div
-          key={animateKey} 
+          key={1} 
           className="flex animate-slide whitespace-nowrap"
         >
-          {currentLogos1.concat(currentLogos1).map((logo, index) => (
+          {instLogos.concat(instLogos).map((logo, index) => (
             <img
               key={index}
               src={logo}
@@ -314,12 +322,12 @@ const Home = ()=>{
       </div>
   </div>
   <div className="flex justify-start items-center p-4">
-      <div className="overflow-hidden py-4">
+      <div className="overflow-hidden sm:py-4">
         <div
-          key={animateKey} 
+          key={2} 
           className="flex animate-slideOpposite whitespace-nowrap"
         >
-          {currentLogos2.concat(currentLogos2).map((logo, index) => (
+          {govLogos.concat(govLogos).map((logo, index) => (
             <img
               key={index}
               src={logo}
@@ -329,10 +337,110 @@ const Home = ()=>{
           ))}
         </div>
       </div>
-      <p className="bg-white rounded w-[200px] p-2 text-[#006666] text-center font-bold text-[10px] sm:text-[15px] md:text-[20px] uppercase leading-none animate-slide-in-right shadow-gray-800">
-        {currentCategory2}
+      <p className="bg-white hidden sm:flex rounded w-[200px] p-2 text-[#006666] text-center font-bold text-[10px] sm:text-[15px] md:text-[20px] uppercase leading-none animate-slide-in-right shadow-gray-800">
+        Governments & Regulators
       </p>
-  </div> */}
+  </div>
+  <div className="flex justify-start items-center p-4">
+    <p className="bg-white hidden sm:flex sm:ml-0 rounded w-[200px] p-2 text-[#006666] text-center font-bold text-[10px] sm:text-[15px] md:text-[20px] uppercase leading-none animate-slide-in-right shadow-gray-800">
+        Grants & awards by blockchains
+      </p>
+      <div className="overflow-hidden sm:py-4">
+        <div
+          key={3} 
+          className="flex animate-slide whitespace-nowrap"
+        >
+          {blcLogos.concat(blcLogos).map((logo, index) => (
+            <img
+              key={index}
+              src={logo}
+              alt={`logo-${index}`}
+              className="h-10 sm:h-16 w-auto sm:w-auto mx-4 sm:mx-8 shadow-[0_0_20px_5px_rgba(255,255,255,0.7)]"
+            />
+            ))}
+        </div>
+      </div>
+  </div>
+  <div className="flex justify-start items-center p-4">
+      <div className="overflow-hidden sm:py-4">
+        <div
+          key={4} 
+          className="flex animate-slideOpposite whitespace-nowrap"
+        >
+          {accLogos.concat(accLogos).map((logo, index) => (
+            <img
+              key={index}
+              src={logo}
+              alt={`logo-${index}`}
+              className="h-10 sm:h-16 w-auto sm:w-auto mx-4 sm:mx-8"
+            />
+          ))}
+        </div>
+      </div>
+      <p className="bg-white hidden sm:flex rounded w-[200px] p-2 text-[#006666] text-center font-bold text-[10px] sm:text-[15px] md:text-[20px] uppercase leading-none animate-slide-in-right shadow-gray-800">
+        cloud credits & accelerators
+      </p>
+  </div>
+  <div className="flex justify-start items-center p-4">
+    <p className="bg-white hidden sm:flex sm:ml-0 rounded w-[200px] p-2 text-[#006666] text-center font-bold text-[10px] sm:text-[15px] md:text-[20px] uppercase leading-none animate-slide-in-right shadow-gray-800">
+        media houses
+      </p>
+      <div className="overflow-hidden sm:py-4">
+        <div
+          key={5} 
+          className="flex animate-slide whitespace-nowrap"
+        >
+          {mediaLogos.concat(mediaLogos).map((logo, index) => (
+            <img
+              key={index}
+              src={logo}
+              alt={`logo-${index}`}
+              className="h-10 sm:h-16 w-auto sm:w-auto mx-4 sm:mx-8 shadow-[0_0_20px_5px_rgba(255,255,255,0.7)]"
+            />
+            ))}
+        </div>
+      </div>
+  </div>
+  <div className="flex justify-start items-center p-4">
+      <div className="overflow-hidden sm:py-4">
+        <div
+          key={6} 
+          className="flex animate-slideOpposite whitespace-nowrap"
+        >
+          {foreignLogos.concat(foreignLogos).map((logo, index) => (
+            <img
+              key={index}
+              src={logo}
+              alt={`logo-${index}`}
+              className="h-10 sm:h-16 w-auto sm:w-auto mx-4 sm:mx-8"
+            />
+          ))}
+        </div>
+      </div>
+      <p className="bg-white hidden sm:flex rounded w-[200px] p-2 text-[#006666] text-center font-bold text-[10px] sm:text-[15px] md:text-[20px] uppercase leading-none animate-slide-in-right shadow-gray-800">
+        international bodies
+      </p>
+  </div>
+  <div className="flex justify-start items-center p-4">
+    <p className="bg-white hidden sm:flex sm:ml-0 rounded w-[200px] p-2 text-[#006666] text-center font-bold text-[10px] sm:text-[15px] md:text-[20px] uppercase leading-none animate-slide-in-right shadow-gray-800">
+       fintech & banking
+      </p>
+      <div className="overflow-hidden sm:py-4">
+        <div
+          key={7} 
+          className="flex animate-slide whitespace-nowrap"
+        >
+          {finLogos.concat(finLogos).map((logo, index) => (
+            <img
+              key={index}
+              src={logo}
+              alt={`logo-${index}`}
+              className="h-10 sm:h-16 w-auto sm:w-auto mx-4 sm:mx-8 shadow-[0_0_20px_5px_rgba(255,255,255,0.7)]"
+            />
+            ))}
+        </div>
+      </div>
+  </div>
 </div>
 
     <div>
@@ -370,15 +478,30 @@ const Home = ()=>{
   </p>
     <div className="flex flex-wrap justify-center items-center gap-6 p-4">
       <div className="flex flex-col justify-center items-center border-1 border-gray-500 rounded-lg">
-        <img src={award1} className="w-[300px] h-[300px] p-8"></img>
+        <div className="w-[300px] h-[300px] p-8">
+        <DotLottieReact
+      src="https://lottie.host/278f37d4-d700-4952-b7af-e3ad48bc9b50/usKs5I4b4X.lottie"
+      loop
+      autoplay
+    /></div>
         <p className="w-full p-4 bg-[#03257E] uppercase text-center text-[20px] sm:text-[30px] md:text-[40px] rounded-b-lg">exciting prizes</p>
       </div>
       <div className="flex flex-col justify-center items-center border-1 border-gray-500 rounded-lg">
-        <img src={award2} className="w-[300px] h-[300px] p-8"></img>
+        <div className="w-[300px] h-[300px] p-8"><DotLottieReact
+      src="https://lottie.host/176c2c1d-55f1-4966-8f51-481208bacf00/Hj70UEKuYf.lottie"
+      loop
+      autoplay
+    /></div>
         <p className="w-full p-4 bg-[#006666] uppercase text-center text-[20px] sm:text-[30px] md:text-[40px] rounded-b-lg">Certificates</p>
       </div>
       <div className="flex flex-col justify-center items-center border-1 border-gray-500 rounded-lg">
-        <img src={award3} className="w-[300px] h-[300px] p-8"></img>
+        <div className="w-[300px] h-[300px] p-8">
+          <DotLottieReact
+      src="https://lottie.host/b2890cb3-db52-437d-9568-d1284c3763ea/W3jB7Zn0fP.lottie"
+      loop
+      autoplay
+    />
+        </div>
         <p className="w-full p-4 bg-[#F14419] uppercase text-center text-[20px] sm:text-[30px] md:text-[40px] rounded-b-lg">Medals</p>
       </div>
     </div>
@@ -396,27 +519,129 @@ const Home = ()=>{
     </div>
     <div className="flex flex-col justify-center items-center gap-8">
     <p className="text-[#03257E] text-[25px] sm:text-[40px] md:text-[50px] font-bold uppercase text-center">Meet Our executives</p>
-    <div className=" flex justify-center items-center flex-wrap gap-8">
-      <div>
-        <img src={team1} alt="CEO Img" className="w-[250px] h-[250px]"></img>
-        <p className="text-[#000000] font-semibold text-center pt-2">Apoorva Bajaj</p>
-        <p className="text-[#000000] text-center">Chief Executive Officer (CEO)</p>
-      </div>
-      <div>
-        <img src={team2} alt="CEO Img" className="w-[250px] h-[250px]"></img>
-        <p className="text-[#000000] font-semibold text-center pt-2">Shivaani Bajaj</p>
-        <p className="text-[#000000] text-center">Chief Operating Officer (COO)</p>
-      </div>
-      <div>
-        <img src={team3} alt="CEO Img" className="w-[250px] h-[250px]"></img>
-        <p className="text-[#000000] font-semibold text-center pt-2">Amit Srivastava</p>
-        <p className="text-[#000000] text-center">Chief Marketing Officer (CMO)</p>
-      </div>
-      <div>
-        <img src={team4} alt="CEO Img" className="w-[250px] h-[250px]"></img>
-        <p className="text-[#000000] font-semibold text-center pt-2">Ajeet Ram Verma</p>
-        <p className="text-[#000000] text-center">Lead Tech Developer</p>
-      </div>
+    <div className=" flex justify-center items-center flex-wrap gap-3">
+      <div className="w-full max-w-xs min-h-[450px] p-4 bg-gradient-to-br from-gray-100 to-white rounded-2xl shadow-md hover:shadow-lg hover:-translate-y-2 transition duration-300 flex flex-col justify-between items-center text-center">
+  <div className="w-28 h-28 mb-4 rounded-full p-1 bg-gradient-to-br from-blue-400 to-purple-400">
+    <img
+      src={team1}
+      alt="team1"
+      className="w-full h-full rounded-full object-cover"
+    />
+  </div>
+  <div className="flex flex-col items-center flex-grow">
+    <p className="text-lg font-bold text-gray-800 mb-1">Apoorva Bajaj</p>
+    <p className="bg-gradient-to-r from-blue-400 to-purple-400 text-white text-sm font-semibold px-3 py-1 rounded-full mb-3">
+      Co-Founder & CEO
+    </p>
+
+    <a
+      href="https://www.linkedin.com/in/apoorva-bajaj-iit-iim-cfa-edubuk/"
+      target="_blank"
+      rel="noreferrer"
+      className="mb-4"
+    >
+      <FaLinkedinIn className="text-[#0077B5] w-7 h-7" />
+    </a>
+
+    <p className="text-sm text-gray-600 leading-relaxed">
+      10+ years experience <br />
+      ex-Goldman Sachs, JP Morgan, DE Shaw Engineer, IIT, IIM Gold-medalist, CFA Charterholder
+    </p>
+  </div>
+</div>
+      <div className="w-full max-w-xs min-h-[450px] p-4 bg-gradient-to-br from-gray-100 to-white rounded-2xl shadow-md hover:shadow-lg hover:-translate-y-2 transition duration-300 flex flex-col justify-between items-center text-center">
+  {/* Image */}
+  <div className="w-28 h-28 mb-4 rounded-full p-1 bg-gradient-to-br from-blue-400 to-purple-400">
+    <img
+      src={team2}
+      alt="team2"
+      className="w-full h-full rounded-full object-cover"
+    />
+  </div>
+
+  {/* Content */}
+  <div className="flex flex-col items-center flex-grow">
+    <p className="text-lg font-bold text-gray-800 mb-1">Shivaani Mehrotra</p>
+    <p className="bg-gradient-to-r from-blue-400 to-purple-400 text-white text-sm font-semibold px-3 py-1 rounded-full mb-3">
+      Co-Founder & COO
+    </p>
+
+    <a
+      href="https://www.linkedin.com/in/shivani-mehrotra-edubuk/"
+      target="_blank"
+      rel="noreferrer"
+      className="mb-4"
+    >
+      <FaLinkedinIn className="text-[#0077B5] w-7 h-7" />
+    </a>
+
+    <p className="text-sm text-gray-600 leading-relaxed">
+      10+ years experience in <br></br>Education Sector as University Professor MBA + University Topper, Women in AI APAC Finalist
+    </p>
+  </div>
+</div>
+      <div className="w-full max-w-xs min-h-[450px] p-4 bg-gradient-to-br from-gray-100 to-white rounded-2xl shadow-md hover:shadow-lg hover:-translate-y-2 transition duration-300 flex flex-col justify-between items-center text-center">
+  {/* Image */}
+  <div className="w-28 h-28 mb-4 rounded-full p-1 bg-gradient-to-br from-blue-400 to-purple-400">
+    <img
+      src={team3}
+      alt="team3"
+      className="w-full h-full rounded-full object-cover"
+    />
+  </div>
+
+  {/* Content */}
+  <div className="flex flex-col items-center flex-grow">
+    <p className="text-lg font-bold text-gray-800 mb-1">Amit Srivastava</p>
+    <p className="bg-gradient-to-r from-blue-400 to-purple-400 text-white text-sm font-semibold px-3 py-1 rounded-full mb-3">
+      Chief Marketing Officer
+    </p>
+
+    <a
+      href="https://www.linkedin.com/in/amit-srivastava-62969352/"
+      target="_blank"
+      rel="noreferrer"
+      className="mb-4"
+    >
+      <FaLinkedinIn className="text-[#0077B5] w-7 h-7" />
+    </a>
+
+    <p className="text-sm text-gray-600 leading-relaxed">
+      20+ years experience in <br /> marketing and sales in Education & Finance sector. MBA in International Business.
+    </p>
+  </div>
+</div>
+      <div className="w-full max-w-xs min-h-[450px] p-4 bg-gradient-to-br from-gray-100 to-white rounded-2xl shadow-md hover:shadow-lg hover:-translate-y-2 transition duration-300 flex flex-col justify-between items-center text-center">
+  {/* Image */}
+  <div className="w-28 h-28 mb-4 rounded-full p-1 bg-gradient-to-br from-blue-400 to-purple-400">
+    <img
+      src={team4}
+      alt="Apoorva Bajaj"
+      className="w-full h-full rounded-full object-cover"
+    />
+  </div>
+
+  {/* Content */}
+  <div className="flex flex-col items-center flex-grow">
+    <p className="text-lg font-bold text-gray-800 mb-1">Ajeet Ram Verma</p>
+    <p className="bg-gradient-to-r from-blue-400 to-purple-400 text-white text-sm font-semibold px-3 py-1 rounded-full mb-3">
+      Tech Lead Developer
+    </p>
+
+    <a
+      href="https://www.linkedin.com/in/ajeet-ram-verma-953605244/"
+      target="_blank"
+      rel="noreferrer"
+      className="mb-4"
+    >
+      <FaLinkedinIn className="text-[#0077B5] w-7 h-7" />
+    </a>
+
+    <p className="text-sm text-gray-600 leading-relaxed">
+      5+ years of experience in Core Technology Domain <br></br>MERN Full-Stack <br></br>Python-AI & ML <br></br>Solidity & Rust
+    </p>
+  </div>
+</div>
     </div>
     </div>
     <div className="flex justify-center items-center gap-3">
@@ -426,30 +651,131 @@ const Home = ()=>{
     </div>
     <div className="flex flex-col justify-center items-center gap-8">
     <p className="text-[#03257E] text-[25px] sm:text-[40px] md:text-[50px] font-bold uppercase text-center">MEET OUR ADVISORS</p>
-    <div className=" flex justify-center items-baseline flex-wrap gap-8">
-      <div>
-        <img src={advisor1} alt="CEO Img" className="w-[250px] h-[250px]"></img>
-        <p className="text-[#000000] font-semibold text-center pt-2">Ish Anand</p>
-        <p className="text-[#000000] text-center w-[250px]">Serial Entrepreneur, Advisor in Startups, Global Citizen</p>
-      </div>
-      <div>
-        <img src={advisor2} alt="CEO Img" className="w-[250px] h-[250px]"></img>
-        <p className="text-[#000000] font-semibold text-center pt-2">Dr. Narsing Rao, GS</p>
-        <p className="text-[#000000] text-center w-[250px]">Former VC at ICFAI University</p>
-      </div>
-      <div>
-        <img src={advisor3} alt="CEO Img" className="w-[250px] h-[250px]"></img>
-        <p className="text-[#000000] font-semibold text-center pt-2">Dr. Sindhu Bhaskar</p>
-        <p className="text-[#000000] text-center w-[250px]">Co-Founder, EST Global, Forbes Council Member</p>
-      </div>
-      <div>
-        <img src={advisor4} alt="CEO Img" className="w-[250px] h-[250px]"></img>
-        <p className="text-[#000000] font-semibold text-center pt-2">James Wren</p>
-        <p className="text-[#000000] text-center w-[250px]">Advisor: Blockchain & Web3</p>
-      </div>
+    <div className=" flex justify-center items-center flex-wrap gap-3">
+      <div className="w-full max-w-xs min-h-[450px] p-4 bg-gradient-to-br from-gray-100 to-white rounded-2xl shadow-md hover:shadow-lg hover:-translate-y-2 transition duration-300 flex flex-col justify-between items-center text-center">
+  <div className="w-28 h-28 mb-4 rounded-full p-1 bg-gradient-to-br from-blue-400 to-purple-400">
+    <img
+      src={advisor1}
+      alt="advisor1"
+      className="w-full h-full rounded-full object-cover"
+    />
+  </div>
+  <div className="flex flex-col items-center flex-grow">
+    <p className="text-lg font-bold text-gray-800 mb-1">Ish Anand</p>
+    <p className="bg-gradient-to-r from-blue-400 to-purple-400 text-white text-sm font-semibold px-3 py-1 rounded-full mb-3">
+      Serial Entrepreneur, Advisor in Startups, Global Citizen
+    </p>
+
+    <a
+      href="https://www.linkedin.com/in/ishanand/"
+      target="_blank"
+      rel="noreferrer"
+      className="mb-4"
+    >
+      <FaLinkedinIn className="text-[#0077B5] w-7 h-7" />
+    </a>
+
+    <p className="text-sm text-gray-600 leading-relaxed">
+      30 years + of experience in Corporates, the Startup Ecosystem and as an Enterpreneur across 5 continents
+    </p>
+  </div>
+</div>
+      <div className="w-full max-w-xs min-h-[450px] p-4 bg-gradient-to-br from-gray-100 to-white rounded-2xl shadow-md hover:shadow-lg hover:-translate-y-2 transition duration-300 flex flex-col justify-between items-center text-center">
+  {/* Image */}
+  <div className="w-28 h-28 mb-4 rounded-full p-1 bg-gradient-to-br from-blue-400 to-purple-400">
+    <img
+      src={advisor2}
+      alt="advisor2"
+      className="w-full h-full rounded-full object-cover"
+    />
+  </div>
+
+  {/* Content */}
+  <div className="flex flex-col items-center flex-grow">
+    <p className="text-lg font-bold text-gray-800 mb-1">Dr. Narsing Rao, GS</p>
+    <p className="bg-gradient-to-r from-blue-400 to-purple-400 text-white text-sm font-semibold px-3 py-1 rounded-full mb-3">
+      Former VC at ICFAI University
+    </p>
+
+    <a
+      href="https://www.linkedin.com/in/dr-narsing-rao-gs-a318735/"
+      target="_blank"
+      rel="noreferrer"
+      className="mb-4"
+    >
+      <FaLinkedinIn className="text-[#0077B5] w-7 h-7" />
+    </a>
+
+    <p className="text-sm text-gray-600 leading-relaxed">
+      30 years + of experience in Education Sector as Vice Chancellor & Chief Mentor at Indian Universities ex-Professor
+    </p>
+  </div>
+</div>
+      <div className="w-full max-w-xs min-h-[450px] p-4 bg-gradient-to-br from-gray-100 to-white rounded-2xl shadow-md hover:shadow-lg hover:-translate-y-2 transition duration-300 flex flex-col justify-between items-center text-center">
+  {/* Image */}
+  <div className="w-28 h-28 mb-4 rounded-full p-1 bg-gradient-to-br from-blue-400 to-purple-400">
+    <img
+      src={advisor3}
+      alt="advisor3"
+      className="w-full h-full rounded-full object-cover"
+    />
+  </div>
+
+  {/* Content */}
+  <div className="flex flex-col items-center flex-grow">
+    <p className="text-lg font-bold text-gray-800 mb-1">Dr. Sindhu Bhaskar</p>
+    <p className="bg-gradient-to-r from-blue-400 to-purple-400 text-white text-sm font-semibold px-3 py-1 rounded-full mb-3">
+      Co-Founder, EST Global, Forbes Council Member
+    </p>
+
+    <a
+      href="https://www.linkedin.com/in/dr-sindhu-bhaskar-55a84568/"
+      target="_blank"
+      rel="noreferrer"
+      className="mb-4"
+    >
+      <FaLinkedinIn className="text-[#0077B5] w-7 h-7" />
+    </a>
+
+    <p className="text-sm text-gray-600 leading-relaxed">
+      Established $100M+ business in Education sector. Co-Founded Fintech & Blockchain Association (FAB), US.
+    </p>
+  </div>
+</div>
+      <div className="w-full max-w-xs min-h-[450px] p-4 bg-gradient-to-br from-gray-100 to-white rounded-2xl shadow-md hover:shadow-lg hover:-translate-y-2 transition duration-300 flex flex-col justify-between items-center text-center">
+  {/* Image */}
+  <div className="w-28 h-28 mb-4 rounded-full p-1 bg-gradient-to-br from-blue-400 to-purple-400">
+    <img
+      src={advisor4}
+      alt="advisor4"
+      className="w-full h-full rounded-full object-cover"
+    />
+  </div>
+
+  {/* Content */}
+  <div className="flex flex-col items-center flex-grow">
+    <p className="text-lg font-bold text-gray-800 mb-1">James Wren</p>
+    <p className="bg-gradient-to-r from-blue-400 to-purple-400 text-white text-sm font-semibold px-3 py-1 rounded-full mb-3">
+      Lead BD, Liquidium
+    </p>
+
+    <a
+      href="https://www.linkedin.com/in/james-wren-15b8b759/"
+      target="_blank"
+      rel="noreferrer"
+      className="mb-4"
+    >
+      <FaLinkedinIn className="text-[#0077B5] w-7 h-7" />
+    </a>
+
+    <p className="text-sm text-gray-600 leading-relaxed">
+      7+ years experience in Web3, Blockchain Degen & influencer in the BTC Ecosystem.
+    </p>
+  </div>
+</div>
     </div>
     </div>
-  <div className="flex flex-wrap items-center justify-center gap-8 p-4">
+  <div className="flex flex-wrap items-center justify-center gap-8 p-4" id="register">
     {/* {!auth&&<div className="flex flex-col justify-center items-center">
   <form 
   className="bg-gray-100 p-6 md:p-8 rounded-lg shadow-md space-y-8 w-screen sm:w-auto" 
@@ -577,23 +903,33 @@ const Home = ()=>{
 </form>
 </div>} */}
 {
-  auth.user&&<div className="bg-white shadow-md rounded-lg p-6 text-center max-w-md mx-auto mt-8">
-  <h2 className="text-[#006666] text-xl font-semibold mb-4">
-    Get Your Olympiad Registration Code Instantly
+  <div className="bg-white p-4 text-center max-w-md mx-auto mt-8 h-[450px]">
+    <div className="w-auto h-[200px]">
+    <DotLottieReact
+      src="https://lottie.host/586ad214-f76e-4d3c-8b67-e9e05e893ba2/4314PkEllr.lottie"
+      loop
+      autoplay
+    />
+    </div>
+  <h2 className="text-[#006666] text-xl md:text-2xl lg:text-3xl font-semibold mb-4">
+    Register Here For Olympiad
   </h2>
-  <p className="text-gray-600 mb-6">
+  <p className="text-gray-600 mb-6 text-xl">
     Pay the participation fee to receive your unique Olympiad code and confirm your registration.
   </p>
-  <button
+  {auth?.user?<button
     onClick={() => setShowPopup(true)}
-    className="bg-[#006666] text-white px-6 py-2 rounded hover:bg-[#004d4d] transition duration-200"
+    className="bg-[#006666] text-white text-2xl px-6 py-2 rounded hover:bg-[#004d4d] transition duration-200 cursor-pointer"
   >
-    Proceed Now
-  </button>
+    Register Here
+  </button>:<Link 
+  className="bg-[#006666] text-white text-2xl px-6 py-2 rounded hover:bg-[#004d4d] transition duration-200 cursor-pointer"
+  to="/sign-up">Register Here</Link>}
+
 </div>
 }
 {showPopup&&
-  <PaymentPopup showPopup={showPopup} setShowPopup={setShowPopup}/>
+  <PaymentPopup showPopup={showPopup} setShowPopup={setShowPopup} setShowSuccessPopup={setShowSuccessPopup}/>
 }
     <div className="flex justify-center items-center flex-col gap-3 sm:gap-10">
       <div className="text-[#000] w-[400px] uppercase text-2xl md:text-4xl lg:text-5xl font-semibold text-center">
@@ -611,14 +947,14 @@ const Home = ()=>{
         </div>
         <div className="flex justify-between w-[400px]">
           <div>
-          <div className="flex flex-col justify-center items-start px-4 py-2 w-full gap-2">
+          <div className="flex flex-col justify-center items-start px-8 sm:px-4 py-2 w-full gap-2">
             <p className="text-gray-500">1. India</p>
             <p className="text-gray-500">2. UAE</p>
             <p className="text-gray-500">3. Singapore</p>
           </div>
           </div>
           <div>
-          <div className="flex flex-col justify-start items-start px-4 py-2 w-full gap-2">
+          <div className="flex flex-col justify-start items-start px-8 sm:px-4 py-2 w-full gap-2">
           <p className="font-bold text-gray-500">INR 250</p>
             <p className="font-bold text-gray-500">AED 50</p>
             <p className="font-bold text-gray-500">SGD 50</p>
@@ -631,6 +967,36 @@ const Home = ()=>{
     <img src={pricingBg} alt="image" className=" hidden xl:flex w-[360px] h-[450px] items-center"></img>
   </div>
     <Footer />
+    {showSuccessPopup &&(
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-white bg-opacity-30 h-full w-full">
+          <div className="relative w-11/12 max-w-3xl bg-white rounded-lg shadow-lg">
+            <button
+              className="absolute top-3 right-3 text-gray-500 hover:text-gray-800 cursor-pointer"
+              onClick={() => setShowSuccessPopup(false)}
+            >
+              ✕
+            </button>
+
+            <div className="flex flex-col md:flex-row items-start gap-4 p-6 bg-white rounded-lg shadow-md border border-gray-200 max-w-3xl mx-auto">
+              <div className="flex flex-col space-y-2">
+                <h2 className="text-xl md:text-2xl font-bold text-green-600 text-center">
+                  Congratulations!
+                </h2>
+                <p className="text-gray-700 text-center">
+                  You have successfully registered for the Olympiad.
+                </p>
+                <p className="text-gray-600 text-center">
+                  We’ve sent your Olympiad enrollment number to your registered
+                  email address. Please save it for future reference.
+                </p>
+                <p className="text-blue-600 text-center text-xl font-bold">
+                  Thank You !
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
   </div>
 );
 

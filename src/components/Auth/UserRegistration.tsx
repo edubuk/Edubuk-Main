@@ -3,12 +3,11 @@ import { FaUser,FaLock,FaCity } from "react-icons/fa";
 import { BiSolidSchool } from "react-icons/bi";
 import { MdOutlineClass,MdContactPhone,MdOutlineEmail} from "react-icons/md";
 import { TbWorldPin } from "react-icons/tb";
-import Lottie from 'lottie-react';
 import { colleges } from "../../pages/Colleges";
-import animationData from '../../assets/lottieAni.json';
 import { Link, useNavigate } from "react-router-dom";
 import OTPInput from "./OTPInput";
 import toast from "react-hot-toast";
+import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 interface formValue {
   name: string;
   college: string;
@@ -295,7 +294,12 @@ const handleSubmit = async(e: React.FormEvent)=>{
   }
   <div className="w-full md:w-1/2 flex justify-center mb-8 md:mb-0">
     <div className="w-72 h-72 sm:w-96 sm:h-96">
-      <Lottie animationData={animationData} loop={true} />
+      <DotLottieReact
+      src="https://lottie.host/6ad24d4c-da96-45d4-998c-2aa9fb451d59/i6dr7e9Uat.lottie"
+      loop
+      autoplay
+    />
+      {/* <Lottie animationData={animationData} loop={true} /> */}
     </div>
   </div>
 

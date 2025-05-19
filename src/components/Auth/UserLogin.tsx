@@ -1,8 +1,7 @@
 import { useEffect, useState} from "react";
 import {FaLock} from "react-icons/fa";
 import {MdOutlineEmail} from "react-icons/md";
-import Lottie from 'lottie-react';
-import animationData from '../../assets/lottieAni.json';
+import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 import { Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import { useAuth } from "../../context/auth";
@@ -30,9 +29,8 @@ const UserLogin = () => {
       {
         toast.success(data.message);
         setAuth({...auth,user:data.user,token:data.token});
-        localStorage.setItem("auth", JSON.stringify(data.user))
+        localStorage.setItem("auth", JSON.stringify(data));
         navigate("/");
-
       }
     } catch (error) {
       toast.error("something went wrong");
@@ -95,7 +93,11 @@ const UserLogin = () => {
   </form>
   <div className="w-full md:w-1/2 flex justify-center mb-8 md:mb-0">
     <div className="w-72 h-72 sm:w-96 sm:h-96">
-      <Lottie animationData={animationData} loop={true} />
+      <DotLottieReact
+      src="https://lottie.host/6ad24d4c-da96-45d4-998c-2aa9fb451d59/i6dr7e9Uat.lottie"
+      loop
+      autoplay
+    />
     </div>
   </div>
   
