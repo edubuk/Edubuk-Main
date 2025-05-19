@@ -476,7 +476,7 @@ const Home = ()=>{
   <div className="relative w-full max-w-3xl h-[250px] sm:h-[350px] border-4 border-gray-300 rounded-xl">
     <iframe
       className="w-full h-full rounded-lg shadow-lg"
-      src="https://www.youtube.com/embed/Tc5lDlnHH-A?autoplay=1&mute=1"
+      src="https://www.youtube.com/embed/fL4GB7rie54?autoplay=1&mute=1"
       title="Edubuk Presents: AI and Emerging Technologies Hackathon for College Student"
       allow="autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       referrerPolicy="strict-origin-when-cross-origin"
