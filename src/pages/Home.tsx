@@ -473,7 +473,7 @@ const Home = ()=>{
   <div className="hidden sm:block w-32 h-[350px] bg-gray-300 rounded-md shadow-md"></div>
 
   {/* Video with Fixed Height and 16:9 Aspect Ratio */}
-  <div className="relative w-full max-w-3xl h-[350px]">
+  <div className="relative w-full max-w-3xl h-[250px] sm:h-[350px] border-4 border-gray-300 rounded-xl">
     <iframe
       className="w-full h-full rounded-lg shadow-lg"
       src="https://www.youtube.com/embed/Tc5lDlnHH-A?autoplay=1&mute=1"

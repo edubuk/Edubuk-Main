@@ -37,11 +37,11 @@ const Navbar = ()=> {
     <div className="flex justify-between items-center p-4">
       <img src={logo} className="w-32 h-32 md:w-38 md:h-38"></img>
       <RxHamburgerMenu
-    className="flex sm:hidden w-10 h-10 text-[#006666]"
+    className="flex md:hidden w-10 h-10 text-[#006666]"
     onClick={() => setOpen(true)}
   />
       <div className="flex justify-center items-center">
-        <div className="hidden sm:flex p-2 gap-6">
+        <div className="hidden md:flex p-2 gap-6">
         {links.map((link, i) => (
         <a
             key={i}

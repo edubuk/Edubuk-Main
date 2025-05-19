@@ -24,9 +24,10 @@ const Footer = () => {
           className="absolute sm:flex md:w-[400px] md:h-[270px] w-[250px] h-[200px] -top-10 md:-top-10 right-3 hidden"
         ></img> */}
       </div>
-      <div className="flex flex-wrap justify-between items-center gap-8 border-b-2 border-t-2 border-gray-300 pb-3 " >
+     
+      <div className="flex flex-wrap justify-center sm:justify-between items-center gap-8 border-b-2 border-t-2 border-gray-300 pb-3 " >
         <img src={logo} alt="logo" className="md:w-[200px] md:h-[200px] w-[152px] h-[152px]"></img>
-        <div className="flex flex-col justify-center gap-4 sm:pl-16">
+        <div className="flex flex-col justify-center gap-4 sm:pl-16 ml-10">
             <div className="font-semibold text-xl text-black uppercase">Contact Us:</div>
             <div className="flex justify-start gap-2 items-center text-black"><MdEmail />Email: support@edubuk.com</div>
             <div className="flex justify-start gap-2 items-center text-black"><MdPhone />Phone: +91 9250411261</div>
@@ -37,6 +38,7 @@ const Footer = () => {
             <div className="flex justify-start gap-2 items-center text-black"><MdLocationPin /> Dubai, UAE</div>
         </div>
       </div>
+   
       <div className="flex justify-center md:justify-between items-center align-middle pb-6 flex-wrap-reverse">
         <p className="text-[#000000] w-full border-t-2 border-gray-300 sm:w-auto text-center sm:border-none pt-3">© 2025 Edubuk | All Rights Reserved</p>
         <div className="flex justify-center items-center gap-2 w-full sm:w-auto pb-3 sm:pb-0">
