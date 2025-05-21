@@ -476,7 +476,7 @@ const Home = ()=>{
   <div className="relative w-full max-w-3xl h-[250px] sm:h-[350px] border-4 border-gray-300 rounded-xl">
     <iframe
       className="w-full h-full rounded-lg shadow-lg"
-      src="https://www.youtube.com/embed/fL4GB7rie54?autoplay=1&mute=1"
+      src="https://www.youtube.com/embed/kORadYQBGLY?autoplay=1&mute=1"
       title="Edubuk Presents: AI and Emerging Technologies Hackathon for College Student"
       allow="autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       referrerPolicy="strict-origin-when-cross-origin"
@@ -543,7 +543,7 @@ const Home = ()=>{
     <p className="text-[#03257E] text-[25px] sm:text-[40px] md:text-[50px] font-bold uppercase text-center">Meet Our executives</p>
     <div className=" flex justify-center items-center flex-wrap gap-3">
       <div className="w-full max-w-xs min-h-[450px] p-4 bg-gradient-to-br from-gray-100 to-white rounded-2xl shadow-md hover:shadow-lg hover:-translate-y-2 transition duration-300 flex flex-col justify-between items-center text-center">
-  <div className="w-28 h-28 mb-4 rounded-full p-1 bg-gradient-to-br from-blue-400 to-purple-400">
+  <div className="w-28 h-28 mb-4 rounded-full p-1 bg-gradient-to-br from-[#03257e] via-[#006666] to-[#F14419]">
     <img
       src={team1}
       alt="team1"
@@ -552,7 +552,7 @@ const Home = ()=>{
   </div>
   <div className="flex flex-col items-center flex-grow">
     <p className="text-lg font-bold text-gray-800 mb-1">Apoorva Bajaj</p>
-    <p className="bg-gradient-to-r from-blue-400 to-purple-400 text-white text-sm font-semibold px-3 py-1 rounded-full mb-3">
+    <p className="bg-gradient-to-r from-[#03257e] via-[#006666] to-[#F14419] text-white text-sm font-semibold px-3 py-1 rounded-full mb-3">
       Co-Founder & CEO
     </p>
 
@@ -573,7 +573,7 @@ const Home = ()=>{
 </div>
       <div className="w-full max-w-xs min-h-[450px] p-4 bg-gradient-to-br from-gray-100 to-white rounded-2xl shadow-md hover:shadow-lg hover:-translate-y-2 transition duration-300 flex flex-col justify-between items-center text-center">
   {/* Image */}
-  <div className="w-28 h-28 mb-4 rounded-full p-1 bg-gradient-to-br from-blue-400 to-purple-400">
+  <div className="w-28 h-28 mb-4 rounded-full p-1 bg-gradient-to-br from-[#03257e] via-[#006666] to-[#F14419]">
     <img
       src={team2}
       alt="team2"
@@ -584,7 +584,7 @@ const Home = ()=>{
   {/* Content */}
   <div className="flex flex-col items-center flex-grow">
     <p className="text-lg font-bold text-gray-800 mb-1">Shivaani Mehrotra</p>
-    <p className="bg-gradient-to-r from-blue-400 to-purple-400 text-white text-sm font-semibold px-3 py-1 rounded-full mb-3">
+    <p className="bg-gradient-to-r from-[#03257e] via-[#006666] to-[#F14419] text-white text-sm font-semibold px-3 py-1 rounded-full mb-3">
       Co-Founder & COO
     </p>
 
@@ -604,7 +604,7 @@ const Home = ()=>{
 </div>
       <div className="w-full max-w-xs min-h-[450px] p-4 bg-gradient-to-br from-gray-100 to-white rounded-2xl shadow-md hover:shadow-lg hover:-translate-y-2 transition duration-300 flex flex-col justify-between items-center text-center">
   {/* Image */}
-  <div className="w-28 h-28 mb-4 rounded-full p-1 bg-gradient-to-br from-blue-400 to-purple-400">
+  <div className="w-28 h-28 mb-4 rounded-full p-1 bg-gradient-to-br from-[#03257e] via-[#006666] to-[#F14419]">
     <img
       src={team3}
       alt="team3"
@@ -615,7 +615,7 @@ const Home = ()=>{
   {/* Content */}
   <div className="flex flex-col items-center flex-grow">
     <p className="text-lg font-bold text-gray-800 mb-1">Amit Srivastava</p>
-    <p className="bg-gradient-to-r from-blue-400 to-purple-400 text-white text-sm font-semibold px-3 py-1 rounded-full mb-3">
+    <p className="bg-gradient-to-r from-[#03257e] via-[#006666] to-[#F14419] text-white text-sm font-semibold px-3 py-1 rounded-full mb-3">
       Chief Marketing Officer
     </p>
 
@@ -635,7 +635,7 @@ const Home = ()=>{
 </div>
       <div className="w-full max-w-xs min-h-[450px] p-4 bg-gradient-to-br from-gray-100 to-white rounded-2xl shadow-md hover:shadow-lg hover:-translate-y-2 transition duration-300 flex flex-col justify-between items-center text-center">
   {/* Image */}
-  <div className="w-28 h-28 mb-4 rounded-full p-1 bg-gradient-to-br from-blue-400 to-purple-400">
+  <div className="w-28 h-28 mb-4 rounded-full p-1 bg-gradient-to-br from-[#03257e] via-[#006666] to-[#F14419]">
     <img
       src={team4}
       alt="Apoorva Bajaj"
@@ -646,7 +646,7 @@ const Home = ()=>{
   {/* Content */}
   <div className="flex flex-col items-center flex-grow">
     <p className="text-lg font-bold text-gray-800 mb-1">Ajeet Ram Verma</p>
-    <p className="bg-gradient-to-r from-blue-400 to-purple-400 text-white text-sm font-semibold px-3 py-1 rounded-full mb-3">
+    <p className="bg-gradient-to-r from-[#03257e] via-[#006666] to-[#F14419] text-white text-sm font-semibold px-3 py-1 rounded-full mb-3">
       Tech Lead Developer
     </p>
 
@@ -675,7 +675,7 @@ const Home = ()=>{
     <p className="text-[#03257E] text-[25px] sm:text-[40px] md:text-[50px] font-bold uppercase text-center">MEET OUR ADVISORS</p>
     <div className=" flex justify-center items-center flex-wrap gap-3">
       <div className="w-full max-w-xs min-h-[450px] p-4 bg-gradient-to-br from-gray-100 to-white rounded-2xl shadow-md hover:shadow-lg hover:-translate-y-2 transition duration-300 flex flex-col justify-between items-center text-center">
-  <div className="w-28 h-28 mb-4 rounded-full p-1 bg-gradient-to-br from-blue-400 to-purple-400">
+  <div className="w-28 h-28 mb-4 rounded-full p-1 bg-gradient-to-br from-[#03257e] via-[#006666] to-[#F14419]">
     <img
       src={advisor1}
       alt="advisor1"
@@ -684,7 +684,7 @@ const Home = ()=>{
   </div>
   <div className="flex flex-col items-center flex-grow">
     <p className="text-lg font-bold text-gray-800 mb-1">Ish Anand</p>
-    <p className="bg-gradient-to-r from-blue-400 to-purple-400 text-white text-sm font-semibold px-3 py-1 rounded-full mb-3">
+    <p className="bg-gradient-to-r from-[#03257e] via-[#006666] to-[#F14419] text-white text-sm font-semibold px-3 py-1 rounded-full mb-3">
       Serial Entrepreneur, Advisor in Startups, Global Citizen
     </p>
 
@@ -704,7 +704,7 @@ const Home = ()=>{
 </div>
       <div className="w-full max-w-xs min-h-[450px] p-4 bg-gradient-to-br from-gray-100 to-white rounded-2xl shadow-md hover:shadow-lg hover:-translate-y-2 transition duration-300 flex flex-col justify-between items-center text-center">
   {/* Image */}
-  <div className="w-28 h-28 mb-4 rounded-full p-1 bg-gradient-to-br from-blue-400 to-purple-400">
+  <div className="w-28 h-28 mb-4 rounded-full p-1 bg-gradient-to-br from-[#03257e] via-[#006666] to-[#F14419]">
     <img
       src={advisor2}
       alt="advisor2"
@@ -715,7 +715,7 @@ const Home = ()=>{
   {/* Content */}
   <div className="flex flex-col items-center flex-grow">
     <p className="text-lg font-bold text-gray-800 mb-1">Dr. Narsing Rao, GS</p>
-    <p className="bg-gradient-to-r from-blue-400 to-purple-400 text-white text-sm font-semibold px-3 py-1 rounded-full mb-3">
+    <p className="bg-gradient-to-r from-[#03257e] via-[#006666] to-[#F14419] text-white text-sm font-semibold px-3 py-1 rounded-full mb-3">
       Former VC at ICFAI University
     </p>
 
@@ -735,7 +735,7 @@ const Home = ()=>{
 </div>
       <div className="w-full max-w-xs min-h-[450px] p-4 bg-gradient-to-br from-gray-100 to-white rounded-2xl shadow-md hover:shadow-lg hover:-translate-y-2 transition duration-300 flex flex-col justify-between items-center text-center">
   {/* Image */}
-  <div className="w-28 h-28 mb-4 rounded-full p-1 bg-gradient-to-br from-blue-400 to-purple-400">
+  <div className="w-28 h-28 mb-4 rounded-full p-1 bg-gradient-to-br from-[#03257e] via-[#006666] to-[#F14419]">
     <img
       src={advisor3}
       alt="advisor3"
@@ -746,7 +746,7 @@ const Home = ()=>{
   {/* Content */}
   <div className="flex flex-col items-center flex-grow">
     <p className="text-lg font-bold text-gray-800 mb-1">Dr. Sindhu Bhaskar</p>
-    <p className="bg-gradient-to-r from-blue-400 to-purple-400 text-white text-sm font-semibold px-3 py-1 rounded-full mb-3">
+    <p className="bg-gradient-to-r from-[#03257e] via-[#006666] to-[#F14419] text-white text-sm font-semibold px-3 py-1 rounded-full mb-3">
       Co-Founder, EST Global, Forbes Council Member
     </p>
 
@@ -766,7 +766,7 @@ const Home = ()=>{
 </div>
       <div className="w-full max-w-xs min-h-[450px] p-4 bg-gradient-to-br from-gray-100 to-white rounded-2xl shadow-md hover:shadow-lg hover:-translate-y-2 transition duration-300 flex flex-col justify-between items-center text-center">
   {/* Image */}
-  <div className="w-28 h-28 mb-4 rounded-full p-1 bg-gradient-to-br from-blue-400 to-purple-400">
+  <div className="w-28 h-28 mb-4 rounded-full p-1 bg-gradient-to-br from-[#03257e] via-[#006666] to-[#F14419]">
     <img
       src={advisor4}
       alt="advisor4"
@@ -777,7 +777,7 @@ const Home = ()=>{
   {/* Content */}
   <div className="flex flex-col items-center flex-grow">
     <p className="text-lg font-bold text-gray-800 mb-1">James Wren</p>
-    <p className="bg-gradient-to-r from-blue-400 to-purple-400 text-white text-sm font-semibold px-3 py-1 rounded-full mb-3">
+    <p className="bg-gradient-to-r from-[#03257e] via-[#006666] to-[#F14419] text-white text-sm font-semibold px-3 py-1 rounded-full mb-3">
       Lead BD, Liquidium
     </p>
 
@@ -941,7 +941,7 @@ const Home = ()=>{
   </p>
   {auth?.user?<button
     onClick={() => setShowPopup(true)}
-    className="bg-[#006666] text-white text-2xl px-6 py-2 rounded hover:bg-[#004d4d] transition duration-200 cursor-pointer"
+    className="bg-[#006666] text-white text-2xl px-6 py-2 rounded hover:bg-[#004d4d] transition duration-200 cursor-pointer bg-gradient-to-r from-[#03257e] via-[#006666] to-[#F14419]"
   >
     Register Here
   </button>:<Link 

@@ -8,6 +8,7 @@ import { Link, useNavigate } from "react-router-dom";
 import OTPInput from "./OTPInput";
 import toast from "react-hot-toast";
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
+import SmallLoader from "../Loader/Loader";
 interface formValue {
   name: string;
   college: string;
@@ -24,7 +25,8 @@ const UserRegistration = () => {
   const [showDropdown, setShowDropdown] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const [otp, setOTP] = useState<any>("");
-  const [isOtpSent, setIsOtpSend] = useState(false);
+  const [isOtpSent, setIsOtpSend] = useState<boolean>(false);
+  const [loading,setLoading] = useState<boolean>(false);
   const navigate = useNavigate();
   const [formData, setFormData] = useState<formValue>({
     name: "",
@@ -80,6 +82,7 @@ const handleSubmit = async(e: React.FormEvent)=>{
         {
           toast.error("All inputs field are required");
         }
+        setLoading(true);
         const data:any = await fetch('http://localhost:8000/api/v1/auth/registration',{
           method:"POST",
           body:JSON.stringify({name:formData.name,email:formData.email,college:formData.college,stuClass:formData.stuClass,phoneNumber:formData.phoneNumber,city:formData.city, country:formData.country,password:formData.password,otp:otp}),
@@ -103,15 +106,18 @@ const handleSubmit = async(e: React.FormEvent)=>{
             email: "",
             password:""
           });
+          setLoading(false);
           toast.success(res.message);
           navigate("/login");
 
         }
         if(!res.success)
         {
+          setLoading(false);
           toast.error(res.message);
         }
       } catch (error) {
+        setLoading(false);
         console.log("error while user registration",error);
         toast.error("something went wrong !");
       }
@@ -120,6 +126,7 @@ const handleSubmit = async(e: React.FormEvent)=>{
       const sendOtpHandler=async(e:any)=>{
         e.preventDefault();
         try {
+          setLoading(true);
             let data:any = await fetch('http://localhost:8000/api/v1/auth/send-otp',{
               method:"POST",
               body:JSON.stringify({email:formData.email}),
@@ -131,10 +138,12 @@ const handleSubmit = async(e: React.FormEvent)=>{
             data = await data.json();
             if(data.success)
             {
+               setLoading(false);
                 toast.success(data.message);
                 setIsOtpSend(true);
             }
         } catch (error) {
+          setLoading(false);
             toast.error("something went wrong !");
             console.log("error while sending otp",error);
         }
@@ -282,15 +291,15 @@ const handleSubmit = async(e: React.FormEvent)=>{
     </div>
     <Link to="/login" className="text-black"><u>I am already a member</u></Link>
     {/* Submit Button */}
-    <button
+    {loading?<SmallLoader />:<button
       type="submit"
       className="w-full mt-2 bg-[#006666] text-white py-2 rounded-md hover:bg-[#1e1e1e] transition duration-200 cursor-pointer"
     >
       Submit
-    </button>
+    </button>}
   </form>}
   {
-    isOtpSent&&<OTPInput setOTP={setOTP} handleSubmit={handleSubmit} email={formData.email}/>
+    isOtpSent&&<OTPInput setOTP={setOTP} handleSubmit={handleSubmit} email={formData.email} loading={loading}/>
   }
   <div className="w-full md:w-1/2 flex justify-center mb-8 md:mb-0">
     <div className="w-72 h-72 sm:w-96 sm:h-96">

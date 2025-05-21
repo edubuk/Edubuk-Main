@@ -5,16 +5,19 @@ import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 import { Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import { useAuth } from "../../context/auth";
+import SmallLoader from "../Loader/Loader";
 
 const UserLogin = () => {
 
   const [emailId, setEmailId] = useState<string>();
   const [password, setPassword] = useState<string>();
+  const [loading,setLoading] = useState<boolean>(false);
   const [auth,setAuth] = useAuth();
   const navigate = useNavigate();
   const handleLogin = async(e:any)=>{
     e.preventDefault();
     try {
+      setLoading(true);
       let data:any = await fetch("http://localhost:8000/api/v1/auth/login",{
         method:"POST",
         body:JSON.stringify({email:emailId,password:password}),
@@ -24,15 +27,22 @@ const UserLogin = () => {
       })
 
       data = await data.json();
-      //console.log("data",data);
+      console.log("data",data);
       if(data.success)
       {
         toast.success(data.message);
         setAuth({...auth,user:data.user,token:data.token});
         localStorage.setItem("auth", JSON.stringify(data));
+        setLoading(false);
         navigate("/");
       }
+      else
+      {
+        toast.error(data.message);
+        setLoading(false);
+      }
     } catch (error) {
+      setLoading(false);
       toast.error("something went wrong");
       console.log("error while user login",error);
     }
@@ -84,12 +94,12 @@ const UserLogin = () => {
     </div>
     <Link to="/sign-up" className="text-black"><u>New Member ? Sign-Up</u></Link>
     {/* Submit Button */}
-    <button
+    {loading?<SmallLoader />:<button
       type="submit"
       className="w-full mt-2 bg-[#006666] text-white py-2 rounded-md hover:bg-[#1e1e1e] transition duration-200"
     >
       Submit
-    </button>
+    </button>}
   </form>
   <div className="w-full md:w-1/2 flex justify-center mb-8 md:mb-0">
     <div className="w-72 h-72 sm:w-96 sm:h-96">

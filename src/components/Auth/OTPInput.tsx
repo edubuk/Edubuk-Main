@@ -1,11 +1,13 @@
 import React, { useRef, useState } from "react";
+import SmallLoader from "../Loader/Loader";
 
 interface OTPInputProps {
   setOTP: React.Dispatch<React.SetStateAction<string>>;
   handleSubmit:any;
   email:string;
+  loading:boolean;
 }
-const OTPInput: React.FC<OTPInputProps> = ({setOTP,handleSubmit,email}) => {
+const OTPInput: React.FC<OTPInputProps> = ({setOTP,handleSubmit,email,loading}) => {
   const [otp, setOtp] = useState<string[]>(new Array(6).fill(""));
   const inputRefs = useRef<Array<HTMLInputElement | null>>([]);
 
@@ -60,13 +62,13 @@ const OTPInput: React.FC<OTPInputProps> = ({setOTP,handleSubmit,email}) => {
           />
         ))}
       </div>
-      <button
+      {loading?<SmallLoader />:<button
       onClick={handleOTPSubmit}
         type="submit"
         className="w-full bg-[#006666] text-white py-2 rounded-md hover:bg-[#1e1e1e] transition"
       >
         Verify OTP
-      </button>
+      </button>}
     </form>
   );
 };

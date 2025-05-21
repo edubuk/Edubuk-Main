@@ -1,7 +1,7 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from "../assets/edubuklogo.png";
 import olymLogo from "../assets/olympiadLogo.png";
-import { RxHamburgerMenu,RxCross2 } from "react-icons/rx";
+import { RxCross2 } from "react-icons/rx";
 import { MdLogout } from "react-icons/md";
 import { useState } from "react";
 import { CgProfile } from "react-icons/cg";
@@ -36,10 +36,17 @@ const Navbar = ()=> {
   return (
     <div className="flex justify-between items-center p-4">
       <img src={logo} className="w-32 h-32 md:w-38 md:h-38"></img>
-      <RxHamburgerMenu
+      <div className="flex justify-center items-center gap-1 w-full sm:hidden cursor-pointer" onClick={() => setOpen(true)}>
+      <div className="flex justify-center flex-col items-center gap-1">
+      <span className=" w-4 h-4 rounded-full bg-[#03257E]"></span>
+      <span className="w-4 h-4 rounded-full bg-[#006666]"></span>
+      <span className="w-4 h-4 rounded-full bg-[#F14419]"></span>
+    </div>
+    </div>
+      {/* <RxHamburgerMenu
     className="flex md:hidden w-10 h-10 text-[#006666]"
     onClick={() => setOpen(true)}
-  />
+  /> */}
       <div className="flex justify-center items-center">
         <div className="hidden md:flex p-2 gap-6">
         {links.map((link, i) => (
@@ -69,7 +76,7 @@ const Navbar = ()=> {
         </a>
         {
         auth.user?<CgProfile className="text-[#006666] w-8 h-8 md:w-10 md:h-10" onClick={()=>setOpenPopup(!openPopup)}/>:
-                <Link to="/login" className="text-black border-1 border-gray-200 rounded-full py-[8px] px-3 font-bold hover:bg-gray-200">Login</Link>
+                <Link to="/login" className="text-black border-1 border-gray-300 rounded-full py-[8px] px-3 font-bold hover:bg-gray-200">Login</Link>
         }
         </div>
       {
@@ -85,7 +92,7 @@ const Navbar = ()=> {
      }
 </div>
 {isOpen && (
-    <div className="fixed inset-0 flex flex-col justify-start items-center gap-4 z-20 bg-white p-6 h-fit animate-slide-down transition-all duration-300 ease-in-out">
+    <div className="fixed inset-0 flex flex-col justify-start items-center gap-4 z-20 bg-white p-6 h-fit fade-in-down transition-all duration-300 ease-in-out">
     <div className="w-full flex justify-end">
         <RxCross2
           className="w-6 h-6 text-gray-700 cursor-pointer"
@@ -97,7 +104,7 @@ const Navbar = ()=> {
           key={i}
           href={link.path}
           className={`${
-            location.hash === link.path ? "text-[#F14419]" : "text-[#000000]"
+            location.hash === link.path ? "text-[#F14419]" : "text-[#006666]"
           } text-[20px] font-medium`}
           onClick={()=>setOpen(false)}
         >
@@ -105,7 +112,7 @@ const Navbar = ()=> {
         </a>
 
       ))}
-      {!auth.user&&<Link to="/login" onClick={()=>setOpen(false)} className="text-black border-1 border-gray-200 rounded py-[14px] px-3 font-bold hover:bg-gray-200">Login</Link>}
+      {!auth.user&&<Link to="/login" onClick={()=>setOpen(false)} className="text-[#006666] border-1 border-gray-300 rounded-full py-[10px] px-6 sm:px-3 font-bold hover:bg-gray-200">Login</Link>}
 
     </div>
   )}

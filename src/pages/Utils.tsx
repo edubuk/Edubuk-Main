@@ -15,7 +15,6 @@ import blcLogo3 from '../assets/CLOGOS/blcLogo3.jpeg'
 import blcLogo4 from '../assets/CLOGOS/blcLogo4.png'
 import blcLogo5 from '../assets/CLOGOS/blcLogo5.png'
 
-
 import accLogo1 from '../assets/CLOGOS/acclogo1.svg'
 import accLogo2 from '../assets/CLOGOS/accLogo2.svg'
 import accLogo3 from '../assets/CLOGOS/accLogo3.svg'
