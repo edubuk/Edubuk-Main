@@ -18,7 +18,7 @@ const UserLogin = () => {
     e.preventDefault();
     try {
       setLoading(true);
-      let data:any = await fetch("http://localhost:8000/api/v1/auth/login",{
+      let data:any = await fetch("https://edubukcetaolympiad.org/api/v1/auth/login",{
         method:"POST",
         body:JSON.stringify({email:emailId,password:password}),
         headers:{

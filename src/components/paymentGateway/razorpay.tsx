@@ -21,7 +21,7 @@ interface payload {
   userName: string;
 }
 
-const API_BASE_URL = "http://localhost:8000";
+const API_BASE_URL = "https://edubukcetaolympiad.org";
 
 const PaymentPopup: React.FC<Props> = ({ showPopup, setShowPopup,setShowSuccessPopup }) => {
   const [amount, setAmount] = useState<number>(250);

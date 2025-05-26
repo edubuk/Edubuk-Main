@@ -83,7 +83,7 @@ const handleSubmit = async(e: React.FormEvent)=>{
           toast.error("All inputs field are required");
         }
         setLoading(true);
-        const data:any = await fetch('http://localhost:8000/api/v1/auth/registration',{
+        const data:any = await fetch('https://edubukcetaolympiad.org/api/v1/auth/registration',{
           method:"POST",
           body:JSON.stringify({name:formData.name,email:formData.email,college:formData.college,stuClass:formData.stuClass,phoneNumber:formData.phoneNumber,city:formData.city, country:formData.country,password:formData.password,otp:otp}),
           headers:{
@@ -127,7 +127,7 @@ const handleSubmit = async(e: React.FormEvent)=>{
         e.preventDefault();
         try {
           setLoading(true);
-            let data:any = await fetch('http://localhost:8000/api/v1/auth/send-otp',{
+            let data:any = await fetch('https://edubukcetaolympiad.org/api/v1/auth/send-otp',{
               method:"POST",
               body:JSON.stringify({email:formData.email}),
               headers:{

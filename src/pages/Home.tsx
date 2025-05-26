@@ -1,29 +1,38 @@
-import { useState, useEffect} from "react";
-import hero1 from '../assets/HeroImg/hero11.jpg';
-import hero2 from '../assets/HeroImg/hero2.png';
-import hero3 from '../assets/HeroImg/hero3.jpg';
+import { useState, useEffect } from "react";
+import hero1 from "../assets/HeroImg/hero11.jpg";
+import hero2 from "../assets/HeroImg/hero2.png";
+import hero3 from "../assets/HeroImg/hero3.jpg";
 //import hero3 from '../assets/HeroImg/tempImg.jpeg';
 // import award1 from '../assets/AwardImg/award1.png';
 // import award2 from '../assets/AwardImg/award2.jpg';
 // import award3 from '../assets/AwardImg/award3.png';
-import team1 from '../assets/Team/team1.png';
-import team2 from '../assets/Team/team2.png';
-import team3 from '../assets/Team/team3.png';
-import team4 from '../assets/Team/team4.png';
-import advisor1 from '../assets/Advisor/advisor1.png';
-import advisor2 from '../assets/Advisor/advisor2.png';
-import advisor3 from '../assets/Advisor/advisor3.png';
-import advisor4 from '../assets/Advisor/advisor4.png';
+import team1 from "../assets/Team/team1.png";
+import team2 from "../assets/Team/team2.png";
+import team3 from "../assets/Team/team3.png";
+import team4 from "../assets/Team/team4.png";
+import advisor1 from "../assets/Advisor/advisor1.png";
+import advisor2 from "../assets/Advisor/advisor2.png";
+import advisor3 from "../assets/Advisor/advisor3.png";
+import advisor4 from "../assets/Advisor/advisor4.png";
 import Footer from "./Footer";
 // import toast from "react-hot-toast";
-import pricingBg from "../assets/pricingBg.png"
-import {instLogos,govLogos,blcLogos,accLogos,mediaLogos,foreignLogos,finLogos } from "./Utils";
+
+
+import {
+  instLogos,
+  govLogos,
+  blcLogos,
+  accLogos,
+  mediaLogos,
+  foreignLogos,
+  finLogos,
+} from "./Utils";
 import PaymentPopup from "../components/paymentGateway/razorpay";
 // import { colleges } from "./Colleges";
 import { useAuth } from "../context/auth";
-import { Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import { FaLinkedinIn } from "react-icons/fa";
-import { DotLottieReact } from '@lottiefiles/dotlottie-react';
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 // interface formValue{
 //   name:string,
 //   college:string,
@@ -34,7 +43,7 @@ import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 //   email:string,
 // }
 
-const images = [hero1,hero2,hero3];
+const images = [hero1, hero2, hero3];
 // const logos = [logo1,logo2,logo3,logo4,logo5,logo1,logo2,logo3,logo4,logo5];
 
 // const logosByCategory1: Record<string, string[]> = {
@@ -53,253 +62,248 @@ const images = [hero1,hero2,hero3];
 //   "cloud credits & accelerators":accLogos,
 //   "Grants & awards by blockchains":blcLogos,
 //   "Governments & Regulators":govLogos,
-//   "Education institutes":instLogos, 
+//   "Education institutes":instLogos,
 // };
 
 // const SLIDE_DURATION = 10000;
 
-const Home = ()=>{
+const Home = () => {
+  const [current, setCurrent] = useState(0);
+  const [showPopup, setShowPopup] = useState<boolean>(false);
+  const [showSuccessPopup, setShowSuccessPopup] = useState<boolean>(false);
+  // const [paymentId,setPaymentId] = useState<string>();
+  // const [query, setQuery] = useState("");
+  // const [showDropdown, setShowDropdown] = useState(false);
+  // const containerRef = useRef<HTMLDivElement>(null);
+  const [auth] = useAuth();
+  // const [formData,setFormData] = useState<formValue>({
+  //   name:"",
+  //   college:"",
+  //   stuClass:"",
+  //   city:"",
+  //   country:"",
+  //   phoneNumber:"",
+  //   email:""
+  // })
 
-    const [current, setCurrent] = useState(0);
-    const [showPopup,setShowPopup] = useState<boolean>(false);
-    const [showSuccessPopup,setShowSuccessPopup]= useState<boolean>(false);
-   // const [paymentId,setPaymentId] = useState<string>();
-    // const [query, setQuery] = useState("");
-    // const [showDropdown, setShowDropdown] = useState(false);
-    // const containerRef = useRef<HTMLDivElement>(null);
-    const [auth] = useAuth();
-    // const [formData,setFormData] = useState<formValue>({
-    //   name:"",
-    //   college:"",
-    //   stuClass:"",
-    //   city:"",
-    //   country:"",
-    //   phoneNumber:"",
-    //   email:""
-    // })
+  // const filteredColleges = colleges.filter((college) =>
+  //   college.toLowerCase().includes(query.toLowerCase())
+  // );
 
-    // const filteredColleges = colleges.filter((college) =>
-    //   college.toLowerCase().includes(query.toLowerCase())
-    // );
-  
-    // const handleSelect = (college: string) => {
-    //   if(college==="other")
-    //   {
-    //     setShowDropdown(false);
-    //   }else{
-    //   setQuery(college);
-    //   setShowDropdown(false);
-    //   }
-    // };
+  // const handleSelect = (college: string) => {
+  //   if(college==="other")
+  //   {
+  //     setShowDropdown(false);
+  //   }else{
+  //   setQuery(college);
+  //   setShowDropdown(false);
+  //   }
+  // };
 
-    // const categories1 = Object.keys(logosByCategory1);
-    // const categories2 = Object.keys(logosByCategory2);
-    // const [currentCategoryIndex, setCurrentCategoryIndex] = useState(0);
-    // const [currentCategoryIndex2, setCurrentCategoryIndex2] = useState(0);
-    //const [animateKey,setAnimatedKey] = useState(0); // to reset animation
-    
-    // useEffect(() => {
-    //   const timer1 = setInterval(() => {
-    //     setCurrentCategoryIndex((prev) => (prev + 1) % categories1.length);
-    //     setCurrentCategoryIndex2((prev) => (prev + 1) % categories2.length);
-    //     setAnimateKey((prev) => prev + 1); // force re-trigger animation
-    //   }, SLIDE_DURATION);
-  
-    //   return () => clearInterval(timer1);
-    
-    // }, []);
+  // const categories1 = Object.keys(logosByCategory1);
+  // const categories2 = Object.keys(logosByCategory2);
+  // const [currentCategoryIndex, setCurrentCategoryIndex] = useState(0);
+  // const [currentCategoryIndex2, setCurrentCategoryIndex2] = useState(0);
+  //const [animateKey,setAnimatedKey] = useState(0); // to reset animation
 
-    useEffect(()=>{
-      //const paymentId = localStorage.getItem("paymentId");
-      //console.log("paymentId",paymentId)
-      const getPaymentId = async()=>{
-        try {
-          let data:any = await fetch(`http://localhost:8000/api/v1/user/getPaymentStatus/${auth.user.email}`,{
-            method:"GET",
-            headers:{
-              "Content-Type": "application/json",
-            }
-          })
-          data = await data.json();
-          console.log("data",data)
-          if(data)
+  // useEffect(() => {
+  //   const timer1 = setInterval(() => {
+  //     setCurrentCategoryIndex((prev) => (prev + 1) % categories1.length);
+  //     setCurrentCategoryIndex2((prev) => (prev + 1) % categories2.length);
+  //     setAnimateKey((prev) => prev + 1); // force re-trigger animation
+  //   }, SLIDE_DURATION);
+
+  //   return () => clearInterval(timer1);
+
+  // }, []);
+
+  useEffect(() => {
+    //const paymentId = localStorage.getItem("paymentId");
+    //console.log("paymentId",paymentId)
+    const getPaymentId = async () => {
+      try {
+        let data: any = await fetch(
+          `http://localhost:8000/api/v1/user/getPaymentStatus/${auth.user.email}`,
           {
-            console.log("data",data)
-            //setPaymentId(data.paymentId);
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
           }
-        } catch (error) {
-          console.log("error while fetching payments data",error);
+        );
+        data = await data.json();
+        console.log("data", data);
+        if (data) {
+          console.log("data", data);
+          //setPaymentId(data.paymentId);
         }
+      } catch (error) {
+        console.log("error while fetching payments data", error);
       }
-        getPaymentId();
-  
-    },[]);
+    };
+    getPaymentId();
+  }, []);
 
-    // useEffect(() => {
-    //   const handleClickOutside = (event: MouseEvent) => {
-    //     if (
-    //       containerRef.current &&
-    //       !containerRef.current.contains(event.target as Node)
-    //     ) {
-    //       setShowDropdown(false);
-    //     }
-    //   };
-    //   document.addEventListener("mousedown", handleClickOutside);
-    //   return () => document.removeEventListener("mousedown", handleClickOutside);
-    // }, []);
-  
-    // const currentCategory1 = categories1[currentCategoryIndex];
-    // const currentLogos1 = logosByCategory1[currentCategory1];
-    // const currentCategory2 = categories2[currentCategoryIndex2];
-    // const currentLogos2 = logosByCategory2[currentCategory2];
+  // useEffect(() => {
+  //   const handleClickOutside = (event: MouseEvent) => {
+  //     if (
+  //       containerRef.current &&
+  //       !containerRef.current.contains(event.target as Node)
+  //     ) {
+  //       setShowDropdown(false);
+  //     }
+  //   };
+  //   document.addEventListener("mousedown", handleClickOutside);
+  //   return () => document.removeEventListener("mousedown", handleClickOutside);
+  // }, []);
 
-    // const onChangeHandler = (e:ChangeEvent<HTMLInputElement>)=>{
-    //   e.preventDefault();
-    //   const {name,value}=e.target;
-    //   setFormData((prevData)=>({...prevData,[name]:value})) ;
-    //   console.log("form",formData)
-    // }
+  // const currentCategory1 = categories1[currentCategoryIndex];
+  // const currentLogos1 = logosByCategory1[currentCategory1];
+  // const currentCategory2 = categories2[currentCategoryIndex2];
+  // const currentLogos2 = logosByCategory2[currentCategory2];
 
-    // const regHandler = async(e:any)=>{
-    //   e.preventDefault();
-    //   try {
-    //     if(!formData.name || !formData.college || !formData.stuClass || !formData.country || !formData.phoneNumber || !formData.email )
-    //     {
-    //       toast.error("All inputs field are required");
-    //     }
-    //     const data:any = await fetch('http://localhost:8000/api/v1/user/registration',{
-    //       method:"POST",
-    //       body:JSON.stringify({name:formData.name,college:formData.college,stuClass:formData.stuClass,city:formData.city, country:formData.country, phoneNumber:formData.phoneNumber,email:formData.email}),
-    //       headers:{
-    //         "Content-Type": "application/json",
-    //       }
-    //     })
+  // const onChangeHandler = (e:ChangeEvent<HTMLInputElement>)=>{
+  //   e.preventDefault();
+  //   const {name,value}=e.target;
+  //   setFormData((prevData)=>({...prevData,[name]:value})) ;
+  //   console.log("form",formData)
+  // }
 
-    //     const res = await data.json();
-    //     console.log("res",res);
-    //     if(res.success)
-    //     {
-    //       localStorage.setItem("email",formData.email);
-    //       setFormData({
-    //         name: "",
-    //         college: "",
-    //         stuClass:"",
-    //         city:"",
-    //         country:"",
-    //         phoneNumber: "",
-    //         email: ""
-    //       });
-    //       return toast.success(res.message);
-    //     }
-    //     if(!res.success)
-    //     {
-    //       toast.error(res.message);
-    //     }
-    //   } catch (error) {
-    //     console.log("error while user registration",error);
-    //     toast.error("something went wrong !");
-    //   }
-    // }
+  // const regHandler = async(e:any)=>{
+  //   e.preventDefault();
+  //   try {
+  //     if(!formData.name || !formData.college || !formData.stuClass || !formData.country || !formData.phoneNumber || !formData.email )
+  //     {
+  //       toast.error("All inputs field are required");
+  //     }
+  //     const data:any = await fetch('http://localhost:8000/api/v1/user/registration',{
+  //       method:"POST",
+  //       body:JSON.stringify({name:formData.name,college:formData.college,stuClass:formData.stuClass,city:formData.city, country:formData.country, phoneNumber:formData.phoneNumber,email:formData.email}),
+  //       headers:{
+  //         "Content-Type": "application/json",
+  //       }
+  //     })
 
-    // const buttonHandler = (e:any)=>{
-    //   e.preventDefault();
-    //   const data = localStorage.getItem("paymentId");
-    //   if(data!==paymentId)
-    //   {
-    //     setShowPopup(true);
-    //   }
-    //   else{
-    //     regHandler(e);
-    //   }
-    // }
+  //     const res = await data.json();
+  //     console.log("res",res);
+  //     if(res.success)
+  //     {
+  //       localStorage.setItem("email",formData.email);
+  //       setFormData({
+  //         name: "",
+  //         college: "",
+  //         stuClass:"",
+  //         city:"",
+  //         country:"",
+  //         phoneNumber: "",
+  //         email: ""
+  //       });
+  //       return toast.success(res.message);
+  //     }
+  //     if(!res.success)
+  //     {
+  //       toast.error(res.message);
+  //     }
+  //   } catch (error) {
+  //     console.log("error while user registration",error);
+  //     toast.error("something went wrong !");
+  //   }
+  // }
 
-    // Auto-slide every 5 seconds
-    console.log("auth values",auth.user);
-    useEffect(() => {
-      const interval = setInterval(() => {
-        setCurrent((prev) => (prev + 1) % images.length);
-      }, 5000);
-      return () => clearInterval(interval);
-    }, []);
+  // const buttonHandler = (e:any)=>{
+  //   e.preventDefault();
+  //   const data = localStorage.getItem("paymentId");
+  //   if(data!==paymentId)
+  //   {
+  //     setShowPopup(true);
+  //   }
+  //   else{
+  //     regHandler(e);
+  //   }
+  // }
 
-    return (
-  <div className=" flex flex-col gap-6 font-open">
-    <div className="flex flex-col p-4">
-    <p className="font-open text-[#F14419] uppercase text-center text-[25px] sm:text-[40px] md:text-[50px] font-bold leading-8 sm:leading-12  md:leading-14">
-      International Olympiad
-    </p>
-    <p className="font-open text-[#03257E] uppercase text-center text-[25px] sm:text-[40px] md:text-[50px] font-bold leading-8 sm:leading-12 md:leading-14">
-      AI & Emerging Technologies (No Code)
-    </p>
+  // Auto-slide every 5 seconds
+  console.log("auth values", auth.user);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % images.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
 
-    <div
-  className="mx-auto relative w-full aspect-[16/9] lg:aspect-[16/7] rounded-[8px] bg-cover bg-center mt-3"
-  style={{ backgroundImage: `url(${images[current]})` }}
->
-      {/* Optional overlay */}
-      <div className="absolute inset-0 bg-black/20 rounded-[8px]"></div>
-
-      {/* Text content on image */}
-      <div className="absolute top-[15px] md:top-[25px] left-[25px] z-10 flex flex-col w-fit">
-        <p className="bg-[#F14419] text-white md:text-[25px] text-[10px] p-2">
-          India | Singapore | Dubai
+  return (
+    <div className=" flex flex-col gap-6 font-open">
+      <div className="flex flex-col p-4">
+        <p className="font-open text-[#F14419] uppercase text-center text-[25px] sm:text-[40px] md:text-[50px] font-bold leading-8 sm:leading-12  md:leading-14">
+          International Olympiad
         </p>
-        <p className="bg-[#006666] text-white md:text-[25px] text-[10px] p-2">
-          Open for class 7 to 12
+        <p className="font-open text-[#03257E] uppercase text-center text-[25px] sm:text-[40px] md:text-[50px] font-bold leading-8 sm:leading-12 md:leading-14">
+          AI & Emerging Technologies (No Code)
         </p>
-        {!auth.user&&<Link to="/sign-up" className="absolute top-20 md:top-32  text-[#F14419] bg-[#ffffff] hover:bg-[#F14419] hover:text-white transition-all rounded-4xl py-1 px-4 sm:py-2 sm:px-8 text-[12px] md:text-[30px] z-10 font-bold cursor-pointer">
-        REGISTER
-      </Link>}
-        {auth?.user&&<a href="#register" className="absolute top-20 md:top-32  text-[#F14419] bg-[#ffffff] hover:bg-[#F14419] hover:text-white transition-all rounded-4xl py-1 px-4 sm:py-2 sm:px-8 text-[12px] md:text-[30px] z-10 font-bold cursor-pointer">
-        REGISTER
-      </a>}
+
+        <div
+          className="mx-auto relative w-full aspect-[16/9] lg:aspect-[16/7] rounded-[8px] bg-cover bg-center mt-3"
+          style={{ backgroundImage: `url(${images[current]})` }}
+        >
+          {/* Optional overlay */}
+          <div className="absolute inset-0 bg-black/20 rounded-[8px]"></div>
+
+          {/* Text content on image */}
+          <div className="absolute top-[15px] md:top-[25px] left-[25px] z-10 flex flex-col w-fit">
+            <p className="bg-[#F14419] text-white md:text-[25px] text-[10px] p-2">
+              India | Singapore | Dubai
+            </p>
+            <p className="bg-[#006666] text-white md:text-[25px] text-[10px] p-2">
+              Open for class 7 to 12
+            </p>
+            {!auth.user && (
+              <Link
+                to="/sign-up"
+                className="absolute top-20 md:top-32  text-[#F14419] bg-[#ffffff] hover:bg-[#F14419] hover:text-white transition-all rounded-4xl py-1 px-4 sm:py-2 sm:px-8 text-[12px] md:text-[30px] z-10 font-bold cursor-pointer"
+              >
+                REGISTER
+              </Link>
+            )}
+            {auth?.user && (
+              <a
+                href="#register"
+                className="absolute top-20 md:top-32  text-[#F14419] bg-[#ffffff] hover:bg-[#F14419] hover:text-white transition-all rounded-4xl py-1 px-4 sm:py-2 sm:px-8 text-[12px] md:text-[30px] z-10 font-bold cursor-pointer"
+              >
+                REGISTER
+              </a>
+            )}
+          </div>
+        </div>
+        <p className="text-gray-950 md:text-[25px] text-[10px]">
+          * Students from all streams are eligible
+        </p>
+        {/* Dot navigation */}
+        <div className="flex justify-center mt-4 space-x-2">
+          {images.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setCurrent(i)}
+              className={`w-4 h-4 rounded-full ${
+                i === 0
+                  ? "bg-[#03257E]"
+                  : i === 1
+                  ? "bg-[#006666]"
+                  : "bg-[#F14419]"
+              } ${
+                current === i ? "scale-110 ring-2 ring-amber-300 shadow-lg" : ""
+              }`}
+            ></button>
+          ))}
+        </div>
       </div>
-    </div>
-    <p className="text-gray-950 md:text-[25px] text-[10px]">* Students from all streams are eligible</p>
-    {/* Dot navigation */}
-    <div className="flex justify-center mt-4 space-x-2">
-      {images.map((_, i) => (
-        <button
-          key={i}
-          onClick={() => setCurrent(i)}
-          className={`w-4 h-4 rounded-full ${
-            i === 0
-              ? "bg-[#03257E]"
-              : i === 1
-              ? "bg-[#006666]"
-              : "bg-[#F14419]"
-          } ${current === i ? "scale-110 ring-2 ring-amber-300 shadow-lg" : ""}`}
-        ></button>
-      ))}
-    </div>
-    </div>
-    <div className="flex justify-center flex-col items-center w-full overflow-hidden">
+      
+          <div className="flex justify-center flex-col items-center w-full overflow-hidden">
   <p className="text-[#03257E] text-[25px] sm:text-[40px] md:text-[50px] font-bold uppercase text-center">
     Awards & Recognitions
   </p>
 
-  {/* <div className="flex justify-center flex-col items-center mt-10">
-    <p className="absolute mb-36 text-[#006666] p-2 border-1 border-gray-300 rounded-full w-fit z-10 bg-[#ffffff] uppercase font-bold">Education institutes</p>
-    <div className="text-[#006666] p-6 border-1 border-gray-300 rounded-full">
-    <div className="overflow-hidden py-4">
-        <div
-          key={animateKey} 
-          className="flex animate-slide whitespace-nowrap"
-        >
-          {instLogos.concat(instLogos).map((logo, index) => (
-            <img
-              key={index}
-              src={logo}
-              alt={`logo-${index}`}
-              className="h-10 sm:h-16 w-auto sm:w-auto mx-4 sm:mx-8 shadow-[0_0_20px_5px_rgba(255,255,255,0.7)]"
-            />
-            ))}
-        </div>
-      </div>
-    </div>
-  </div> */}
-  <div className="flex justify-start items-center p-4">
-    <p className="bg-white hidden sm:flex sm:ml-0 rounded w-[200px] p-2 text-[#006666] text-center font-bold text-[10px] sm:text-[15px] md:text-[20px] uppercase leading-none animate-slide-in-right shadow-gray-800">
+  <div className="flex justify-start items-center p-2 border-b-2 border-gray-300">
+    <p className="bg-white hidden border-b-4 w-[200px] border-[#03257e] sm:flex sm:ml-0 rounded py-2 px-4 text-[#03257e] text-center font-bold text-[10px] sm:text-[15px] md:text-[20px] uppercase leading-none animate-slide-in-right shadow-gray-800">
         Education institutes
       </p>
       <div className="overflow-hidden sm:py-4">
@@ -312,13 +316,13 @@ const Home = ()=>{
               key={index}
               src={logo}
               alt={`logo-${index}`}
-              className="h-10 sm:h-16 w-auto sm:w-auto mx-4 sm:mx-8 shadow-[0_0_20px_5px_rgba(255,255,255,0.7)]"
+              className="h-9 sm:h-12 w-auto sm:w-auto mx-4 sm:mx-8 shadow-[0_0_20px_5px_rgba(255,255,255,0.7)]"
             />
             ))}
         </div>
       </div>
   </div>
-  <div className="flex justify-start items-center p-4">
+  <div className="flex justify-start items-center p-2 border-b-2 border-gray-300">
       <div className="overflow-hidden sm:py-4">
         <div
           key={2} 
@@ -329,17 +333,17 @@ const Home = ()=>{
               key={index}
               src={logo}
               alt={`logo-${index}`}
-              className="h-10 sm:h-16 w-auto sm:w-auto mx-4 sm:mx-8"
+              className="h-9 sm:h-6 w-auto sm:w-auto mx-4 sm:mx-8"
             />
           ))}
         </div>
       </div>
-      <p className="bg-white hidden sm:flex rounded w-[200px] p-2 text-[#006666] text-center font-bold text-[10px] sm:text-[15px] md:text-[20px] uppercase leading-none animate-slide-in-right shadow-gray-800">
+      <p className="bg-white hidden border-b-4 border-[#03257e] sm:flex rounded w-[230px] p-2 text-[#03257e] text-center font-bold text-[10px] sm:text-[15px] md:text-[20px] uppercase leading-none animate-slide-in-right shadow-gray-800">
         Governments & Regulators
       </p>
   </div>
-  <div className="flex justify-start items-center p-4">
-    <p className="bg-white hidden sm:flex sm:ml-0 rounded w-[200px] p-2 text-[#006666] text-center font-bold text-[10px] sm:text-[15px] md:text-[20px] uppercase leading-none animate-slide-in-right shadow-gray-800">
+  <div className="flex justify-start items-center p-2 border-b-2 border-gray-300">
+    <p className="bg-white hidden border-b-4 border-[#03257e] sm:flex sm:ml-0 rounded w-[450px] p-2 text-[#03257e] text-center font-bold text-[10px] sm:text-[15px] md:text-[20px] uppercase leading-none animate-slide-in-right shadow-gray-800">
         Grants & awards by blockchains
       </p>
       <div className="overflow-hidden sm:py-4">
@@ -352,13 +356,13 @@ const Home = ()=>{
               key={index}
               src={logo}
               alt={`logo-${index}`}
-              className="h-10 sm:h-16 w-auto sm:w-auto mx-4 sm:mx-8 shadow-[0_0_20px_5px_rgba(255,255,255,0.7)]"
+              className="h-9 sm:h-6 w-auto sm:w-auto mx-4 sm:mx-8 shadow-[0_0_20px_5px_rgba(255,255,255,0.7)]"
             />
             ))}
         </div>
       </div>
   </div>
-  <div className="flex justify-start items-center p-4">
+  <div className="flex justify-start items-center p-2 border-b-2 border-gray-300">
       <div className="overflow-hidden sm:py-4">
         <div
           key={4} 
@@ -369,17 +373,17 @@ const Home = ()=>{
               key={index}
               src={logo}
               alt={`logo-${index}`}
-              className="h-10 sm:h-16 w-auto sm:w-auto mx-4 sm:mx-8"
+              className="h-9 sm:h-6 w-auto sm:w-auto mx-4 sm:mx-8"
             />
           ))}
         </div>
       </div>
-      <p className="bg-white hidden sm:flex rounded w-[200px] p-2 text-[#006666] text-center font-bold text-[10px] sm:text-[15px] md:text-[20px] uppercase leading-none animate-slide-in-right shadow-gray-800">
+      <p className="bg-white hidden border-b-4 border-[#03257e] sm:flex rounded w-[350px] p-2 text-[#03257e] text-center font-bold text-[10px] sm:text-[15px] md:text-[20px] uppercase leading-none animate-slide-in-right shadow-gray-800">
         cloud credits & accelerators
       </p>
   </div>
-  <div className="flex justify-start items-center p-4">
-    <p className="bg-white hidden sm:flex sm:ml-0 rounded w-[200px] p-2 text-[#006666] text-center font-bold text-[10px] sm:text-[15px] md:text-[20px] uppercase leading-none animate-slide-in-right shadow-gray-800">
+  <div className="flex justify-start items-center p-2 border-b-2 border-gray-300">
+    <p className="bg-white hidden border-b-4 border-[#03257e] sm:flex sm:ml-0 rounded w-[200px] p-2 text-[#03257e] text-center font-bold text-[10px] sm:text-[15px] md:text-[20px] uppercase leading-none animate-slide-in-right shadow-gray-800">
         media houses
       </p>
       <div className="overflow-hidden sm:py-4">
@@ -392,13 +396,13 @@ const Home = ()=>{
               key={index}
               src={logo}
               alt={`logo-${index}`}
-              className="h-10 sm:h-16 w-auto sm:w-auto mx-4 sm:mx-8 shadow-[0_0_20px_5px_rgba(255,255,255,0.7)]"
+              className="h-9 sm:h-10 w-auto sm:w-auto mx-4 sm:mx-8 shadow-[0_0_20px_5px_rgba(255,255,255,0.7)]"
             />
             ))}
         </div>
       </div>
   </div>
-  <div className="flex justify-start items-center p-4">
+  <div className="flex justify-start items-center p-2 border-b-2 border-gray-300">
       <div className="overflow-hidden sm:py-4">
         <div
           key={6} 
@@ -409,17 +413,17 @@ const Home = ()=>{
               key={index}
               src={logo}
               alt={`logo-${index}`}
-              className="h-10 sm:h-16 w-auto sm:w-auto mx-4 sm:mx-8"
+              className="h-9 sm:h-12 w-auto sm:w-auto mx-4 sm:mx-8"
             />
           ))}
         </div>
       </div>
-      <p className="bg-white hidden sm:flex rounded w-[200px] p-2 text-[#006666] text-center font-bold text-[10px] sm:text-[15px] md:text-[20px] uppercase leading-none animate-slide-in-right shadow-gray-800">
+      <p className="bg-white hidden border-b-4 border-[#03257e] sm:flex rounded w-[200px] p-2 text-[#03257e] text-center font-bold text-[10px] sm:text-[15px] md:text-[20px] uppercase leading-none animate-slide-in-right shadow-gray-800">
         international bodies
       </p>
   </div>
-  <div className="flex justify-start items-center p-4">
-    <p className="bg-white hidden sm:flex sm:ml-0 rounded w-[200px] p-2 text-[#006666] text-center font-bold text-[10px] sm:text-[15px] md:text-[20px] uppercase leading-none animate-slide-in-right shadow-gray-800">
+  <div className="flex justify-start items-center p-2 border-b-2 border-gray-300">
+    <p className="bg-white hidden border-b-4 border-[#03257e] sm:flex sm:ml-0 rounded w-[300px] p-2 text-[#03257e] text-center font-bold text-[10px] sm:text-[15px] md:text-[20px] uppercase leading-none animate-slide-in-right shadow-gray-800">
        fintech & banking
       </p>
       <div className="overflow-hidden sm:py-4">
@@ -432,7 +436,7 @@ const Home = ()=>{
               key={index}
               src={logo}
               alt={`logo-${index}`}
-              className="h-10 sm:h-16 w-auto sm:w-auto mx-4 sm:mx-8 shadow-[0_0_20px_5px_rgba(255,255,255,0.7)]"
+              className="h-9 sm:h-12 w-auto sm:w-auto mx-4 sm:mx-8 shadow-[0_0_20px_5px_rgba(255,255,255,0.7)]"
             />
             ))}
         </div>
@@ -440,365 +444,441 @@ const Home = ()=>{
   </div>
 </div>
 
-    <div>
-    <div className="flex flex-col justify-center items-center" id="olympiad">
-        <p className=" text-[#03257E] text-[25px] sm:text-[40px] md:text-[50px] font-bold text-center">No-Code Skilling in Emerging Technologies</p>
+      <div>
+        <div
+          className="flex flex-col justify-center items-center"
+          id="olympiad"
+        >
+          <p className=" text-[#03257E] text-[25px] sm:text-[40px] md:text-[50px] font-bold text-center">
+            No-Code Skilling in Emerging Technologies
+          </p>
+          {/* <p className=" text-[#000000] my-4 text-[23px] sm:text-[38px] md:text-[48px] text-center">No-Code Skilling in Emerging Technologies</p> */}
+        </div>
+        <div className="flex justify-center items-center flex-wrap gap-4 mt-4">
+          <div className="flex justify-start items-center border rounded-full border-[#E6E6E6] gap-3 w-[300px] md:w-[521px]">
+            <p className=" text-[#ffffff] bg-[#03257E] rounded-full text-[21px] sm:text-[36px] md:text-[46px] px-3 md:px-5">
+              1
+            </p>
+            <p className="text-[#000000] text-[21px] sm:text-[36px] md:text-[46px]">
+              Artificial Intelligence
+            </p>
+          </div>
+          <div className="flex justify-start items-center border rounded-full border-[#E6E6E6] gap-3 w-[300px] md:w-[521px]">
+            <p className="text-[#ffffff] bg-[#03257E] rounded-full text-[21px] sm:text-[36px] md:text-[46px] px-3 md:px-5">
+              2
+            </p>
+            <p className="text-[#000000] text-[21px] sm:text-[36px] md:text-[46px]">
+              Robotics
+            </p>
+          </div>
+          <div className="flex justify-start items-center border rounded-full border-[#E6E6E6] gap-3 w-[300px] md:w-[521px]">
+            <p className="text-[#ffffff] bg-[#03257E] rounded-full text-[21px] sm:text-[36px] md:text-[46px] px-3 md:px-5">
+              3
+            </p>
+            <p className="text-[#000000] text-[21px] sm:text-[36px] md:text-[46px]">
+              Cybersecurity
+            </p>
+          </div>
+          <div className="flex justify-start items-center border rounded-full border-[#E6E6E6] gap-3 w-[300px] md:w-[521px]">
+            <p className="text-[#ffffff] bg-[#03257E] rounded-full text-[21px] sm:text-[36px] md:text-[46px] px-3 md:px-5">
+              4
+            </p>
+            <p className="text-[#000000] text-[21px] sm:text-[36px] md:text-[46px]">
+              Data Analytics
+            </p>
+          </div>
+        </div>
+      </div>
+      <div className="flex flex-col justify-center items-center" id="olympiad">
+        <p className=" text-[#03257E] text-[25px] sm:text-[40px] md:text-[50px] font-bold text-center">
+          Watch How It Works
+        </p>
         {/* <p className=" text-[#000000] my-4 text-[23px] sm:text-[38px] md:text-[48px] text-center">No-Code Skilling in Emerging Technologies</p> */}
-    </div>
-    <div className="flex justify-center items-center flex-wrap gap-4 mt-4">
-        <div className="flex justify-start items-center border rounded-full border-[#E6E6E6] gap-3 w-[300px] md:w-[521px]">
-            <p className=" text-[#ffffff] bg-[#03257E] rounded-full text-[21px] sm:text-[36px] md:text-[46px] px-3 md:px-5">1</p>
-            <p className="text-[#000000] text-[21px] sm:text-[36px] md:text-[46px]">Artificial Intelligence</p>
+      </div>
+      <div className="flex justify-center items-center gap-4 p-4">
+        {/* Left Rectangular Box (Hidden on mobile) */}
+        {/* <div className="hidden sm:block w-32 h-[350px] bg-gray-300 rounded-md shadow-md"></div> */}
+
+        {/* Video with Fixed Height and 16:9 Aspect Ratio */}
+        <div className="relative w-full max-w-3xl h-[250px] sm:h-[350px] border-4 border-gray-300 rounded-xl">
+          <iframe
+            className="w-full h-full rounded-lg shadow-lg"
+            src="https://www.youtube.com/embed/kORadYQBGLY?autoplay=1&mute=1"
+            title="Edubuk Presents: AI and Emerging Technologies Hackathon for College Student"
+            allow="autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+          ></iframe>
         </div>
-        <div className="flex justify-start items-center border rounded-full border-[#E6E6E6] gap-3 w-[300px] md:w-[521px]">
-            <p className="text-[#ffffff] bg-[#03257E] rounded-full text-[21px] sm:text-[36px] md:text-[46px] px-3 md:px-5">2</p>
-            <p className="text-[#000000] text-[21px] sm:text-[36px] md:text-[46px]">Robotics</p>
+
+        {/* Right Rectangular Box (Hidden on mobile) */}
+        {/* <div className="hidden sm:block w-32 h-[350px] bg-gray-300 rounded-md shadow-md"></div> */}
+      </div>
+
+      <div>
+        <div className="flex flex-col justify-center items-center bg-[#006666] p-6">
+          <p className="text-[#ffffff] text-[25px] sm:text-[40px] md:text-[50px] font-bold uppercase text-center">
+            Concept By:
+          </p>
+          <p className="text-[#ffffff] pt-4 text-[23px] sm:text-[38px] md:text-[48px] font-light text-center leading-8 sm:leading-12 md:leading-14">
+            IIT, IIM, Alumni, CFA Charterholder, Gold Medalist, Emerging
+            Technologies Consultant, ex-Professors in India & UAE
+          </p>
         </div>
-        <div className="flex justify-start items-center border rounded-full border-[#E6E6E6] gap-3 w-[300px] md:w-[521px]">
-            <p className="text-[#ffffff] bg-[#03257E] rounded-full text-[21px] sm:text-[36px] md:text-[46px] px-3 md:px-5">3</p>
-            <p className="text-[#000000] text-[21px] sm:text-[36px] md:text-[46px]">Cybersecurity</p>
-        </div>
-        <div className="flex justify-start items-center border rounded-full border-[#E6E6E6] gap-3 w-[300px] md:w-[521px]">
-            <p className="text-[#ffffff] bg-[#03257E] rounded-full text-[21px] sm:text-[36px] md:text-[46px] px-3 md:px-5">4</p>
-            <p className="text-[#000000] text-[21px] sm:text-[36px] md:text-[46px]">Data Analytics</p>
+        <div className="flex flex-col items-center pt-4 justify-center space-y-0">
+          <p
+            className="text-[#03257E] text-[25px] sm:text-[40px] md:text-[50px] font-bold uppercase text-center"
+            id="award"
+          >
+            Awards to be Won!
+          </p>
+          <div className="flex flex-wrap justify-center items-center gap-6 p-4">
+            <div className="flex flex-col justify-center items-center border-1 border-gray-500 rounded-lg">
+              <div className="w-[300px] h-[300px] p-8">
+                <DotLottieReact
+                  src="https://lottie.host/278f37d4-d700-4952-b7af-e3ad48bc9b50/usKs5I4b4X.lottie"
+                  loop
+                  autoplay
+                />
+              </div>
+              <p className="text-white w-full p-4 bg-[#03257E] uppercase text-center text-[20px] sm:text-[30px] md:text-[40px] rounded-b-lg">
+                exciting prizes
+              </p>
+            </div>
+            <div className="flex flex-col justify-center items-center border-1 border-gray-500 rounded-lg">
+              <div className="w-[300px] h-[300px] p-8">
+                <DotLottieReact
+                  src="https://lottie.host/176c2c1d-55f1-4966-8f51-481208bacf00/Hj70UEKuYf.lottie"
+                  loop
+                  autoplay
+                />
+              </div>
+              <p className="text-white w-full p-4 bg-[#006666] uppercase text-center text-[20px] sm:text-[30px] md:text-[40px] rounded-b-lg">
+                Certificates
+              </p>
+            </div>
+            <div className="flex flex-col justify-center items-center border-1 border-gray-500 rounded-lg">
+              <div className="w-[300px] h-[300px] p-8">
+                <DotLottieReact
+                  src="https://lottie.host/b2890cb3-db52-437d-9568-d1284c3763ea/W3jB7Zn0fP.lottie"
+                  loop
+                  autoplay
+                />
+              </div>
+              <p className="text-white w-full p-4 bg-[#F14419] uppercase text-center text-[20px] sm:text-[30px] md:text-[40px] rounded-b-lg">
+                Medals
+              </p>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-<div className="flex flex-col justify-center items-center" id="olympiad">
-        <p className=" text-[#03257E] text-[25px] sm:text-[40px] md:text-[50px] font-bold text-center">Watch How It Works</p>
-        {/* <p className=" text-[#000000] my-4 text-[23px] sm:text-[38px] md:text-[48px] text-center">No-Code Skilling in Emerging Technologies</p> */}
-    </div>
-<div className="flex justify-center items-center gap-4 p-4">
-  {/* Left Rectangular Box (Hidden on mobile) */}
-  <div className="hidden sm:block w-32 h-[350px] bg-gray-300 rounded-md shadow-md"></div>
 
-  {/* Video with Fixed Height and 16:9 Aspect Ratio */}
-  <div className="relative w-full max-w-3xl h-[250px] sm:h-[350px] border-4 border-gray-300 rounded-xl">
-    <iframe
-      className="w-full h-full rounded-lg shadow-lg"
-      src="https://www.youtube.com/embed/kORadYQBGLY?autoplay=1&mute=1"
-      title="Edubuk Presents: AI and Emerging Technologies Hackathon for College Student"
-      allow="autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      referrerPolicy="strict-origin-when-cross-origin"
-      allowFullScreen
-    ></iframe>
-  </div>
-
-  {/* Right Rectangular Box (Hidden on mobile) */}
-  <div className="hidden sm:block w-32 h-[350px] bg-gray-300 rounded-md shadow-md"></div>
-</div>
-
-
-    <div>
-    <div className="flex flex-col justify-center items-center bg-[#006666] p-6">
-    <p className="text-[#ffffff] text-[25px] sm:text-[40px] md:text-[50px] font-bold uppercase text-center">Concept By:</p>
-    <p className="text-[#ffffff] pt-4 text-[23px] sm:text-[38px] md:text-[48px] font-light text-center leading-8 sm:leading-12 md:leading-14">IIT, IIM, Alumni, CFA Charterholder, Gold Medalist, Emerging Technologies Consultant, ex-Professors in India & UAE</p>
-    </div>
-    <div className="flex flex-col items-center pt-4 justify-center space-y-0">
-  <p className="text-[#03257E] text-[25px] sm:text-[40px] md:text-[50px] font-bold uppercase text-center" id="award">
-    Awards to be Won!
-  </p>
-    <div className="flex flex-wrap justify-center items-center gap-6 p-4">
-      <div className="flex flex-col justify-center items-center border-1 border-gray-500 rounded-lg">
-        <div className="w-[300px] h-[300px] p-8">
-        <DotLottieReact
-      src="https://lottie.host/278f37d4-d700-4952-b7af-e3ad48bc9b50/usKs5I4b4X.lottie"
-      loop
-      autoplay
-    /></div>
-        <p className="text-white w-full p-4 bg-[#03257E] uppercase text-center text-[20px] sm:text-[30px] md:text-[40px] rounded-b-lg">exciting prizes</p>
+      <div
+        className="flex flex-col justify-center items-center bg-[#006666] p-8"
+        id="about"
+      >
+        <p className="text-[#ffffff] text-[25px] sm:text-[40px] md:text-[50px] font-bold uppercase text-center">
+          About EDUBUK
+        </p>
+        <p className="text-[#ffffff] text-[23px] sm:text-[38px] md:text-[48px] font-light text-center mt-4 leading-8 sm:leading-12 md:leading-14">
+          Our platform bridges the gap between education and employment by
+          providing emerging tech courses, verifiable academic & professional
+          credentials and intelligent job matching leveraging AI and Blockchain
+          Tech
+        </p>
       </div>
-      <div className="flex flex-col justify-center items-center border-1 border-gray-500 rounded-lg">
-        <div className="w-[300px] h-[300px] p-8"><DotLottieReact
-      src="https://lottie.host/176c2c1d-55f1-4966-8f51-481208bacf00/Hj70UEKuYf.lottie"
-      loop
-      autoplay
-    /></div>
-        <p className="text-white w-full p-4 bg-[#006666] uppercase text-center text-[20px] sm:text-[30px] md:text-[40px] rounded-b-lg">Certificates</p>
+      <div className="flex justify-center items-center gap-3">
+        <span className="w-4 h-4 sm:w-8 sm:h-8 rounded-full bg-[#03257E]"></span>
+        <span className="w-4 h-4 sm:w-8 sm:h-8 rounded-full bg-[#006666]"></span>
+        <span className="w-4 h-4 sm:w-8 sm:h-8 rounded-full bg-[#F14419]"></span>
       </div>
-      <div className="flex flex-col justify-center items-center border-1 border-gray-500 rounded-lg">
-        <div className="w-[300px] h-[300px] p-8">
-          <DotLottieReact
-      src="https://lottie.host/b2890cb3-db52-437d-9568-d1284c3763ea/W3jB7Zn0fP.lottie"
-      loop
-      autoplay
-    />
+      <div className="flex flex-col justify-center items-center gap-8">
+        <p className="text-[#03257E] text-[25px] sm:text-[40px] md:text-[50px] font-bold uppercase text-center">
+          Meet Our executives
+        </p>
+        <div className=" flex justify-center items-center flex-wrap gap-3">
+          <div className="w-full max-w-xs min-h-[450px] p-4 bg-gradient-to-br from-gray-100 to-white rounded-2xl shadow-md hover:shadow-lg hover:-translate-y-2 transition duration-300 flex flex-col justify-between items-center text-center">
+            <div className="w-28 h-28 mb-4 rounded-full p-1 bg-gradient-to-br from-[#03257e] via-[#006666] to-[#F14419]">
+              <img
+                src={team1}
+                alt="team1"
+                className="w-full h-full rounded-full object-cover"
+              />
+            </div>
+            <div className="flex flex-col items-center flex-grow">
+              <p className="text-lg font-bold text-gray-800 mb-1">
+                Apoorva Bajaj
+              </p>
+              <p className="bg-gradient-to-r from-[#03257e] via-[#006666] to-[#F14419] text-white text-sm font-semibold px-3 py-1 rounded-full mb-3">
+                Co-Founder & CEO
+              </p>
+
+              <a
+                href="https://www.linkedin.com/in/apoorva-bajaj-iit-iim-cfa-edubuk/"
+                target="_blank"
+                rel="noreferrer"
+                className="mb-4"
+              >
+                <FaLinkedinIn className="text-[#0077B5] w-7 h-7" />
+              </a>
+
+              <p className="text-sm text-gray-600 leading-relaxed">
+                10+ years experience <br />
+                ex-Goldman Sachs, JP Morgan, DE Shaw Engineer, IIT, IIM
+                Gold-medalist, CFA Charterholder
+              </p>
+            </div>
+          </div>
+          <div className="w-full max-w-xs min-h-[450px] p-4 bg-gradient-to-br from-gray-100 to-white rounded-2xl shadow-md hover:shadow-lg hover:-translate-y-2 transition duration-300 flex flex-col justify-between items-center text-center">
+            {/* Image */}
+            <div className="w-28 h-28 mb-4 rounded-full p-1 bg-gradient-to-br from-[#03257e] via-[#006666] to-[#F14419]">
+              <img
+                src={team2}
+                alt="team2"
+                className="w-full h-full rounded-full object-cover"
+              />
+            </div>
+
+            {/* Content */}
+            <div className="flex flex-col items-center flex-grow">
+              <p className="text-lg font-bold text-gray-800 mb-1">
+                Shivaani Mehrotra
+              </p>
+              <p className="bg-gradient-to-r from-[#03257e] via-[#006666] to-[#F14419] text-white text-sm font-semibold px-3 py-1 rounded-full mb-3">
+                Co-Founder & COO
+              </p>
+
+              <a
+                href="https://www.linkedin.com/in/shivani-mehrotra-edubuk/"
+                target="_blank"
+                rel="noreferrer"
+                className="mb-4"
+              >
+                <FaLinkedinIn className="text-[#0077B5] w-7 h-7" />
+              </a>
+
+              <p className="text-sm text-gray-600 leading-relaxed">
+                10+ years experience in <br></br>Education Sector as University
+                Professor MBA + University Topper, Women in AI APAC Finalist
+              </p>
+            </div>
+          </div>
+          <div className="w-full max-w-xs min-h-[450px] p-4 bg-gradient-to-br from-gray-100 to-white rounded-2xl shadow-md hover:shadow-lg hover:-translate-y-2 transition duration-300 flex flex-col justify-between items-center text-center">
+            {/* Image */}
+            <div className="w-28 h-28 mb-4 rounded-full p-1 bg-gradient-to-br from-[#03257e] via-[#006666] to-[#F14419]">
+              <img
+                src={team3}
+                alt="team3"
+                className="w-full h-full rounded-full object-cover"
+              />
+            </div>
+
+            {/* Content */}
+            <div className="flex flex-col items-center flex-grow">
+              <p className="text-lg font-bold text-gray-800 mb-1">
+                Amit Srivastava
+              </p>
+              <p className="bg-gradient-to-r from-[#03257e] via-[#006666] to-[#F14419] text-white text-sm font-semibold px-3 py-1 rounded-full mb-3">
+                Chief Marketing Officer
+              </p>
+
+              <a
+                href="https://www.linkedin.com/in/amit-srivastava-62969352/"
+                target="_blank"
+                rel="noreferrer"
+                className="mb-4"
+              >
+                <FaLinkedinIn className="text-[#0077B5] w-7 h-7" />
+              </a>
+
+              <p className="text-sm text-gray-600 leading-relaxed">
+                20+ years experience in <br /> marketing and sales in Education
+                & Finance sector. MBA in International Business.
+              </p>
+            </div>
+          </div>
+          <div className="w-full max-w-xs min-h-[450px] p-4 bg-gradient-to-br from-gray-100 to-white rounded-2xl shadow-md hover:shadow-lg hover:-translate-y-2 transition duration-300 flex flex-col justify-between items-center text-center">
+            {/* Image */}
+            <div className="w-28 h-28 mb-4 rounded-full p-1 bg-gradient-to-br from-[#03257e] via-[#006666] to-[#F14419]">
+              <img
+                src={team4}
+                alt="Apoorva Bajaj"
+                className="w-full h-full rounded-full object-cover"
+              />
+            </div>
+
+            {/* Content */}
+            <div className="flex flex-col items-center flex-grow">
+              <p className="text-lg font-bold text-gray-800 mb-1">
+                Ajeet Ram Verma
+              </p>
+              <p className="bg-gradient-to-r from-[#03257e] via-[#006666] to-[#F14419] text-white text-sm font-semibold px-3 py-1 rounded-full mb-3">
+                Tech Lead Developer
+              </p>
+
+              <a
+                href="https://www.linkedin.com/in/ajeet-ram-verma-953605244/"
+                target="_blank"
+                rel="noreferrer"
+                className="mb-4"
+              >
+                <FaLinkedinIn className="text-[#0077B5] w-7 h-7" />
+              </a>
+
+              <p className="text-sm text-gray-600 leading-relaxed">
+                5+ years of experience in Core Technology Domain <br></br>MERN
+                Full-Stack <br></br>Python-AI & ML <br></br>Solidity & Rust
+              </p>
+            </div>
+          </div>
         </div>
-        <p className="text-white w-full p-4 bg-[#F14419] uppercase text-center text-[20px] sm:text-[30px] md:text-[40px] rounded-b-lg">Medals</p>
       </div>
-    </div>
-    </div>
-</div>
+      <div className="flex justify-center items-center gap-3">
+        <span className=" w-4 h-4 sm:w-8 sm:h-8 rounded-full bg-[#03257E]"></span>
+        <span className="w-4 h-4 sm:w-8 sm:h-8 rounded-full bg-[#006666]"></span>
+        <span className="w-4 h-4 sm:w-8 sm:h-8 rounded-full bg-[#F14419]"></span>
+      </div>
+      <div className="flex flex-col justify-center items-center gap-8">
+        <p className="text-[#03257E] text-[25px] sm:text-[40px] md:text-[50px] font-bold uppercase text-center">
+          MEET OUR ADVISORS
+        </p>
+        <div className=" flex justify-center items-center flex-wrap gap-3">
+          <div className="w-full max-w-xs min-h-[450px] p-4 bg-gradient-to-br from-gray-100 to-white rounded-2xl shadow-md hover:shadow-lg hover:-translate-y-2 transition duration-300 flex flex-col justify-between items-center text-center">
+            <div className="w-28 h-28 mb-4 rounded-full p-1 bg-gradient-to-br from-[#03257e] via-[#006666] to-[#F14419]">
+              <img
+                src={advisor1}
+                alt="advisor1"
+                className="w-full h-full rounded-full object-cover"
+              />
+            </div>
+            <div className="flex flex-col items-center flex-grow">
+              <p className="text-lg font-bold text-gray-800 mb-1">Ish Anand</p>
+              <p className="bg-gradient-to-r from-[#03257e] via-[#006666] to-[#F14419] text-white text-sm font-semibold px-3 py-1 rounded-full mb-3">
+                Serial Entrepreneur, Advisor in Startups, Global Citizen
+              </p>
 
-    <div className="flex flex-col justify-center items-center bg-[#006666] p-8" id="about">
-    <p className="text-[#ffffff] text-[25px] sm:text-[40px] md:text-[50px] font-bold uppercase text-center">About EDUBUK</p>
-    <p className="text-[#ffffff] text-[23px] sm:text-[38px] md:text-[48px] font-light text-center mt-4 leading-8 sm:leading-12 md:leading-14">Our platform bridges the gap between education and employment by providing emerging tech courses, verifiable academic & professional credentials and intelligent job matching leveraging  AI and Blockchain Tech</p>
-    </div>
-    <div className="flex justify-center items-center gap-3">
-      <span className="w-4 h-4 sm:w-8 sm:h-8 rounded-full bg-[#03257E]"></span>
-      <span className="w-4 h-4 sm:w-8 sm:h-8 rounded-full bg-[#006666]"></span>
-      <span className="w-4 h-4 sm:w-8 sm:h-8 rounded-full bg-[#F14419]"></span>
-    </div>
-    <div className="flex flex-col justify-center items-center gap-8">
-    <p className="text-[#03257E] text-[25px] sm:text-[40px] md:text-[50px] font-bold uppercase text-center">Meet Our executives</p>
-    <div className=" flex justify-center items-center flex-wrap gap-3">
-      <div className="w-full max-w-xs min-h-[450px] p-4 bg-gradient-to-br from-gray-100 to-white rounded-2xl shadow-md hover:shadow-lg hover:-translate-y-2 transition duration-300 flex flex-col justify-between items-center text-center">
-  <div className="w-28 h-28 mb-4 rounded-full p-1 bg-gradient-to-br from-[#03257e] via-[#006666] to-[#F14419]">
-    <img
-      src={team1}
-      alt="team1"
-      className="w-full h-full rounded-full object-cover"
-    />
-  </div>
-  <div className="flex flex-col items-center flex-grow">
-    <p className="text-lg font-bold text-gray-800 mb-1">Apoorva Bajaj</p>
-    <p className="bg-gradient-to-r from-[#03257e] via-[#006666] to-[#F14419] text-white text-sm font-semibold px-3 py-1 rounded-full mb-3">
-      Co-Founder & CEO
-    </p>
+              <a
+                href="https://www.linkedin.com/in/ishanand/"
+                target="_blank"
+                rel="noreferrer"
+                className="mb-4"
+              >
+                <FaLinkedinIn className="text-[#0077B5] w-7 h-7" />
+              </a>
 
-    <a
-      href="https://www.linkedin.com/in/apoorva-bajaj-iit-iim-cfa-edubuk/"
-      target="_blank"
-      rel="noreferrer"
-      className="mb-4"
-    >
-      <FaLinkedinIn className="text-[#0077B5] w-7 h-7" />
-    </a>
+              <p className="text-sm text-gray-600 leading-relaxed">
+                30 years + of experience in Corporates, the Startup Ecosystem
+                and as an Enterpreneur across 5 continents
+              </p>
+            </div>
+          </div>
+          <div className="w-full max-w-xs min-h-[450px] p-4 bg-gradient-to-br from-gray-100 to-white rounded-2xl shadow-md hover:shadow-lg hover:-translate-y-2 transition duration-300 flex flex-col justify-between items-center text-center">
+            {/* Image */}
+            <div className="w-28 h-28 mb-4 rounded-full p-1 bg-gradient-to-br from-[#03257e] via-[#006666] to-[#F14419]">
+              <img
+                src={advisor2}
+                alt="advisor2"
+                className="w-full h-full rounded-full object-cover"
+              />
+            </div>
 
-    <p className="text-sm text-gray-600 leading-relaxed">
-      10+ years experience <br />
-      ex-Goldman Sachs, JP Morgan, DE Shaw Engineer, IIT, IIM Gold-medalist, CFA Charterholder
-    </p>
-  </div>
-</div>
-      <div className="w-full max-w-xs min-h-[450px] p-4 bg-gradient-to-br from-gray-100 to-white rounded-2xl shadow-md hover:shadow-lg hover:-translate-y-2 transition duration-300 flex flex-col justify-between items-center text-center">
-  {/* Image */}
-  <div className="w-28 h-28 mb-4 rounded-full p-1 bg-gradient-to-br from-[#03257e] via-[#006666] to-[#F14419]">
-    <img
-      src={team2}
-      alt="team2"
-      className="w-full h-full rounded-full object-cover"
-    />
-  </div>
+            {/* Content */}
+            <div className="flex flex-col items-center flex-grow">
+              <p className="text-lg font-bold text-gray-800 mb-1">
+                Dr. Narsing Rao, GS
+              </p>
+              <p className="bg-gradient-to-r from-[#03257e] via-[#006666] to-[#F14419] text-white text-sm font-semibold px-3 py-1 rounded-full mb-3">
+                Former VC at ICFAI University
+              </p>
 
-  {/* Content */}
-  <div className="flex flex-col items-center flex-grow">
-    <p className="text-lg font-bold text-gray-800 mb-1">Shivaani Mehrotra</p>
-    <p className="bg-gradient-to-r from-[#03257e] via-[#006666] to-[#F14419] text-white text-sm font-semibold px-3 py-1 rounded-full mb-3">
-      Co-Founder & COO
-    </p>
+              <a
+                href="https://www.linkedin.com/in/dr-narsing-rao-gs-a318735/"
+                target="_blank"
+                rel="noreferrer"
+                className="mb-4"
+              >
+                <FaLinkedinIn className="text-[#0077B5] w-7 h-7" />
+              </a>
 
-    <a
-      href="https://www.linkedin.com/in/shivani-mehrotra-edubuk/"
-      target="_blank"
-      rel="noreferrer"
-      className="mb-4"
-    >
-      <FaLinkedinIn className="text-[#0077B5] w-7 h-7" />
-    </a>
+              <p className="text-sm text-gray-600 leading-relaxed">
+                30 years + of experience in Education Sector as Vice Chancellor
+                & Chief Mentor at Indian Universities ex-Professor
+              </p>
+            </div>
+          </div>
+          <div className="w-full max-w-xs min-h-[450px] p-4 bg-gradient-to-br from-gray-100 to-white rounded-2xl shadow-md hover:shadow-lg hover:-translate-y-2 transition duration-300 flex flex-col justify-between items-center text-center">
+            {/* Image */}
+            <div className="w-28 h-28 mb-4 rounded-full p-1 bg-gradient-to-br from-[#03257e] via-[#006666] to-[#F14419]">
+              <img
+                src={advisor3}
+                alt="advisor3"
+                className="w-full h-full rounded-full object-cover"
+              />
+            </div>
 
-    <p className="text-sm text-gray-600 leading-relaxed">
-      10+ years experience in <br></br>Education Sector as University Professor MBA + University Topper, Women in AI APAC Finalist
-    </p>
-  </div>
-</div>
-      <div className="w-full max-w-xs min-h-[450px] p-4 bg-gradient-to-br from-gray-100 to-white rounded-2xl shadow-md hover:shadow-lg hover:-translate-y-2 transition duration-300 flex flex-col justify-between items-center text-center">
-  {/* Image */}
-  <div className="w-28 h-28 mb-4 rounded-full p-1 bg-gradient-to-br from-[#03257e] via-[#006666] to-[#F14419]">
-    <img
-      src={team3}
-      alt="team3"
-      className="w-full h-full rounded-full object-cover"
-    />
-  </div>
+            {/* Content */}
+            <div className="flex flex-col items-center flex-grow">
+              <p className="text-lg font-bold text-gray-800 mb-1">
+                Dr. Sindhu Bhaskar
+              </p>
+              <p className="bg-gradient-to-r from-[#03257e] via-[#006666] to-[#F14419] text-white text-sm font-semibold px-3 py-1 rounded-full mb-3">
+                Co-Founder, EST Global, Forbes Council Member
+              </p>
 
-  {/* Content */}
-  <div className="flex flex-col items-center flex-grow">
-    <p className="text-lg font-bold text-gray-800 mb-1">Amit Srivastava</p>
-    <p className="bg-gradient-to-r from-[#03257e] via-[#006666] to-[#F14419] text-white text-sm font-semibold px-3 py-1 rounded-full mb-3">
-      Chief Marketing Officer
-    </p>
+              <a
+                href="https://www.linkedin.com/in/dr-sindhu-bhaskar-55a84568/"
+                target="_blank"
+                rel="noreferrer"
+                className="mb-4"
+              >
+                <FaLinkedinIn className="text-[#0077B5] w-7 h-7" />
+              </a>
 
-    <a
-      href="https://www.linkedin.com/in/amit-srivastava-62969352/"
-      target="_blank"
-      rel="noreferrer"
-      className="mb-4"
-    >
-      <FaLinkedinIn className="text-[#0077B5] w-7 h-7" />
-    </a>
+              <p className="text-sm text-gray-600 leading-relaxed">
+                Established $100M+ business in Education sector. Co-Founded
+                Fintech & Blockchain Association (FAB), US.
+              </p>
+            </div>
+          </div>
+          <div className="w-full max-w-xs min-h-[450px] p-4 bg-gradient-to-br from-gray-100 to-white rounded-2xl shadow-md hover:shadow-lg hover:-translate-y-2 transition duration-300 flex flex-col justify-between items-center text-center">
+            {/* Image */}
+            <div className="w-28 h-28 mb-4 rounded-full p-1 bg-gradient-to-br from-[#03257e] via-[#006666] to-[#F14419]">
+              <img
+                src={advisor4}
+                alt="advisor4"
+                className="w-full h-full rounded-full object-cover"
+              />
+            </div>
 
-    <p className="text-sm text-gray-600 leading-relaxed">
-      20+ years experience in <br /> marketing and sales in Education & Finance sector. MBA in International Business.
-    </p>
-  </div>
-</div>
-      <div className="w-full max-w-xs min-h-[450px] p-4 bg-gradient-to-br from-gray-100 to-white rounded-2xl shadow-md hover:shadow-lg hover:-translate-y-2 transition duration-300 flex flex-col justify-between items-center text-center">
-  {/* Image */}
-  <div className="w-28 h-28 mb-4 rounded-full p-1 bg-gradient-to-br from-[#03257e] via-[#006666] to-[#F14419]">
-    <img
-      src={team4}
-      alt="Apoorva Bajaj"
-      className="w-full h-full rounded-full object-cover"
-    />
-  </div>
+            {/* Content */}
+            <div className="flex flex-col items-center flex-grow">
+              <p className="text-lg font-bold text-gray-800 mb-1">James Wren</p>
+              <p className="bg-gradient-to-r from-[#03257e] via-[#006666] to-[#F14419] text-white text-sm font-semibold px-3 py-1 rounded-full mb-3">
+                Lead BD, Liquidium
+              </p>
 
-  {/* Content */}
-  <div className="flex flex-col items-center flex-grow">
-    <p className="text-lg font-bold text-gray-800 mb-1">Ajeet Ram Verma</p>
-    <p className="bg-gradient-to-r from-[#03257e] via-[#006666] to-[#F14419] text-white text-sm font-semibold px-3 py-1 rounded-full mb-3">
-      Tech Lead Developer
-    </p>
+              <a
+                href="https://www.linkedin.com/in/james-wren-15b8b759/"
+                target="_blank"
+                rel="noreferrer"
+                className="mb-4"
+              >
+                <FaLinkedinIn className="text-[#0077B5] w-7 h-7" />
+              </a>
 
-    <a
-      href="https://www.linkedin.com/in/ajeet-ram-verma-953605244/"
-      target="_blank"
-      rel="noreferrer"
-      className="mb-4"
-    >
-      <FaLinkedinIn className="text-[#0077B5] w-7 h-7" />
-    </a>
-
-    <p className="text-sm text-gray-600 leading-relaxed">
-      5+ years of experience in Core Technology Domain <br></br>MERN Full-Stack <br></br>Python-AI & ML <br></br>Solidity & Rust
-    </p>
-  </div>
-</div>
-    </div>
-    </div>
-    <div className="flex justify-center items-center gap-3">
-      <span className=" w-4 h-4 sm:w-8 sm:h-8 rounded-full bg-[#03257E]"></span>
-      <span className="w-4 h-4 sm:w-8 sm:h-8 rounded-full bg-[#006666]"></span>
-      <span className="w-4 h-4 sm:w-8 sm:h-8 rounded-full bg-[#F14419]"></span>
-    </div>
-    <div className="flex flex-col justify-center items-center gap-8">
-    <p className="text-[#03257E] text-[25px] sm:text-[40px] md:text-[50px] font-bold uppercase text-center">MEET OUR ADVISORS</p>
-    <div className=" flex justify-center items-center flex-wrap gap-3">
-      <div className="w-full max-w-xs min-h-[450px] p-4 bg-gradient-to-br from-gray-100 to-white rounded-2xl shadow-md hover:shadow-lg hover:-translate-y-2 transition duration-300 flex flex-col justify-between items-center text-center">
-  <div className="w-28 h-28 mb-4 rounded-full p-1 bg-gradient-to-br from-[#03257e] via-[#006666] to-[#F14419]">
-    <img
-      src={advisor1}
-      alt="advisor1"
-      className="w-full h-full rounded-full object-cover"
-    />
-  </div>
-  <div className="flex flex-col items-center flex-grow">
-    <p className="text-lg font-bold text-gray-800 mb-1">Ish Anand</p>
-    <p className="bg-gradient-to-r from-[#03257e] via-[#006666] to-[#F14419] text-white text-sm font-semibold px-3 py-1 rounded-full mb-3">
-      Serial Entrepreneur, Advisor in Startups, Global Citizen
-    </p>
-
-    <a
-      href="https://www.linkedin.com/in/ishanand/"
-      target="_blank"
-      rel="noreferrer"
-      className="mb-4"
-    >
-      <FaLinkedinIn className="text-[#0077B5] w-7 h-7" />
-    </a>
-
-    <p className="text-sm text-gray-600 leading-relaxed">
-      30 years + of experience in Corporates, the Startup Ecosystem and as an Enterpreneur across 5 continents
-    </p>
-  </div>
-</div>
-      <div className="w-full max-w-xs min-h-[450px] p-4 bg-gradient-to-br from-gray-100 to-white rounded-2xl shadow-md hover:shadow-lg hover:-translate-y-2 transition duration-300 flex flex-col justify-between items-center text-center">
-  {/* Image */}
-  <div className="w-28 h-28 mb-4 rounded-full p-1 bg-gradient-to-br from-[#03257e] via-[#006666] to-[#F14419]">
-    <img
-      src={advisor2}
-      alt="advisor2"
-      className="w-full h-full rounded-full object-cover"
-    />
-  </div>
-
-  {/* Content */}
-  <div className="flex flex-col items-center flex-grow">
-    <p className="text-lg font-bold text-gray-800 mb-1">Dr. Narsing Rao, GS</p>
-    <p className="bg-gradient-to-r from-[#03257e] via-[#006666] to-[#F14419] text-white text-sm font-semibold px-3 py-1 rounded-full mb-3">
-      Former VC at ICFAI University
-    </p>
-
-    <a
-      href="https://www.linkedin.com/in/dr-narsing-rao-gs-a318735/"
-      target="_blank"
-      rel="noreferrer"
-      className="mb-4"
-    >
-      <FaLinkedinIn className="text-[#0077B5] w-7 h-7" />
-    </a>
-
-    <p className="text-sm text-gray-600 leading-relaxed">
-      30 years + of experience in Education Sector as Vice Chancellor & Chief Mentor at Indian Universities ex-Professor
-    </p>
-  </div>
-</div>
-      <div className="w-full max-w-xs min-h-[450px] p-4 bg-gradient-to-br from-gray-100 to-white rounded-2xl shadow-md hover:shadow-lg hover:-translate-y-2 transition duration-300 flex flex-col justify-between items-center text-center">
-  {/* Image */}
-  <div className="w-28 h-28 mb-4 rounded-full p-1 bg-gradient-to-br from-[#03257e] via-[#006666] to-[#F14419]">
-    <img
-      src={advisor3}
-      alt="advisor3"
-      className="w-full h-full rounded-full object-cover"
-    />
-  </div>
-
-  {/* Content */}
-  <div className="flex flex-col items-center flex-grow">
-    <p className="text-lg font-bold text-gray-800 mb-1">Dr. Sindhu Bhaskar</p>
-    <p className="bg-gradient-to-r from-[#03257e] via-[#006666] to-[#F14419] text-white text-sm font-semibold px-3 py-1 rounded-full mb-3">
-      Co-Founder, EST Global, Forbes Council Member
-    </p>
-
-    <a
-      href="https://www.linkedin.com/in/dr-sindhu-bhaskar-55a84568/"
-      target="_blank"
-      rel="noreferrer"
-      className="mb-4"
-    >
-      <FaLinkedinIn className="text-[#0077B5] w-7 h-7" />
-    </a>
-
-    <p className="text-sm text-gray-600 leading-relaxed">
-      Established $100M+ business in Education sector. Co-Founded Fintech & Blockchain Association (FAB), US.
-    </p>
-  </div>
-</div>
-      <div className="w-full max-w-xs min-h-[450px] p-4 bg-gradient-to-br from-gray-100 to-white rounded-2xl shadow-md hover:shadow-lg hover:-translate-y-2 transition duration-300 flex flex-col justify-between items-center text-center">
-  {/* Image */}
-  <div className="w-28 h-28 mb-4 rounded-full p-1 bg-gradient-to-br from-[#03257e] via-[#006666] to-[#F14419]">
-    <img
-      src={advisor4}
-      alt="advisor4"
-      className="w-full h-full rounded-full object-cover"
-    />
-  </div>
-
-  {/* Content */}
-  <div className="flex flex-col items-center flex-grow">
-    <p className="text-lg font-bold text-gray-800 mb-1">James Wren</p>
-    <p className="bg-gradient-to-r from-[#03257e] via-[#006666] to-[#F14419] text-white text-sm font-semibold px-3 py-1 rounded-full mb-3">
-      Lead BD, Liquidium
-    </p>
-
-    <a
-      href="https://www.linkedin.com/in/james-wren-15b8b759/"
-      target="_blank"
-      rel="noreferrer"
-      className="mb-4"
-    >
-      <FaLinkedinIn className="text-[#0077B5] w-7 h-7" />
-    </a>
-
-    <p className="text-sm text-gray-600 leading-relaxed">
-      7+ years experience in Web3, Blockchain Degen & influencer in the BTC Ecosystem.
-    </p>
-  </div>
-</div>
-    </div>
-    </div>
-  <div className="flex flex-wrap items-center justify-center gap-8 p-4" id="register">
-    {/* {!auth&&<div className="flex flex-col justify-center items-center">
+              <p className="text-sm text-gray-600 leading-relaxed">
+                7+ years experience in Web3, Blockchain Degen & influencer in
+                the BTC Ecosystem.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="flex flex-wrap items-center justify-center gap-2 p-2"
+        id="register"
+      >
+        {/* {!auth&&<div className="flex flex-col justify-center items-center">
   <form 
   className="bg-gray-100 p-6 md:p-8 rounded-lg shadow-md space-y-8 w-screen sm:w-auto" 
   id="register"
@@ -924,72 +1004,80 @@ const Home = ()=>{
   </button>
 </form>
 </div>} */}
-{
-  <div className="bg-white p-4 text-center max-w-md mx-auto mt-8 h-[450px]">
-    <div className="w-auto h-[200px]">
-    <DotLottieReact
-      src="https://lottie.host/586ad214-f76e-4d3c-8b67-e9e05e893ba2/4314PkEllr.lottie"
-      loop
-      autoplay
-    />
-    </div>
-  <h2 className="text-[#006666] text-xl md:text-2xl lg:text-3xl font-semibold mb-4">
-    Register Here For Olympiad
-  </h2>
-  <p className="text-gray-600 mb-6 text-xl">
-    Pay the participation fee to receive your unique Olympiad code and confirm your registration.
-  </p>
-  {auth?.user?<button
-    onClick={() => setShowPopup(true)}
-    className="bg-[#006666] text-white text-2xl px-6 py-2 rounded hover:bg-[#004d4d] transition duration-200 cursor-pointer bg-gradient-to-r from-[#03257e] via-[#006666] to-[#F14419]"
-  >
-    Register Here
-  </button>:<Link 
-  className="bg-[#006666] text-white text-2xl px-6 py-2 rounded hover:bg-[#004d4d] transition duration-200 cursor-pointer"
-  to="/sign-up">Register Here</Link>}
+           <div className="w-fit h-[250px] sm:w-[400px] sm:h-[400px]">
+              <DotLottieReact
+                src="https://lottie.host/586ad214-f76e-4d3c-8b67-e9e05e893ba2/4314PkEllr.lottie"
+                loop
+                autoplay
+              />
+            </div>
+          <div className="flex justify-center items-center flex-col bg-white p-4 text-center max-w-md mx-auto mt-2 h-auto sm:h-[450px]">
+            <h2 className="text-[#006666] text-xl md:text-2xl lg:text-3xl font-semibold mb-4">
+              Register Here For Olympiad
+            </h2>
+            <p className="text-gray-600 mb-6 text-xl">
+              Pay the participation fee to receive your unique Olympiad code and
+              confirm your registration.
+            </p>
+            {auth?.user ? (
+              <button
+                onClick={() => setShowPopup(true)}
+                className="bg-[#006666] text-white text-2xl px-6 py-2 rounded hover:bg-[#004d4d] transition duration-200 cursor-pointer bg-gradient-to-r from-[#03257e] via-[#006666] to-[#F14419]"
+              >
+                Register Here
+              </button>
+            ) : (
+              <Link
+                className="bg-[#006666] text-white text-2xl px-6 py-2 rounded hover:bg-[#004d4d] transition duration-200 cursor-pointer"
+                to="/sign-up"
+              >
+                Register Here
+              </Link>
+            )}
+          </div>
+        {showPopup && (
+          <PaymentPopup
+            showPopup={showPopup}
+            setShowPopup={setShowPopup}
+            setShowSuccessPopup={setShowSuccessPopup}
+          />
+        )}
+      <div className="flex justify-center items-center flex-col gap-3 sm:gap-10">
+          <div className="text-[#000] w-[320px] sm:w-[400px] uppercase text-2xl md:text-4xl lg:text-5xl font-semibold text-center">
+            International <br /> Olympiad
+          </div>
 
-</div>
-}
-{showPopup&&
-  <PaymentPopup showPopup={showPopup} setShowPopup={setShowPopup} setShowSuccessPopup={setShowSuccessPopup}/>
-}
-    <div className="flex justify-center items-center flex-col gap-3 sm:gap-10">
-      <div className="text-[#000] w-[400px] uppercase text-2xl md:text-4xl lg:text-5xl font-semibold text-center">
-        International <br /> Olympiad
-      </div>
+          <div className="bg-[#006666] p-4 w-[320px] sm:w-[400px] text-white text-base md:text-xl text-center rounded-md shadow">
+            Compete in the New-Age International No-Code Emerging Technologies
+            Olympiad!
+          </div>
 
-      <div className="bg-[#006666] p-4 w-[400px] text-white text-base md:text-xl text-center rounded-md shadow">
-      Compete in the New-Age International No-Code Emerging Technologies Olympiad!
-      </div>
-
-      {/* PRICING BOX */}
-      <div className="flex justify-center items-center flex-col w-[400px] bg-gray-100 border border-gray-300 shadow-md rounded-lg">
-        <div className="bg-[#006666] text-white px-4 py-2 font-semibold text-lg text-center uppercase">
-          Participation Fee
+          {/* PRICING BOX */}
+          <div className="flex justify-center items-center flex-col w-[320px] sm:w-[400px] bg-gray-100 border border-gray-300 shadow-md rounded-lg">
+            <div className="bg-[#006666] text-white px-4 py-2 font-semibold text-lg text-center uppercase">
+              Participation Fee
+            </div>
+            <div className="flex justify-between w-[320px] sm:w-[400px]">
+              <div>
+                <div className="flex flex-col justify-center items-start px-8 sm:px-4 py-2 w-full gap-2">
+                  <p className="text-gray-500">1. India</p>
+                  <p className="text-gray-500">2. UAE</p>
+                  <p className="text-gray-500">3. Singapore</p>
+                </div>
+              </div>
+              <div>
+                <div className="flex flex-col justify-start items-start px-8 sm:px-4 py-2 w-full gap-2">
+                  <p className="font-bold text-gray-500">INR 250</p>
+                  <p className="font-bold text-gray-500">AED 50</p>
+                  <p className="font-bold text-gray-500">SGD 50</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div className="flex justify-between w-[400px]">
-          <div>
-          <div className="flex flex-col justify-center items-start px-8 sm:px-4 py-2 w-full gap-2">
-            <p className="text-gray-500">1. India</p>
-            <p className="text-gray-500">2. UAE</p>
-            <p className="text-gray-500">3. Singapore</p>
-          </div>
-          </div>
-          <div>
-          <div className="flex flex-col justify-start items-start px-8 sm:px-4 py-2 w-full gap-2">
-          <p className="font-bold text-gray-500">INR 250</p>
-            <p className="font-bold text-gray-500">AED 50</p>
-            <p className="font-bold text-gray-500">SGD 50</p>
-          </div>
-          </div>
-        </div>
       </div>
-    </div>
-    
-    <img src={pricingBg} alt="image" className=" hidden xl:flex w-[360px] h-[450px] items-center"></img>
-  </div>
-    <Footer />
-    {showSuccessPopup &&(
+      <Footer />
+      {showSuccessPopup && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-white bg-opacity-30 h-full w-full">
           <div className="relative w-11/12 max-w-3xl bg-white rounded-lg shadow-lg">
             <button
@@ -1019,9 +1107,8 @@ const Home = ()=>{
           </div>
         </div>
       )}
-  </div>
-);
+    </div>
+  );
+};
 
-}
-
-export  default Home
+export default Home;
