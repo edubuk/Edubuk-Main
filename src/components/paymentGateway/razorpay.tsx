@@ -21,7 +21,7 @@ interface payload {
   userName: string;
 }
 
-const API_BASE_URL = "https://edubukcetaolympiad.org";
+const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
 
 const PaymentPopup: React.FC<Props> = ({ showPopup, setShowPopup,setShowSuccessPopup }) => {
   const [amount, setAmount] = useState<number>(250);
@@ -47,7 +47,7 @@ const PaymentPopup: React.FC<Props> = ({ showPopup, setShowPopup,setShowSuccessP
           amount: amount * 100,
           currency: curr,
           name: "Edubuk (Eduprovince Technologies Private Limited)",
-          description: "",
+          description: "International AI & New Tech Olympiad",
           order_id: orderRes.data.order.id,
           handler: async (response: {
             razorpay_payment_id: string;

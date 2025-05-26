@@ -1,10 +1,7 @@
 export const colleges = [
-    "Indian Institute of Technology Delhi",
-    "Indian Institute of Technology Bombay",
-    "IIIT Hyderabad",
-    "IIIT Naya Raipur",
-    "Delhi University",
-    "BITS Pilani",
-    "NIT Trichy",
-    "NIT Warangal",
+    "Madhu Vachaspati Institute of Engineering and Technology",
+    "Krishnarpit Group of Institution",
+    "Madhu Vachaspati School and College",
+    "Avon Public Group of School&College",
+    "Delhi Public School",
   ];

@@ -15,8 +15,8 @@ import advisor2 from "../assets/Advisor/advisor2.png";
 import advisor3 from "../assets/Advisor/advisor3.png";
 import advisor4 from "../assets/Advisor/advisor4.png";
 import Footer from "./Footer";
-// import toast from "react-hot-toast";
 
+// import toast from "react-hot-toast";
 
 import {
   instLogos,
@@ -71,7 +71,7 @@ const Home = () => {
   const [current, setCurrent] = useState(0);
   const [showPopup, setShowPopup] = useState<boolean>(false);
   const [showSuccessPopup, setShowSuccessPopup] = useState<boolean>(false);
-  // const [paymentId,setPaymentId] = useState<string>();
+  const [paymentId, setPaymentId] = useState<boolean>(false);
   // const [query, setQuery] = useState("");
   // const [showDropdown, setShowDropdown] = useState(false);
   // const containerRef = useRef<HTMLDivElement>(null);
@@ -123,7 +123,9 @@ const Home = () => {
     const getPaymentId = async () => {
       try {
         let data: any = await fetch(
-          `http://localhost:8000/api/v1/user/getPaymentStatus/${auth.user.email}`,
+          `${import.meta.env.VITE_API_URL}/api/v1/user/getPaymentStatus/${
+            auth.user.email
+          }`,
           {
             method: "GET",
             headers: {
@@ -135,14 +137,15 @@ const Home = () => {
         console.log("data", data);
         if (data) {
           console.log("data", data);
-          //setPaymentId(data.paymentId);
+          if(data.paymentId)
+          setPaymentId(true);
         }
       } catch (error) {
         console.log("error while fetching payments data", error);
       }
     };
     getPaymentId();
-  }, []);
+  }, [showSuccessPopup]);
 
   // useEffect(() => {
   //   const handleClickOutside = (event: MouseEvent) => {
@@ -261,20 +264,24 @@ const Home = () => {
                 to="/sign-up"
                 className="absolute top-20 md:top-32  text-[#F14419] bg-[#ffffff] hover:bg-[#F14419] hover:text-white transition-all rounded-4xl py-1 px-4 sm:py-2 sm:px-8 text-[12px] md:text-[30px] z-10 font-bold cursor-pointer"
               >
-                REGISTER
+                Sign-Up
               </Link>
             )}
             {auth?.user && (
               <a
                 href="#register"
-                className="absolute top-20 md:top-32  text-[#F14419] bg-[#ffffff] hover:bg-[#F14419] hover:text-white transition-all rounded-4xl py-1 px-4 sm:py-2 sm:px-8 text-[12px] md:text-[30px] z-10 font-bold cursor-pointer"
+                className={`absolute top-20 md:top-32 text-[#F14419] bg-[#ffffff] hover:bg-[#F14419] hover:text-white transition-all rounded-4xl py-1 px-4 sm:py-2 sm:px-8 text-[12px] md:text-[30px] z-10 font-bold ${
+                  paymentId
+                    ? "pointer-events-none opacity-50  cursor-not-allowed"
+                    : "cursor-pointer"
+                }`}
               >
-                REGISTER
+                {paymentId ? "REGISTERED" : "REGISTER"}
               </a>
             )}
           </div>
         </div>
-        <p className="text-gray-950 md:text-[25px] text-[10px]">
+        <p className="text-gray-950 md:text-[22px] text-[10px]">
           * Students from all streams are eligible
         </p>
         {/* Dot navigation */}
@@ -296,153 +303,141 @@ const Home = () => {
           ))}
         </div>
       </div>
-      
-          <div className="flex justify-center flex-col items-center w-full overflow-hidden">
-  <p className="text-[#03257E] text-[25px] sm:text-[40px] md:text-[50px] font-bold uppercase text-center">
-    Awards & Recognitions
-  </p>
 
-  <div className="flex justify-start items-center p-2 border-b-2 border-gray-300">
-    <p className="bg-white hidden border-b-4 w-[200px] border-[#03257e] sm:flex sm:ml-0 rounded py-2 px-4 text-[#03257e] text-center font-bold text-[10px] sm:text-[15px] md:text-[20px] uppercase leading-none animate-slide-in-right shadow-gray-800">
-        Education institutes
-      </p>
-      <div className="overflow-hidden sm:py-4">
-        <div
-          key={1} 
-          className="flex animate-slide whitespace-nowrap"
-        >
-          {instLogos.concat(instLogos).map((logo, index) => (
-            <img
-              key={index}
-              src={logo}
-              alt={`logo-${index}`}
-              className="h-9 sm:h-12 w-auto sm:w-auto mx-4 sm:mx-8 shadow-[0_0_20px_5px_rgba(255,255,255,0.7)]"
-            />
-            ))}
+      <div className="flex justify-center flex-col items-center w-full overflow-hidden">
+        <p className="text-[#03257E] text-[25px] sm:text-[40px] md:text-[50px] font-bold uppercase text-center">
+          Awards & Recognitions
+        </p>
+
+        <div className="flex justify-start items-center p-2 border-b-2 border-gray-300">
+          <p className="bg-white hidden border-b-4 w-[200px] border-[#03257e] sm:flex sm:ml-0 rounded py-2 px-4 text-[#03257e] text-center font-bold text-[10px] sm:text-[15px] md:text-[20px] uppercase leading-none animate-slide-in-right shadow-gray-800">
+            Education institutes
+          </p>
+          <div className="overflow-hidden sm:py-4">
+            <div key={1} className="flex animate-slide whitespace-nowrap">
+              {instLogos.concat(instLogos).map((logo, index) => (
+                <img
+                  key={index}
+                  src={logo}
+                  alt={`logo-${index}`}
+                  className="h-9 sm:h-12 w-auto sm:w-auto mx-4 sm:mx-8 shadow-[0_0_20px_5px_rgba(255,255,255,0.7)]"
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+        <div className="flex justify-start items-center p-2 border-b-2 border-gray-300">
+          <div className="overflow-hidden sm:py-4">
+            <div
+              key={2}
+              className="flex animate-slideOpposite whitespace-nowrap"
+            >
+              {govLogos.concat(govLogos).map((logo, index) => (
+                <img
+                  key={index}
+                  src={logo}
+                  alt={`logo-${index}`}
+                  className="h-9 sm:h-6 w-auto sm:w-auto mx-4 sm:mx-8"
+                />
+              ))}
+            </div>
+          </div>
+          <p className="bg-white hidden border-b-4 border-[#03257e] sm:flex rounded w-[230px] p-2 text-[#03257e] text-center font-bold text-[10px] sm:text-[15px] md:text-[20px] uppercase leading-none animate-slide-in-right shadow-gray-800">
+            Governments & Regulators
+          </p>
+        </div>
+        <div className="flex justify-start items-center p-2 border-b-2 border-gray-300">
+          <p className="bg-white hidden border-b-4 border-[#03257e] sm:flex sm:ml-0 rounded w-[450px] p-2 text-[#03257e] text-center font-bold text-[10px] sm:text-[15px] md:text-[20px] uppercase leading-none animate-slide-in-right shadow-gray-800">
+            Grants & awards by blockchains
+          </p>
+          <div className="overflow-hidden sm:py-4">
+            <div key={3} className="flex animate-slide whitespace-nowrap">
+              {blcLogos.concat(blcLogos).map((logo, index) => (
+                <img
+                  key={index}
+                  src={logo}
+                  alt={`logo-${index}`}
+                  className="h-9 sm:h-6 w-auto sm:w-auto mx-4 sm:mx-8 shadow-[0_0_20px_5px_rgba(255,255,255,0.7)]"
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+        <div className="flex justify-start items-center p-2 border-b-2 border-gray-300">
+          <div className="overflow-hidden sm:py-4">
+            <div
+              key={4}
+              className="flex animate-slideOpposite whitespace-nowrap"
+            >
+              {accLogos.concat(accLogos).map((logo, index) => (
+                <img
+                  key={index}
+                  src={logo}
+                  alt={`logo-${index}`}
+                  className="h-9 sm:h-6 w-auto sm:w-auto mx-4 sm:mx-8"
+                />
+              ))}
+            </div>
+          </div>
+          <p className="bg-white hidden border-b-4 border-[#03257e] sm:flex rounded w-[350px] p-2 text-[#03257e] text-center font-bold text-[10px] sm:text-[15px] md:text-[20px] uppercase leading-none animate-slide-in-right shadow-gray-800">
+            cloud credits & accelerators
+          </p>
+        </div>
+        <div className="flex justify-start items-center p-2 border-b-2 border-gray-300">
+          <p className="bg-white hidden border-b-4 border-[#03257e] sm:flex sm:ml-0 rounded w-[200px] p-2 text-[#03257e] text-center font-bold text-[10px] sm:text-[15px] md:text-[20px] uppercase leading-none animate-slide-in-right shadow-gray-800">
+            media houses
+          </p>
+          <div className="overflow-hidden sm:py-4">
+            <div key={5} className="flex animate-slide whitespace-nowrap">
+              {mediaLogos.concat(mediaLogos).map((logo, index) => (
+                <img
+                  key={index}
+                  src={logo}
+                  alt={`logo-${index}`}
+                  className="h-9 sm:h-10 w-auto sm:w-auto mx-4 sm:mx-8 shadow-[0_0_20px_5px_rgba(255,255,255,0.7)]"
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+        <div className="flex justify-start items-center p-2 border-b-2 border-gray-300">
+          <div className="overflow-hidden sm:py-4">
+            <div
+              key={6}
+              className="flex animate-slideOpposite whitespace-nowrap"
+            >
+              {foreignLogos.concat(foreignLogos).map((logo, index) => (
+                <img
+                  key={index}
+                  src={logo}
+                  alt={`logo-${index}`}
+                  className="h-9 sm:h-12 w-auto sm:w-auto mx-4 sm:mx-8"
+                />
+              ))}
+            </div>
+          </div>
+          <p className="bg-white hidden border-b-4 border-[#03257e] sm:flex rounded w-[200px] p-2 text-[#03257e] text-center font-bold text-[10px] sm:text-[15px] md:text-[20px] uppercase leading-none animate-slide-in-right shadow-gray-800">
+            international bodies
+          </p>
+        </div>
+        <div className="flex justify-start items-center p-2 border-b-2 border-gray-300">
+          <p className="bg-white hidden border-b-4 border-[#03257e] sm:flex sm:ml-0 rounded w-[300px] p-2 text-[#03257e] text-center font-bold text-[10px] sm:text-[15px] md:text-[20px] uppercase leading-none animate-slide-in-right shadow-gray-800">
+            fintech & banking
+          </p>
+          <div className="overflow-hidden sm:py-4">
+            <div key={7} className="flex animate-slide whitespace-nowrap">
+              {finLogos.concat(finLogos).map((logo, index) => (
+                <img
+                  key={index}
+                  src={logo}
+                  alt={`logo-${index}`}
+                  className="h-9 sm:h-12 w-auto sm:w-auto mx-4 sm:mx-8 shadow-[0_0_20px_5px_rgba(255,255,255,0.7)]"
+                />
+              ))}
+            </div>
+          </div>
         </div>
       </div>
-  </div>
-  <div className="flex justify-start items-center p-2 border-b-2 border-gray-300">
-      <div className="overflow-hidden sm:py-4">
-        <div
-          key={2} 
-          className="flex animate-slideOpposite whitespace-nowrap"
-        >
-          {govLogos.concat(govLogos).map((logo, index) => (
-            <img
-              key={index}
-              src={logo}
-              alt={`logo-${index}`}
-              className="h-9 sm:h-6 w-auto sm:w-auto mx-4 sm:mx-8"
-            />
-          ))}
-        </div>
-      </div>
-      <p className="bg-white hidden border-b-4 border-[#03257e] sm:flex rounded w-[230px] p-2 text-[#03257e] text-center font-bold text-[10px] sm:text-[15px] md:text-[20px] uppercase leading-none animate-slide-in-right shadow-gray-800">
-        Governments & Regulators
-      </p>
-  </div>
-  <div className="flex justify-start items-center p-2 border-b-2 border-gray-300">
-    <p className="bg-white hidden border-b-4 border-[#03257e] sm:flex sm:ml-0 rounded w-[450px] p-2 text-[#03257e] text-center font-bold text-[10px] sm:text-[15px] md:text-[20px] uppercase leading-none animate-slide-in-right shadow-gray-800">
-        Grants & awards by blockchains
-      </p>
-      <div className="overflow-hidden sm:py-4">
-        <div
-          key={3} 
-          className="flex animate-slide whitespace-nowrap"
-        >
-          {blcLogos.concat(blcLogos).map((logo, index) => (
-            <img
-              key={index}
-              src={logo}
-              alt={`logo-${index}`}
-              className="h-9 sm:h-6 w-auto sm:w-auto mx-4 sm:mx-8 shadow-[0_0_20px_5px_rgba(255,255,255,0.7)]"
-            />
-            ))}
-        </div>
-      </div>
-  </div>
-  <div className="flex justify-start items-center p-2 border-b-2 border-gray-300">
-      <div className="overflow-hidden sm:py-4">
-        <div
-          key={4} 
-          className="flex animate-slideOpposite whitespace-nowrap"
-        >
-          {accLogos.concat(accLogos).map((logo, index) => (
-            <img
-              key={index}
-              src={logo}
-              alt={`logo-${index}`}
-              className="h-9 sm:h-6 w-auto sm:w-auto mx-4 sm:mx-8"
-            />
-          ))}
-        </div>
-      </div>
-      <p className="bg-white hidden border-b-4 border-[#03257e] sm:flex rounded w-[350px] p-2 text-[#03257e] text-center font-bold text-[10px] sm:text-[15px] md:text-[20px] uppercase leading-none animate-slide-in-right shadow-gray-800">
-        cloud credits & accelerators
-      </p>
-  </div>
-  <div className="flex justify-start items-center p-2 border-b-2 border-gray-300">
-    <p className="bg-white hidden border-b-4 border-[#03257e] sm:flex sm:ml-0 rounded w-[200px] p-2 text-[#03257e] text-center font-bold text-[10px] sm:text-[15px] md:text-[20px] uppercase leading-none animate-slide-in-right shadow-gray-800">
-        media houses
-      </p>
-      <div className="overflow-hidden sm:py-4">
-        <div
-          key={5} 
-          className="flex animate-slide whitespace-nowrap"
-        >
-          {mediaLogos.concat(mediaLogos).map((logo, index) => (
-            <img
-              key={index}
-              src={logo}
-              alt={`logo-${index}`}
-              className="h-9 sm:h-10 w-auto sm:w-auto mx-4 sm:mx-8 shadow-[0_0_20px_5px_rgba(255,255,255,0.7)]"
-            />
-            ))}
-        </div>
-      </div>
-  </div>
-  <div className="flex justify-start items-center p-2 border-b-2 border-gray-300">
-      <div className="overflow-hidden sm:py-4">
-        <div
-          key={6} 
-          className="flex animate-slideOpposite whitespace-nowrap"
-        >
-          {foreignLogos.concat(foreignLogos).map((logo, index) => (
-            <img
-              key={index}
-              src={logo}
-              alt={`logo-${index}`}
-              className="h-9 sm:h-12 w-auto sm:w-auto mx-4 sm:mx-8"
-            />
-          ))}
-        </div>
-      </div>
-      <p className="bg-white hidden border-b-4 border-[#03257e] sm:flex rounded w-[200px] p-2 text-[#03257e] text-center font-bold text-[10px] sm:text-[15px] md:text-[20px] uppercase leading-none animate-slide-in-right shadow-gray-800">
-        international bodies
-      </p>
-  </div>
-  <div className="flex justify-start items-center p-2 border-b-2 border-gray-300">
-    <p className="bg-white hidden border-b-4 border-[#03257e] sm:flex sm:ml-0 rounded w-[300px] p-2 text-[#03257e] text-center font-bold text-[10px] sm:text-[15px] md:text-[20px] uppercase leading-none animate-slide-in-right shadow-gray-800">
-       fintech & banking
-      </p>
-      <div className="overflow-hidden sm:py-4">
-        <div
-          key={7} 
-          className="flex animate-slide whitespace-nowrap"
-        >
-          {finLogos.concat(finLogos).map((logo, index) => (
-            <img
-              key={index}
-              src={logo}
-              alt={`logo-${index}`}
-              className="h-9 sm:h-12 w-auto sm:w-auto mx-4 sm:mx-8 shadow-[0_0_20px_5px_rgba(255,255,255,0.7)]"
-            />
-            ))}
-        </div>
-      </div>
-  </div>
-</div>
 
       <div>
         <div
@@ -1004,37 +999,38 @@ const Home = () => {
   </button>
 </form>
 </div>} */}
-           <div className="w-fit h-[250px] sm:w-[400px] sm:h-[400px]">
-              <DotLottieReact
-                src="https://lottie.host/586ad214-f76e-4d3c-8b67-e9e05e893ba2/4314PkEllr.lottie"
-                loop
-                autoplay
-              />
-            </div>
-          <div className="flex justify-center items-center flex-col bg-white p-4 text-center max-w-md mx-auto mt-2 h-auto sm:h-[450px]">
-            <h2 className="text-[#006666] text-xl md:text-2xl lg:text-3xl font-semibold mb-4">
-              Register Here For Olympiad
-            </h2>
-            <p className="text-gray-600 mb-6 text-xl">
-              Pay the participation fee to receive your unique Olympiad code and
-              confirm your registration.
-            </p>
-            {auth?.user ? (
-              <button
-                onClick={() => setShowPopup(true)}
-                className="bg-[#006666] text-white text-2xl px-6 py-2 rounded hover:bg-[#004d4d] transition duration-200 cursor-pointer bg-gradient-to-r from-[#03257e] via-[#006666] to-[#F14419]"
-              >
-                Register Here
-              </button>
-            ) : (
-              <Link
-                className="bg-[#006666] text-white text-2xl px-6 py-2 rounded hover:bg-[#004d4d] transition duration-200 cursor-pointer"
-                to="/sign-up"
-              >
-                Register Here
-              </Link>
-            )}
-          </div>
+        <div className="w-fit h-[250px] sm:w-[400px] sm:h-[400px]">
+          <DotLottieReact
+            src="https://lottie.host/586ad214-f76e-4d3c-8b67-e9e05e893ba2/4314PkEllr.lottie"
+            loop
+            autoplay
+          />
+        </div>
+        <div className="flex justify-center items-center flex-col bg-white p-4 text-center max-w-md mx-auto mt-2 h-auto sm:h-[450px]">
+          <h2 className="text-[#006666] text-xl md:text-2xl lg:text-3xl font-semibold mb-4">
+            Register Here For Olympiad
+          </h2>
+          <p className="text-gray-600 mb-6 text-xl">
+            Pay the participation fee to receive your unique Olympiad code and
+            confirm your registration.
+          </p>
+          {auth?.user ? (
+            <button
+              onClick={() => setShowPopup(true)}
+              disabled={paymentId}
+              className={`bg-[#006666] text-white text-2xl px-6 py-2 rounded hover:bg-[#004d4d] transition duration-200 cursor-pointer bg-gradient-to-r from-[#03257e] via-[#006666] to-[#F14419] ${paymentId ? "opacity-50 cursor-not-allowed" : ""}`}
+            >
+              Register Here
+            </button>
+          ) : (
+            <Link
+              className="bg-[#006666] text-white text-2xl px-6 py-2 rounded hover:bg-[#004d4d] transition duration-200 cursor-pointer"
+              to="/sign-up"
+            >
+              Register Here
+            </Link>
+          )}
+        </div>
         {showPopup && (
           <PaymentPopup
             showPopup={showPopup}
@@ -1042,7 +1038,7 @@ const Home = () => {
             setShowSuccessPopup={setShowSuccessPopup}
           />
         )}
-      <div className="flex justify-center items-center flex-col gap-3 sm:gap-10">
+        <div className="flex justify-center items-center flex-col gap-3 sm:gap-10">
           <div className="text-[#000] w-[320px] sm:w-[400px] uppercase text-2xl md:text-4xl lg:text-5xl font-semibold text-center">
             International <br /> Olympiad
           </div>
@@ -1097,7 +1093,7 @@ const Home = () => {
                 </p>
                 <p className="text-gray-600 text-center">
                   We’ve sent your Olympiad enrollment number to your registered
-                  email address. Please save it for future reference.
+                  email address. Please check your inbox or spam folder and save it for future reference.
                 </p>
                 <p className="text-blue-600 text-center text-xl font-bold">
                   Thank You !

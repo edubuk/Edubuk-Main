@@ -46,7 +46,7 @@ const OTPInput: React.FC<OTPInputProps> = ({setOTP,handleSubmit,email,loading}) 
       className="w-full max-w-md mx-auto p-6 bg-white rounded-lg text-center"
     >
       <h2 className="text-2xl font-semibold mb-4 text-[#006666]">Enter OTP</h2>
-      <p className="text-black text-center mb-4">We have sent a 6 digit otp to {email}. Please check your inbox</p>
+      <p className="text-black text-center mb-4">We’ve sent a 6-digit OTP to {email}. Please check your inbox or spam folder.</p>
       <div className="flex justify-center gap-2 mb-6">
         {otp.map((value, index) => (
           <input

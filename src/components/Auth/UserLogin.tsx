@@ -18,7 +18,7 @@ const UserLogin = () => {
     e.preventDefault();
     try {
       setLoading(true);
-      let data:any = await fetch("https://edubukcetaolympiad.org/api/v1/auth/login",{
+      let data:any = await fetch(`${import.meta.env.VITE_API_URL}/api/v1/auth/login`,{
         method:"POST",
         body:JSON.stringify({email:emailId,password:password}),
         headers:{
@@ -34,7 +34,7 @@ const UserLogin = () => {
         setAuth({...auth,user:data.user,token:data.token});
         localStorage.setItem("auth", JSON.stringify(data));
         setLoading(false);
-        navigate("/");
+        navigate("/#register");
       }
       else
       {

@@ -38,9 +38,9 @@ const Navbar = ()=> {
       <img src={logo} className="w-32 h-32 md:w-38 md:h-38"></img>
       <div className="flex justify-center items-center gap-1 w-full sm:hidden cursor-pointer" onClick={() => setOpen(true)}>
       <div className="flex justify-center flex-col items-center gap-1">
-      <span className=" w-4 h-4 rounded-full bg-[#03257E]"></span>
-      <span className="w-4 h-4 rounded-full bg-[#006666]"></span>
-      <span className="w-4 h-4 rounded-full bg-[#F14419]"></span>
+      <span className=" w-3 h-3 rounded-full bg-[#03257E]"></span>
+      <span className="w-3 h-3 rounded-full bg-[#006666]"></span>
+      <span className="w-3 h-3 rounded-full bg-[#F14419]"></span>
     </div>
     </div>
       {/* <RxHamburgerMenu
