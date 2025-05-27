@@ -257,7 +257,7 @@ const Home = () => {
               India | Singapore | Dubai
             </p>
             <p className="bg-[#006666] text-white md:text-[25px] text-[10px] p-2">
-              Open for class 7 to 12
+              Open for Class 7 to 12
             </p>
             {!auth.user && (
               <Link
@@ -310,7 +310,7 @@ const Home = () => {
         </p>
 
         <div className="flex justify-start items-center p-2 border-b-2 border-gray-300">
-          <p className="bg-white hidden border-b-4 w-[200px] border-[#03257e] sm:flex sm:ml-0 rounded py-2 px-4 text-[#03257e] text-center font-bold text-[10px] sm:text-[15px] md:text-[20px] uppercase leading-none animate-slide-in-right shadow-gray-800">
+          <p className="absolute left-0 bg-white hidden border-b-4 w-[160px] border-[#03257e] sm:flex sm:ml-0 rounded py-2 px-4 text-[#03257e] text-center font-bold text-[10px] sm:text-[15px] md:text-[20px] uppercase leading-none animate-slide-in-right shadow-gray-800 z-20">
             Education institutes
           </p>
           <div className="overflow-hidden sm:py-4">
@@ -342,12 +342,12 @@ const Home = () => {
               ))}
             </div>
           </div>
-          <p className="bg-white hidden border-b-4 border-[#03257e] sm:flex rounded w-[230px] p-2 text-[#03257e] text-center font-bold text-[10px] sm:text-[15px] md:text-[20px] uppercase leading-none animate-slide-in-right shadow-gray-800">
+          <p className="absolute right-0 bg-white hidden border-b-4 border-[#03257e] sm:flex rounded w-[200px] p-2 text-[#03257e] text-center font-bold text-[10px] sm:text-[15px] md:text-[20px] uppercase leading-none animate-slide-in-right shadow-gray-800 z-20">
             Governments & Regulators
           </p>
         </div>
         <div className="flex justify-start items-center p-2 border-b-2 border-gray-300">
-          <p className="bg-white hidden border-b-4 border-[#03257e] sm:flex sm:ml-0 rounded w-[450px] p-2 text-[#03257e] text-center font-bold text-[10px] sm:text-[15px] md:text-[20px] uppercase leading-none animate-slide-in-right shadow-gray-800">
+          <p className="absolute left-0 bg-white hidden border-b-4 p-2 border-[#03257e] sm:flex rounded w-[250px] text-[#03257e] text-center font-bold text-[10px] sm:text-[15px] md:text-[20px] uppercase leading-none animate-slide-in-right shadow-gray-800 z-20">
             Grants & awards by blockchains
           </p>
           <div className="overflow-hidden sm:py-4">
@@ -379,12 +379,12 @@ const Home = () => {
               ))}
             </div>
           </div>
-          <p className="bg-white hidden border-b-4 border-[#03257e] sm:flex rounded w-[350px] p-2 text-[#03257e] text-center font-bold text-[10px] sm:text-[15px] md:text-[20px] uppercase leading-none animate-slide-in-right shadow-gray-800">
+          <p className="absolute right-0 bg-white hidden border-b-4 border-[#03257e] sm:flex rounded w-[200px] p-2 text-[#03257e] text-center font-bold text-[10px] sm:text-[15px] md:text-[20px] uppercase leading-none animate-slide-in-right shadow-gray-800 z-20">
             cloud credits & accelerators
           </p>
         </div>
         <div className="flex justify-start items-center p-2 border-b-2 border-gray-300">
-          <p className="bg-white hidden border-b-4 border-[#03257e] sm:flex sm:ml-0 rounded w-[200px] p-2 text-[#03257e] text-center font-bold text-[10px] sm:text-[15px] md:text-[20px] uppercase leading-none animate-slide-in-right shadow-gray-800">
+          <p className="absolute left-0 bg-white hidden border-b-4 border-[#03257e] sm:flex sm:ml-0 rounded w-[100px] p-2 text-[#03257e] text-center font-bold text-[10px] sm:text-[15px] md:text-[20px] uppercase leading-none animate-slide-in-right shadow-gray-800 z-20">
             media houses
           </p>
           <div className="overflow-hidden sm:py-4">
@@ -416,12 +416,12 @@ const Home = () => {
               ))}
             </div>
           </div>
-          <p className="bg-white hidden border-b-4 border-[#03257e] sm:flex rounded w-[200px] p-2 text-[#03257e] text-center font-bold text-[10px] sm:text-[15px] md:text-[20px] uppercase leading-none animate-slide-in-right shadow-gray-800">
+          <p className="absolute right-0 bg-white hidden border-b-4 border-[#03257e] sm:flex rounded w-[180px] p-2 text-[#03257e] text-center font-bold text-[10px] sm:text-[15px] md:text-[20px] uppercase leading-none animate-slide-in-right shadow-gray-800 z-20">
             international bodies
           </p>
         </div>
         <div className="flex justify-start items-center p-2 border-b-2 border-gray-300">
-          <p className="bg-white hidden border-b-4 border-[#03257e] sm:flex sm:ml-0 rounded w-[300px] p-2 text-[#03257e] text-center font-bold text-[10px] sm:text-[15px] md:text-[20px] uppercase leading-none animate-slide-in-right shadow-gray-800">
+          <p className="absolute left-0 bg-white hidden border-b-4 border-[#03257e] sm:flex sm:ml-0 rounded w-[130px] p-2 text-[#03257e] text-center font-bold text-[10px] sm:text-[15px] md:text-[20px] uppercase leading-none animate-slide-in-right shadow-gray-800 z-20">
             fintech & banking
           </p>
           <div className="overflow-hidden sm:py-4">
@@ -445,7 +445,7 @@ const Home = () => {
           id="olympiad"
         >
           <p className=" text-[#03257E] text-[25px] sm:text-[40px] md:text-[50px] font-bold text-center">
-            No-Code Skilling in Emerging Technologies
+            No-Code Olympiad in Emerging Technologies
           </p>
           {/* <p className=" text-[#000000] my-4 text-[23px] sm:text-[38px] md:text-[48px] text-center">No-Code Skilling in Emerging Technologies</p> */}
         </div>
@@ -1006,31 +1006,7 @@ const Home = () => {
             autoplay
           />
         </div>
-        <div className="flex justify-center items-center flex-col bg-white p-4 text-center max-w-md mx-auto mt-2 h-auto sm:h-[450px]">
-          <h2 className="text-[#006666] text-xl md:text-2xl lg:text-3xl font-semibold mb-4">
-            Register Here For Olympiad
-          </h2>
-          <p className="text-gray-600 mb-6 text-xl">
-            Pay the participation fee to receive your unique Olympiad code and
-            confirm your registration.
-          </p>
-          {auth?.user ? (
-            <button
-              onClick={() => setShowPopup(true)}
-              disabled={paymentId}
-              className={`bg-[#006666] text-white text-2xl px-6 py-2 rounded hover:bg-[#004d4d] transition duration-200 cursor-pointer bg-gradient-to-r from-[#03257e] via-[#006666] to-[#F14419] ${paymentId ? "opacity-50 cursor-not-allowed" : ""}`}
-            >
-              Register Here
-            </button>
-          ) : (
-            <Link
-              className="bg-[#006666] text-white text-2xl px-6 py-2 rounded hover:bg-[#004d4d] transition duration-200 cursor-pointer"
-              to="/sign-up"
-            >
-              Register Here
-            </Link>
-          )}
-        </div>
+
         {showPopup && (
           <PaymentPopup
             showPopup={showPopup}
@@ -1038,18 +1014,18 @@ const Home = () => {
             setShowSuccessPopup={setShowSuccessPopup}
           />
         )}
-        <div className="flex justify-center items-center flex-col gap-3 sm:gap-10">
-          <div className="text-[#000] w-[320px] sm:w-[400px] uppercase text-2xl md:text-4xl lg:text-5xl font-semibold text-center">
+        <div className="flex justify-center items-center flex-col gap-2 sm:gap-1">
+          <div className="text-[#000] w-[330px] sm:w-[450px] uppercase text-2xl md:text-4xl lg:text-4xl font-semibold text-center">
             International <br /> Olympiad
           </div>
 
-          <div className="bg-[#006666] p-4 w-[320px] sm:w-[400px] text-white text-base md:text-xl text-center rounded-md shadow">
+          <div className="bg-[#006666] p-4 w-[330px] sm:w-[450px] text-white text-base md:text-xl text-center rounded-md shadow">
             Compete in the New-Age International No-Code Emerging Technologies
             Olympiad!
           </div>
 
           {/* PRICING BOX */}
-          <div className="flex justify-center items-center flex-col w-[320px] sm:w-[400px] bg-gray-100 border border-gray-300 shadow-md rounded-lg">
+          <div className="flex justify-center items-center flex-col w-[330px] sm:w-[450px] bg-gray-100 border border-gray-300 shadow-md rounded-lg">
             <div className="bg-[#006666] text-white px-4 py-2 font-semibold text-lg text-center uppercase">
               Participation Fee
             </div>
@@ -1063,13 +1039,32 @@ const Home = () => {
               </div>
               <div>
                 <div className="flex flex-col justify-start items-start px-8 sm:px-4 py-2 w-full gap-2">
-                  <p className="font-bold text-gray-500">INR 250</p>
+                  <p className="font-bold text-gray-500">INR 450</p>
                   <p className="font-bold text-gray-500">AED 50</p>
                   <p className="font-bold text-gray-500">SGD 50</p>
                 </div>
               </div>
             </div>
           </div>
+          <div className="flex justify-center items-center flex-col bg-white text-center max-w-md mx-auto mt-2">
+
+          {auth?.user ? (
+            <button
+              onClick={() => setShowPopup(true)}
+              disabled={paymentId}
+              className={`bg-[#006666] text-white text-2xl px-6 py-2 rounded hover:bg-[#004d4d] transition duration-200 cursor-pointer bg-gradient-to-r from-[#03257e] via-[#006666] to-[#F14419] ${paymentId ? "opacity-50 cursor-not-allowed" : ""}`}
+            >
+              Register Here
+            </button>
+          ) : (
+            <Link
+              className="bg-[#03257e] text-white text-2xl px-6 py-2 rounded border-1 hover:bg-white hover:text-[#03257e]  transition duration-300 cursor-pointer w-[330px] sm:w-[450px]"
+              to="/sign-up"
+            >
+              Register Here
+            </Link>
+          )}
+        </div>
         </div>
       </div>
       <Footer />

@@ -76,7 +76,7 @@ const Navbar = ()=> {
         </a>
         {
         auth.user?<CgProfile className="text-[#006666] w-8 h-8 md:w-10 md:h-10" onClick={()=>setOpenPopup(!openPopup)}/>:
-                <Link to="/login" className="text-black border-1 border-gray-300 rounded-full py-[8px] px-3 font-bold hover:bg-gray-200">Login</Link>
+                <Link to="/login" className="text-black border-1 border-gray-300 rounded-full py-[8px] px-10 font-bold hover:bg-gray-200">Login</Link>
         }
         </div>
       {
@@ -112,7 +112,7 @@ const Navbar = ()=> {
         </a>
 
       ))}
-      {!auth.user&&<Link to="/login" onClick={()=>setOpen(false)} className="text-[#006666] border-1 border-gray-300 rounded-full py-[10px] px-6 sm:px-3 font-bold hover:bg-gray-200">Login</Link>}
+      {!auth.user&&<Link to="/login" onClick={()=>setOpen(false)} className="text-[#006666] border-1 border-gray-300 rounded-full py-[10px] px-6 sm:px-8 font-bold hover:bg-gray-200">Login</Link>}
 
     </div>
   )}
