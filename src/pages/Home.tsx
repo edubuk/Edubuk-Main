@@ -1052,13 +1052,13 @@ const Home = () => {
             <button
               onClick={() => setShowPopup(true)}
               disabled={paymentId}
-              className={`bg-[#006666] text-white text-2xl px-6 py-2 rounded hover:bg-[#004d4d] transition duration-200 cursor-pointer bg-gradient-to-r from-[#03257e] via-[#006666] to-[#F14419] ${paymentId ? "opacity-50 cursor-not-allowed" : ""}`}
+              className={`bg-[#006666] text-white text-2xl px-6 py-2 rounded hover:bg-[#004d4d] transition duration-200 cursor-pointer bg-gradient-to-r w-[330px] sm:w-[450px] from-[#03257e] via-[#006666] to-[#F14419] ${paymentId ? "opacity-50 cursor-not-allowed" : ""}`}
             >
               Register Here
             </button>
           ) : (
             <Link
-              className="bg-[#03257e] text-white text-2xl px-6 py-2 rounded border-1 hover:bg-white hover:text-[#03257e]  transition duration-300 cursor-pointer w-[330px] sm:w-[450px]"
+              className="bg-[#006666] text-white text-2xl px-6 py-2 rounded border-1 hover:bg-white hover:text-[#006666]  transition duration-300 cursor-pointer w-[330px] sm:w-[450px]"
               to="/sign-up"
             >
               Register Here

@@ -24,7 +24,7 @@ interface payload {
 const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
 
 const PaymentPopup: React.FC<Props> = ({ showPopup, setShowPopup,setShowSuccessPopup }) => {
-  const [amount, setAmount] = useState<number>(250);
+  const [amount, setAmount] = useState<number>(450);
   const [curr, setCurr] = useState<string>("INR");
   const [loading, setLoading] = useState<boolean>(false);
   const [auth] = useAuth();
@@ -152,7 +152,7 @@ const PaymentPopup: React.FC<Props> = ({ showPopup, setShowPopup,setShowSuccessP
                           onChange={(e: any) => {
                             setCurr(e.target.value);
                             e.target.value === "INR"
-                              ? setAmount(250)
+                              ? setAmount(450)
                               : setAmount(50);
                           }}
                           className="w-full px-2 py-1 border text-center border-gray-300 rounded-md text-gray-700 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 appearance-none"
