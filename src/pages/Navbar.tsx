@@ -81,7 +81,7 @@ const Navbar = ()=> {
         </div>
       {
         auth.user&&<CgProfile className="flex sm:hidden text-[#006666] w-8 h-8 md:w-10 md:h-10" onClick={()=>setOpenPopup(!openPopup)}/>
-        }      {!openPopup&&
+        }      {openPopup&&
       <div className="w-[300px] sm:w-[350px] absolute right-2 top-32 p-4 flex flex-col justify-center items-start z-20 bg-white border border-gray-200 rounded shadow-md gap-3">
         <MdClose className="absolute top-2 w-4 h-4 right-2 text-gray-500 cursor-pointer" onClick={()=>setOpenPopup(false)}/>
   <InfoRow label="Name" value={auth.user.name} />
