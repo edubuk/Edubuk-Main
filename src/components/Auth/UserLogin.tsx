@@ -36,7 +36,7 @@ const UserLogin = () => {
         setLoading(false);
         navigate("/#register");
       }
-      else
+      else if(!data.success)
       {
         toast.error(data.message);
         setLoading(false);

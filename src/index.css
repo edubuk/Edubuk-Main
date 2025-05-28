@@ -82,6 +82,25 @@ html {
   animation: slide-in-right 2s ease-out forwards;
 }
 
+@keyframes zoomOut {
+            0% {
+              transform: scale(1.4);
+              opacity: 0.4;
+            }
+            50% {
+              transform: scale(1);
+              opacity: 1;
+            }
+            100% {
+              transform: scale(1.4);
+              opacity: 0.4;
+            }
+          }
+
+          .animate-zoomOut {
+            animation: zoomOut 1.5s ease-in-out infinite;
+          }
+
 
 /* body {
   margin: 0;

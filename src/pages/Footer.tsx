@@ -7,6 +7,9 @@ import social4 from '../assets/Social/social4.png'
 import social5 from '../assets/Social/social5.png'
 import social6 from '../assets/Social/social6.png'
 import { MdEmail, MdLocationPin, MdPhone } from "react-icons/md";
+import { FaPhone, FaRegFileAlt } from "react-icons/fa";
+import { Link } from "react-router-dom";
+
 const Footer = () => {
   return (
     <div className="flex flex-col bg-white sm:px-4 gap-4 border-b-8 border-[#006666]">
@@ -27,9 +30,16 @@ const Footer = () => {
      
       <div className="flex flex-wrap justify-center sm:justify-between items-center gap-8 border-b-2 border-t-2 border-gray-300 pb-3 " >
         <img src={logo} alt="logo" className="md:w-[200px] md:h-[200px] w-[152px] h-[152px]"></img>
+        <div className="flex flex-col justify-center gap-4 sm:pl-16">
+            <div className="font-semibold text-xl text-black uppercase">Legals:</div>
+            <Link to="/terms-and-conditions" className="flex justify-start gap-2 items-center text-black"><FaRegFileAlt />Terms & Conditions</Link>
+            <Link to="/cancellation-policy" className="flex justify-start gap-2 items-center text-black"><FaRegFileAlt />Cancellation Policy</Link>
+            <Link to="/refund-policy" className="flex justify-start gap-2 items-center text-black"><FaRegFileAlt />Refund Policy</Link>
+            <Link to="/contact-us" className="flex justify-start gap-2 items-center text-black"><FaPhone />Contact Us</Link>
+        </div>
         <div className="flex flex-col justify-center gap-4 sm:pl-16 ml-10">
             <div className="font-semibold text-xl text-black uppercase">Contact Us:</div>
-            <div className="flex justify-start gap-2 items-center text-black"><MdEmail />Email: support@edubuk.com</div>
+            <div className="flex justify-start gap-2 items-center text-black"><MdEmail />Email: support@edubukeseal.org</div>
             <div className="flex justify-start gap-2 items-center text-black"><MdPhone />Phone: +91 9250411261</div>
         </div>
         <div className="flex flex-col justify-center gap-4 sm:pl-16">

@@ -5,6 +5,10 @@ import Home from './pages/Home'
 import {Toaster} from 'react-hot-toast';
 import UserRegistration from './components/Auth/UserRegistration';
 import UserLogin from './components/Auth/UserLogin';
+import RefundPolicy from './components/Legals/RefundPolicy';
+import TermsAndConditions from './components/Legals/TermCond';
+import CancellationPolicy from './components/Legals/CancellationPol';
+import ContactUs from './components/Legals/ContactUs';
 
 
 function App() {
@@ -18,6 +22,10 @@ function App() {
         <Route path='/home' element={<Home />}></Route>
         <Route path='/sign-up' element={<UserRegistration />}></Route>
         <Route path='/login' element={<UserLogin />}></Route>
+        <Route path="/refund-policy" element={<RefundPolicy />}></Route>
+        <Route path="/terms-and-conditions" element={<TermsAndConditions />}></Route>
+        <Route path="/cancellation-policy" element={<CancellationPolicy />}></Route>
+        <Route path="/contact-us" element={<ContactUs />}></Route>
       </Routes>
     </>
   )

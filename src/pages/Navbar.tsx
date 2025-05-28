@@ -2,7 +2,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from "../assets/edubuklogo.png";
 import olymLogo from "../assets/olympiadLogo.png";
 import { RxCross2 } from "react-icons/rx";
-import { MdLogout } from "react-icons/md";
+import { MdClose, MdLogout } from "react-icons/md";
 import { useState } from "react";
 import { CgProfile } from "react-icons/cg";
 import InfoRow from "./InfoRow";
@@ -81,12 +81,14 @@ const Navbar = ()=> {
         </div>
       {
         auth.user&&<CgProfile className="flex sm:hidden text-[#006666] w-8 h-8 md:w-10 md:h-10" onClick={()=>setOpenPopup(!openPopup)}/>
-        }      {openPopup&&
+        }      {!openPopup&&
       <div className="w-[300px] sm:w-[350px] absolute right-2 top-32 p-4 flex flex-col justify-center items-start z-20 bg-white border border-gray-200 rounded shadow-md gap-3">
+        <MdClose className="absolute top-2 w-4 h-4 right-2 text-gray-500 cursor-pointer" onClick={()=>setOpenPopup(false)}/>
   <InfoRow label="Name" value={auth.user.name} />
   <InfoRow label="Class" value={auth.user.stuClass} />
   <InfoRow label="School/College" value={auth.user.college} sliceLength={15} />
   <InfoRow label="Email" value={auth.user.email} sliceLength={15} />
+  
   <button onClick={handleLogout} className="flex justify-center items-center text-[#006666] p-2 border-1 border-gray-200 rounded cursor-pointer">Logout <MdLogout className="ml-1"/></button>
 </div>
      }
