@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useLayoutEffect } from "react";
 import hero1 from "../assets/HeroImg/hero11.jpg";
 import hero2 from "../assets/HeroImg/tempImg.jpeg";
 import hero3 from "../assets/HeroImg/hero3.jpg";
@@ -75,6 +75,16 @@ const Home = () => {
     };
     getPaymentId();
   }, [showSuccessPopup]);
+
+  useLayoutEffect(() => {
+  const hash = window.location.hash;
+  if (hash) {
+    const target = document.querySelector(hash);
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+}, []);
 
 
   // Auto-slide every 5 seconds
@@ -718,18 +728,13 @@ const Home = () => {
         </div>
       </div>
       <div
-        className="flex flex-wrap items-center justify-center gap-2 p-2"
+        className="flex flex-wrap items-center justify-center gap-2 p-2 "
         id="register"
       >
        
-        <div className="w-fit h-[250px] sm:w-[400px] sm:h-[400px]">
-          {/* <DotLottieReact
-            src="https://lottie.host/586ad214-f76e-4d3c-8b67-e9e05e893ba2/4314PkEllr.lottie"
-            loop
-            autoplay
-          /> */}
-          <Lottie loop={true} animationData={aniJson1} height={400} width={400} />
-        </div>
+      
+      <Lottie loop={true} animationData={aniJson1} className="w-[350px] h-[350px] md:w-[400px] md:h-[400px]"/>
+     
 
         {showPopup && (
           <PaymentPopup
