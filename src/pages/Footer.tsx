@@ -33,8 +33,11 @@ const Footer = () => {
         <div className="flex flex-col justify-center gap-4 sm:pl-16">
             <div className="font-semibold text-xl text-black uppercase">Legals:</div>
             <Link to="/terms-and-conditions" className="flex justify-start gap-2 items-center text-black"><FaRegFileAlt />Terms & Conditions</Link>
-            <Link to="/cancellation-policy" className="flex justify-start gap-2 items-center text-black"><FaRegFileAlt />Cancellation Policy</Link>
-            <Link to="/refund-policy" className="flex justify-start gap-2 items-center text-black"><FaRegFileAlt />Refund Policy</Link>
+            <Link to="/cancellation-policy" className="flex justify-start gap-2 items-center text-black"><FaRegFileAlt />Cancellation Policy</Link> 
+        </div>
+        <div className="flex flex-col justify-center gap-4 sm:pl-16">
+              <Link to="/refund-policy" className="flex justify-start gap-2 items-center text-black"><FaRegFileAlt />Refund Policy</Link>
+            <Link to="/privacy-policy" className="flex justify-start gap-2 items-center text-black"><FaRegFileAlt />Privacy Policy</Link>
             <Link to="/contact-us" className="flex justify-start gap-2 items-center text-black"><FaPhone />Contact Us</Link>
         </div>
         <div className="flex flex-col justify-center gap-4 sm:pl-16 ml-10">

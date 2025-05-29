@@ -6,7 +6,7 @@ const RefundPolicy: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto p-6 bg-white shadow-lg rounded-lg mt-10">
     <Link to="/"><FaArrowLeft className="text-black w-6 h-6 mb-4 cursor-pointer"/></Link>
-      <h1 className="text-3xl font-bold text-[#006666] mb-4">Refund Policy</h1>
+      <p className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#006666] mb-4">Refund Policy</p>
 
       <p className="text-gray-600 mb-4">
         Our refund policy outlines the terms and conditions under which refunds

@@ -6,7 +6,7 @@ const CancellationPolicy: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto bg-white shadow-lg rounded-lg p-6 mt-10">
           <Link to="/"><FaArrowLeft className="text-black w-6 h-6 cursor-pointer mb-4"/></Link>
-      <h1 className="text-3xl font-bold text-[#006666] mb-4">Cancellation Policy</h1>
+      <p className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#006666] mb-4">Cancellation Policy</p>
       
       <p className="text-gray-600 mb-4">
         At Edubuk, we understand that circumstances may arise where users need to 

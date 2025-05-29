@@ -9,6 +9,7 @@ import RefundPolicy from './components/Legals/RefundPolicy';
 import TermsAndConditions from './components/Legals/TermCond';
 import CancellationPolicy from './components/Legals/CancellationPol';
 import ContactUs from './components/Legals/ContactUs';
+import PrivacyPolicy from './components/Legals/PrivacyPolicy';
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
         <Route path="/terms-and-conditions" element={<TermsAndConditions />}></Route>
         <Route path="/cancellation-policy" element={<CancellationPolicy />}></Route>
         <Route path="/contact-us" element={<ContactUs />}></Route>
+        <Route path="/privacy-policy" element={<PrivacyPolicy />}></Route>
       </Routes>
     </>
   )

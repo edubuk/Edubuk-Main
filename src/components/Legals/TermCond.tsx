@@ -6,7 +6,7 @@ const TermsAndConditions: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto bg-white shadow-lg rounded-lg p-6 mt-10">
     <Link to="/"><FaArrowLeft className="text-black w-6 h-6 mb-4 cursor-pointer"/></Link>
-      <h1 className="text-3xl font-bold text-[#006666]">Terms & Conditions</h1>
+      <p className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#006666]">Terms & Conditions</p>
 
       <h2 className="text-xl font-semibold text-gray-700 mt-4">Acceptance of Terms</h2>
       <p className="text-gray-600">

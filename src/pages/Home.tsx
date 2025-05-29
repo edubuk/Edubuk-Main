@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
 import hero1 from "../assets/HeroImg/hero11.jpg";
-import hero2 from "../assets/HeroImg/hero2.png";
+import hero2 from "../assets/HeroImg/tempImg.jpeg";
 import hero3 from "../assets/HeroImg/hero3.jpg";
-//import hero3 from '../assets/HeroImg/tempImg.jpeg';
-// import award1 from '../assets/AwardImg/award1.png';
-// import award2 from '../assets/AwardImg/award2.jpg';
-// import award3 from '../assets/AwardImg/award3.png';
+import aniJson1 from '../components/Animation/registerAnimation.json';
+import awardAni1 from '../components/Animation/awardAni1.json';
+import awardAni2 from '../components/Animation/awardAni2.json';
+import awardAni3 from '../components/Animation/awardAni3.json';
+import Lottie from 'lottie-react';
 import team1 from "../assets/Team/team1.png";
 import team2 from "../assets/Team/team2.png";
 import team3 from "../assets/Team/team3.png";
@@ -32,94 +33,22 @@ import PaymentPopup from "../components/paymentGateway/razorpay";
 import { useAuth } from "../context/auth";
 import { Link } from "react-router-dom";
 import { FaLinkedinIn } from "react-icons/fa";
-import { DotLottieReact } from "@lottiefiles/dotlottie-react";
-// interface formValue{
-//   name:string,
-//   college:string,
-//   stuClass:string,
-//   city:string,
-//   country:string
-//   phoneNumber:string,
-//   email:string,
-// }
+// import { DotLottieReact } from "@lottiefiles/dotlottie-react";
+
 
 const images = [hero1, hero2, hero3];
-// const logos = [logo1,logo2,logo3,logo4,logo5,logo1,logo2,logo3,logo4,logo5];
 
-// const logosByCategory1: Record<string, string[]> = {
-//   "Education institutes":instLogos,
-//   "Governments & Regulators":govLogos,
-//   "Grants & awards by blockchains":blcLogos,
-//   "cloud credits & accelerators":accLogos,
-//   "media houses":mediaLogos,
-//   "international bodies":foreignLogos,
-//   "fintech & banking":finLogos
-// };
-// const logosByCategory2: Record<string, string[]> = {
-//   "fintech & banking":finLogos,
-//   "international bodies":foreignLogos,
-//   "media houses":mediaLogos,
-//   "cloud credits & accelerators":accLogos,
-//   "Grants & awards by blockchains":blcLogos,
-//   "Governments & Regulators":govLogos,
-//   "Education institutes":instLogos,
-// };
-
-// const SLIDE_DURATION = 10000;
 
 const Home = () => {
   const [current, setCurrent] = useState(0);
   const [showPopup, setShowPopup] = useState<boolean>(false);
   const [showSuccessPopup, setShowSuccessPopup] = useState<boolean>(false);
   const [paymentId, setPaymentId] = useState<boolean>(false);
-  // const [query, setQuery] = useState("");
-  // const [showDropdown, setShowDropdown] = useState(false);
-  // const containerRef = useRef<HTMLDivElement>(null);
+
   const [auth] = useAuth();
-  // const [formData,setFormData] = useState<formValue>({
-  //   name:"",
-  //   college:"",
-  //   stuClass:"",
-  //   city:"",
-  //   country:"",
-  //   phoneNumber:"",
-  //   email:""
-  // })
 
-  // const filteredColleges = colleges.filter((college) =>
-  //   college.toLowerCase().includes(query.toLowerCase())
-  // );
-
-  // const handleSelect = (college: string) => {
-  //   if(college==="other")
-  //   {
-  //     setShowDropdown(false);
-  //   }else{
-  //   setQuery(college);
-  //   setShowDropdown(false);
-  //   }
-  // };
-
-  // const categories1 = Object.keys(logosByCategory1);
-  // const categories2 = Object.keys(logosByCategory2);
-  // const [currentCategoryIndex, setCurrentCategoryIndex] = useState(0);
-  // const [currentCategoryIndex2, setCurrentCategoryIndex2] = useState(0);
-  //const [animateKey,setAnimatedKey] = useState(0); // to reset animation
-
-  // useEffect(() => {
-  //   const timer1 = setInterval(() => {
-  //     setCurrentCategoryIndex((prev) => (prev + 1) % categories1.length);
-  //     setCurrentCategoryIndex2((prev) => (prev + 1) % categories2.length);
-  //     setAnimateKey((prev) => prev + 1); // force re-trigger animation
-  //   }, SLIDE_DURATION);
-
-  //   return () => clearInterval(timer1);
-
-  // }, []);
 
   useEffect(() => {
-    //const paymentId = localStorage.getItem("paymentId");
-    //console.log("paymentId",paymentId)
     const getPaymentId = async () => {
       try {
         let data: any = await fetch(
@@ -147,83 +76,6 @@ const Home = () => {
     getPaymentId();
   }, [showSuccessPopup]);
 
-  // useEffect(() => {
-  //   const handleClickOutside = (event: MouseEvent) => {
-  //     if (
-  //       containerRef.current &&
-  //       !containerRef.current.contains(event.target as Node)
-  //     ) {
-  //       setShowDropdown(false);
-  //     }
-  //   };
-  //   document.addEventListener("mousedown", handleClickOutside);
-  //   return () => document.removeEventListener("mousedown", handleClickOutside);
-  // }, []);
-
-  // const currentCategory1 = categories1[currentCategoryIndex];
-  // const currentLogos1 = logosByCategory1[currentCategory1];
-  // const currentCategory2 = categories2[currentCategoryIndex2];
-  // const currentLogos2 = logosByCategory2[currentCategory2];
-
-  // const onChangeHandler = (e:ChangeEvent<HTMLInputElement>)=>{
-  //   e.preventDefault();
-  //   const {name,value}=e.target;
-  //   setFormData((prevData)=>({...prevData,[name]:value})) ;
-  //   console.log("form",formData)
-  // }
-
-  // const regHandler = async(e:any)=>{
-  //   e.preventDefault();
-  //   try {
-  //     if(!formData.name || !formData.college || !formData.stuClass || !formData.country || !formData.phoneNumber || !formData.email )
-  //     {
-  //       toast.error("All inputs field are required");
-  //     }
-  //     const data:any = await fetch('http://localhost:8000/api/v1/user/registration',{
-  //       method:"POST",
-  //       body:JSON.stringify({name:formData.name,college:formData.college,stuClass:formData.stuClass,city:formData.city, country:formData.country, phoneNumber:formData.phoneNumber,email:formData.email}),
-  //       headers:{
-  //         "Content-Type": "application/json",
-  //       }
-  //     })
-
-  //     const res = await data.json();
-  //     console.log("res",res);
-  //     if(res.success)
-  //     {
-  //       localStorage.setItem("email",formData.email);
-  //       setFormData({
-  //         name: "",
-  //         college: "",
-  //         stuClass:"",
-  //         city:"",
-  //         country:"",
-  //         phoneNumber: "",
-  //         email: ""
-  //       });
-  //       return toast.success(res.message);
-  //     }
-  //     if(!res.success)
-  //     {
-  //       toast.error(res.message);
-  //     }
-  //   } catch (error) {
-  //     console.log("error while user registration",error);
-  //     toast.error("something went wrong !");
-  //   }
-  // }
-
-  // const buttonHandler = (e:any)=>{
-  //   e.preventDefault();
-  //   const data = localStorage.getItem("paymentId");
-  //   if(data!==paymentId)
-  //   {
-  //     setShowPopup(true);
-  //   }
-  //   else{
-  //     regHandler(e);
-  //   }
-  // }
 
   // Auto-slide every 5 seconds
   console.log("auth values", auth.user);
@@ -490,25 +342,18 @@ const Home = () => {
         </p>
         {/* <p className=" text-[#000000] my-4 text-[23px] sm:text-[38px] md:text-[48px] text-center">No-Code Skilling in Emerging Technologies</p> */}
       </div>
-      <div className="flex justify-center items-center gap-4 p-4">
-        {/* Left Rectangular Box (Hidden on mobile) */}
-        {/* <div className="hidden sm:block w-32 h-[350px] bg-gray-300 rounded-md shadow-md"></div> */}
-
-        {/* Video with Fixed Height and 16:9 Aspect Ratio */}
-        <div className="relative w-full max-w-3xl h-[250px] sm:h-[350px] border-4 border-gray-300 rounded-xl">
-          <iframe
-            className="w-full h-full rounded-lg shadow-lg"
-            src="https://www.youtube.com/embed/kORadYQBGLY?autoplay=1&mute=1"
-            title="Edubuk Presents: AI and Emerging Technologies Hackathon for College Student"
-            allow="autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerPolicy="strict-origin-when-cross-origin"
-            allowFullScreen
-          ></iframe>
-        </div>
-
-        {/* Right Rectangular Box (Hidden on mobile) */}
-        {/* <div className="hidden sm:block w-32 h-[350px] bg-gray-300 rounded-md shadow-md"></div> */}
-      </div>
+      <div className="flex justify-center items-center gap-4 p-4 w-full">
+              <div className="relative w-full max-w-[800px] aspect-video rounded-xl overflow-hidden border-4 border-gray-300 shadow-lg">
+                <iframe
+                  className="absolute top-0 left-0 w-full h-full"
+                  src="https://www.youtube.com/embed/kORadYQBGLY?autoplay=1&mute=1"
+                  title="Edubuk Presents: AI and Emerging Technologies Hackathon for College Student"
+                  allow="autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                ></iframe>
+              </div>
+            </div>
 
       <div>
         <div className="flex flex-col justify-center items-center bg-[#006666] p-6">
@@ -530,11 +375,12 @@ const Home = () => {
           <div className="flex flex-wrap justify-center items-center gap-6 p-4">
             <div className="flex flex-col justify-center items-center border-1 border-gray-500 rounded-lg">
               <div className="w-[300px] h-[300px] p-8">
-                <DotLottieReact
+                {/* <DotLottieReact
                   src="https://lottie.host/278f37d4-d700-4952-b7af-e3ad48bc9b50/usKs5I4b4X.lottie"
                   loop
                   autoplay
-                />
+                /> */}
+                <Lottie loop={true} animationData={awardAni1} height={400} width={400} />
               </div>
               <p className="text-white w-full p-4 bg-[#03257E] uppercase text-center text-[20px] sm:text-[30px] md:text-[40px] rounded-b-lg">
                 exciting prizes
@@ -542,11 +388,12 @@ const Home = () => {
             </div>
             <div className="flex flex-col justify-center items-center border-1 border-gray-500 rounded-lg">
               <div className="w-[300px] h-[300px] p-8">
-                <DotLottieReact
+                {/* <DotLottieReact
                   src="https://lottie.host/176c2c1d-55f1-4966-8f51-481208bacf00/Hj70UEKuYf.lottie"
                   loop
                   autoplay
-                />
+                /> */}
+                <Lottie loop={true} animationData={awardAni2} height={400} width={400} />
               </div>
               <p className="text-white w-full p-4 bg-[#006666] uppercase text-center text-[20px] sm:text-[30px] md:text-[40px] rounded-b-lg">
                 Certificates
@@ -554,11 +401,12 @@ const Home = () => {
             </div>
             <div className="flex flex-col justify-center items-center border-1 border-gray-500 rounded-lg">
               <div className="w-[300px] h-[300px] p-8">
-                <DotLottieReact
+                {/* <DotLottieReact
                   src="https://lottie.host/b2890cb3-db52-437d-9568-d1284c3763ea/W3jB7Zn0fP.lottie"
                   loop
                   autoplay
-                />
+                /> */}
+                <Lottie loop={true} animationData={awardAni3} height={400} width={400} />
               </div>
               <p className="text-white w-full p-4 bg-[#F14419] uppercase text-center text-[20px] sm:text-[30px] md:text-[40px] rounded-b-lg">
                 Medals
@@ -873,138 +721,14 @@ const Home = () => {
         className="flex flex-wrap items-center justify-center gap-2 p-2"
         id="register"
       >
-        {/* {!auth&&<div className="flex flex-col justify-center items-center">
-  <form 
-  className="bg-gray-100 p-6 md:p-8 rounded-lg shadow-md space-y-8 w-screen sm:w-auto" 
-  id="register"
->
-  <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-6">
-    <div>
-      <label className="block text-sm font-medium text-[#1e1e1e]">Student Name*</label>
-      <input
-        type="text"
-        placeholder="Student Name"
-        name="name"
-        value={formData.name}
-        onChange={onChangeHandler}
-        required
-        className="w-full border border-gray-300 rounded-md px-3 py-2 mt-1 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 text-[#006666]"
-      />
-    </div>
-
-    <div>
-      <label className="block text-sm font-medium text-[#1e1e1e]">School/College Name*</label>
-      <input
-        type="text"
-        name="college"
-        placeholder="School/College Name"
-        value={query}
-        onFocus={() => setShowDropdown(true)}
-        onChange={(e) => {
-          setQuery(e.target.value);
-          setShowDropdown(true);
-        }}
-        required
-        className="w-full border border-gray-300 rounded-md px-3 py-2 mt-1 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 text-[#006666]"
-      />
-    </div>
-
-    {showDropdown && (
-        <ul className="absolute z-10 w-fit bg-gray-200 rounded mt-18 sm:ml-44 max-h-60 overflow-y-auto shadow-md hide-scrollbar ">
-          {filteredColleges.length > 0 &&(
-            filteredColleges.map((college) => (
-              <li
-                key={college}
-                onClick={() => handleSelect(college)}
-                className="text-[#006666] px-4 py-2 hover:bg-blue-100 cursor-pointer text-sm"
-              >
-                {college}
-              </li>
-            ))
-          ) }
-        </ul>
-      )}
-
-    <div>
-      <label className="block text-sm font-medium text-[#1e1e1e]">Class*</label>
-      <input
-        type="text"
-        name="stuClass"
-        placeholder="Class"
-        value={formData.stuClass}
-        onChange={onChangeHandler}
-        required
-        className="w-full border border-gray-300 rounded-md px-3 py-2 mt-1 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 text-[#006666]"
-      />
-    </div>
-    <div>
-      <label className="block text-sm font-medium text-[#1e1e1e]">City*</label>
-      <input
-        type="text"
-        name="city"
-        placeholder="City"
-        value={formData.city}
-        onChange={onChangeHandler}
-        required
-        className="w-full border border-gray-300 rounded-md px-3 py-2 mt-1 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 text-[#006666]"
-      />
-    </div>
-
-    <div>
-      <label className="block text-sm font-medium text-[#1e1e1e]">Country*</label>
-      <input
-        type="text"
-        name="country"
-        placeholder="Country"
-        value={formData.country}
-        onChange={onChangeHandler}
-        required
-        className="w-full border border-gray-300 rounded-md px-3 py-2 mt-1 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 text-[#006666]"
-      />
-    </div>
-
-    <div>
-      <label className="block text-sm font-medium text-[#1e1e1e]">Phone Number*</label>
-      <input
-        type="text"
-        name="phoneNumber"
-        placeholder="Phone Number"
-        value={formData.phoneNumber}
-        onChange={onChangeHandler}
-        required
-        className="w-full border border-gray-300 rounded-md px-3 py-2 mt-1 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 text-[#006666]"
-      />
-    </div>
-
-    <div className="sm:col-span-2">
-      <label className="block text-sm font-medium text-[#1e1e1e]">Email Address*</label>
-      <input
-        type="email"
-        name="email"
-        placeholder="Email"
-        value={formData.email}
-        onChange={onChangeHandler}
-        required
-        className="w-full border border-gray-300 rounded-md px-3 py-2 mt-1 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 text-[#006666]"
-      />
-    </div>
-  </div>
-
-  <button
-    type="submit"
-    onClick={buttonHandler}
-    className="w-full bg-[#006666] text-white py-2 rounded-md hover:bg-[#1e1e1e] transition"
-  >
-    Submit
-  </button>
-</form>
-</div>} */}
+       
         <div className="w-fit h-[250px] sm:w-[400px] sm:h-[400px]">
-          <DotLottieReact
+          {/* <DotLottieReact
             src="https://lottie.host/586ad214-f76e-4d3c-8b67-e9e05e893ba2/4314PkEllr.lottie"
             loop
             autoplay
-          />
+          /> */}
+          <Lottie loop={true} animationData={aniJson1} height={400} width={400} />
         </div>
 
         {showPopup && (
