@@ -72,7 +72,7 @@ html {
 
 
 .animate-slide {
-  animation: slide 10s linear infinite;
+  animation: slide 8s linear infinite;
 }
 .animate-slideOpposite {
   animation: slideOpposite 10s linear infinite;
