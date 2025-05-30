@@ -124,9 +124,9 @@ const Home = () => {
             {!auth.user && (
               <Link
                 to="/sign-up"
-                className="absolute top-20 md:top-32  text-[#F14419] bg-[#ffffff] hover:bg-[#F14419] hover:text-white transition-all rounded-4xl py-1 px-4 sm:py-2 sm:px-8 text-[12px] md:text-[30px] z-10 font-bold cursor-pointer"
+                className="absolute top-20 md:top-32  text-[#F14419] bg-[#ffffff] hover:bg-[#F14419] hover:text-white transition-all rounded-4xl py-1 px-2 sm:py-2 sm:px-3 text-[10px] md:text-[26px] z-10 font-bold cursor-pointer"
               >
-                Sign-Up
+                Sign-Up/Register
               </Link>
             )}
             {auth?.user && (
