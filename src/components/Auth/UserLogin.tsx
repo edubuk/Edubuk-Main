@@ -72,7 +72,7 @@ const UserLogin = () => {
           placeholder="Email Id"
           name="email"
           value={emailId}
-          onChange={(e)=>setEmailId(e.target.value)}
+          onChange={(e)=>setEmailId(e.target.value.toLocaleLowerCase())}
           required
           className="input-style"
         />

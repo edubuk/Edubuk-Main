@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState, ChangeEvent } from "react";
 import { FaUser,FaLock,FaCity } from "react-icons/fa";
 import { BiSolidSchool } from "react-icons/bi";
-import { MdOutlineClass,MdContactPhone,MdOutlineEmail} from "react-icons/md";
+import { MdOutlineClass,MdOutlineEmail} from "react-icons/md";
 import { TbWorldPin } from "react-icons/tb";
 import { colleges } from "../../pages/Colleges";
 import { Link, useNavigate } from "react-router-dom";
@@ -9,6 +9,8 @@ import OTPInput from "./OTPInput";
 import toast from "react-hot-toast";
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 import SmallLoader from "../Loader/Loader";
+import PhoneInput from 'react-phone-input-2'
+import 'react-phone-input-2/lib/style.css'
 interface formValue {
   name: string;
   college: string;
@@ -82,10 +84,11 @@ const handleSubmit = async(e: React.FormEvent)=>{
         {
           toast.error("All inputs field are required");
         }
+        
         setLoading(true);
         const data:any = await fetch(`${import.meta.env.VITE_API_URL}/api/v1/auth/registration`,{
           method:"POST",
-          body:JSON.stringify({name:formData.name,email:formData.email,college:formData.college,stuClass:formData.stuClass,phoneNumber:formData.phoneNumber,city:formData.city, country:formData.country,password:formData.password,otp:otp}),
+          body:JSON.stringify({name:formData.name,email:formData.email.toLowerCase(),college:formData.college,stuClass:formData.stuClass,phoneNumber:formData.phoneNumber,city:formData.city, country:formData.country,password:formData.password,otp:otp}),
           headers:{
             "Content-Type": "application/json",
           }
@@ -126,6 +129,16 @@ const handleSubmit = async(e: React.FormEvent)=>{
       const sendOtpHandler=async(e:any)=>{
         e.preventDefault();
         try {
+          if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email))
+              {
+                toast.error("Please enter a valid email address");
+                return;
+              }
+          if(formData.stuClass<"7" || formData.stuClass>"12")
+          {
+            toast.error("Only classes 7 to 12 are allowed");
+            return;
+          }
           setLoading(true);
             let data:any = await fetch(`${import.meta.env.VITE_API_URL}/api/v1/auth/send-otp`,{
               method:"POST",
@@ -212,9 +225,11 @@ const handleSubmit = async(e: React.FormEvent)=>{
       <div className="flex justify-center items-center gap-2">
         <MdOutlineClass className="text-black w-6 h-6"/>
         <input
-          type="text"
+          type="number"
           name="stuClass"
-          placeholder="Class"
+          min={7}
+          max={12}
+          placeholder="Only classes 7 to 12"
           value={formData.stuClass}
           onChange={onChangeHandler}
           required
@@ -252,16 +267,22 @@ const handleSubmit = async(e: React.FormEvent)=>{
 
       {/* Phone */}
       <div className="flex justify-center items-center gap-2">
-        <MdContactPhone className="text-black w-6 h-6"/>
-        <input
-          type="text"
-          name="phoneNumber"
-          placeholder="Phone Number"
-          value={formData.phoneNumber}
-          onChange={onChangeHandler}
-          required
-          className="input-style"
-        />
+        {/* <MdContactPhone className="text-black w-6 h-6"/> */}
+        <PhoneInput
+  country={'in'}
+  value={formData.phoneNumber}
+  onChange={(phone) =>setFormData((prev) => ({ ...prev, phoneNumber: phone }))}
+  placeholder="Phone Number"
+  containerClass="input-style mb-2 "
+  inputStyle={{border: 'none', backgroundColor: 'transparent', color: '#006666', borderRadius: '0',fontSize: '16px'}}
+  buttonClass="!border-0 !bg-transparent"
+  dropdownClass="!text-black"
+  inputProps={{
+    name: 'phoneNumber',
+    required: true,
+    autoFocus: true
+  }}
+/>
       </div>
 
       {/* Email */}
