@@ -48,7 +48,7 @@ const Navbar = ()=> {
     onClick={() => setOpen(true)}
   /> */}
       <div className="flex justify-center items-center">
-        <div className="hidden md:flex p-2 gap-6">
+        <div className="hidden md:flex p-2 gap-6 justify-center items-center">
         {links.map((link, i) => (
         <a
             key={i}
