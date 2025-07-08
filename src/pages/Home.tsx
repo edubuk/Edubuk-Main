@@ -761,9 +761,10 @@ const Home = () => {
             <div className="flex justify-between w-[320px] sm:w-[400px]">
               <div>
                 <div className="flex flex-col justify-center items-start px-8 sm:px-4 py-2 w-full gap-2">
-                  <p className="text-gray-500">1. India</p>
-                  <p className="text-gray-500">2. UAE</p>
-                  <p className="text-gray-500">3. Singapore</p>
+                  <p className="text-gray-500 font-bold">1. India</p>
+                  <p className="text-gray-500 font-bold">2. UAE</p>
+                  <p className="text-gray-500 font-bold">3. Singapore</p>
+                  <p className="text-gray-500 font-bold">4. USA</p>
                 </div>
               </div>
               <div>
@@ -771,6 +772,7 @@ const Home = () => {
                   <p className="font-bold text-gray-500">INR 450</p>
                   <p className="font-bold text-gray-500">AED 50</p>
                   <p className="font-bold text-gray-500">SGD 50</p>
+                  <p className="font-bold text-gray-500">USD 30</p>
                 </div>
               </div>
             </div>

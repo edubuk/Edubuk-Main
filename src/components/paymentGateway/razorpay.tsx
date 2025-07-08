@@ -153,7 +153,7 @@ const PaymentPopup: React.FC<Props> = ({ showPopup, setShowPopup,setShowSuccessP
                             setCurr(e.target.value);
                             e.target.value === "INR"
                               ? setAmount(450)
-                              : setAmount(50);
+                              : e.target.value==="USD"?setAmount(30):setAmount(50);
                           }}
                           className="w-full px-2 py-1 border text-center border-gray-300 rounded-md text-gray-700 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 appearance-none"
                         >
@@ -161,6 +161,7 @@ const PaymentPopup: React.FC<Props> = ({ showPopup, setShowPopup,setShowSuccessP
                           <option value="INR">INR</option>
                           <option value="AED">AED</option>
                           <option value="SGD">SGD</option>
+                          <option value="USD">USD</option>
                         </select>
                         <div className="pointer-events-none absolute inset-y-0 right-3 flex items-center text-gray-500">
                           ▼

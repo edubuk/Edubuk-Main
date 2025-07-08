@@ -46,8 +46,8 @@ const Footer = () => {
         </div>
         <div className="flex flex-col justify-center gap-4 sm:pl-16">
             <div className="font-semibold text-xl text-black uppercase">Our Offices:</div>
-            <div className="flex justify-start gap-2 items-center text-black"><MdLocationPin /> Hyderabad, India</div>
-            <div className="flex justify-start gap-2 items-center text-black"><MdLocationPin /> Dubai, UAE</div>
+            <div className="flex justify-start gap-2 items-center text-black"><MdLocationPin /> Hyderabad and Lucknow, India</div>
+            <div className="flex justify-start gap-2 items-center text-black"><MdLocationPin /> Dubai and RAK, UAE</div>
         </div>
       </div>
    
