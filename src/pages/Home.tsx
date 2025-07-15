@@ -1,12 +1,10 @@
 import { useState, useEffect, useLayoutEffect } from "react";
-import hero1 from "../assets/HeroImg/hero11.jpg";
-import hero2 from "../assets/HeroImg/tempImg.jpeg";
-import hero3 from "../assets/HeroImg/hero3.jpg";
-import aniJson1 from '../components/Animation/registerAnimation.json';
-import awardAni1 from '../components/Animation/awardAni1.json';
-import awardAni2 from '../components/Animation/awardAni2.json';
-import awardAni3 from '../components/Animation/awardAni3.json';
-import Lottie from 'lottie-react';
+import hero1 from "../assets/HeroImg/hero1.png";
+import hero2 from "../assets/HeroImg/hero2.png";
+import hero3 from "../assets/HeroImg/hero3.png";
+import hero4 from "../assets/HeroImg/hero4.png";
+import hero5 from "../assets/HeroImg/hero5.png";
+import hero6 from "../assets/HeroImg/hero6.png";
 import team1 from "../assets/Team/team1.png";
 import team2 from "../assets/Team/team2.png";
 import team3 from "../assets/Team/team3.png";
@@ -16,7 +14,14 @@ import advisor2 from "../assets/Advisor/advisor2.png";
 import advisor3 from "../assets/Advisor/advisor3.png";
 import advisor4 from "../assets/Advisor/advisor4.png";
 import Footer from "./Footer";
-
+import vision from '../assets/vision.png';
+import mission from '../assets/mission.png';
+import logo1 from '../assets/Logos/logo1.png';
+import logo2 from '../assets/Logos/logo2.png';
+import logo3 from '../assets/Logos/logo3.png';
+import logo4 from '../assets/Logos/logo4.png';
+import logo5 from '../assets/Logos/logo5.png';
+import logo6 from '../assets/Logos/logo6.png';
 // import toast from "react-hot-toast";
 
 import {
@@ -28,53 +33,19 @@ import {
   foreignLogos,
   finLogos,
 } from "./Utils";
-import PaymentPopup from "../components/paymentGateway/razorpay";
-// import { colleges } from "./Colleges";
-import { useAuth } from "../context/auth";
-import { Link } from "react-router-dom";
+
 import { FaLinkedinIn } from "react-icons/fa";
 // import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 
 
-const images = [hero1, hero2, hero3];
-
+const images = [hero1, hero2, hero3,hero4,hero5,hero6];
+const urls = ["https://www.edubuktrucv.com/","https://www.edubukeseal.org/","https://www.edubukceta.com","https://www.edubukcetaolympiad.com/","https://www.ebuktokens.com/","https://www.edubukmiitscreening.com/"]
 
 const Home = () => {
   const [current, setCurrent] = useState(0);
-  const [showPopup, setShowPopup] = useState<boolean>(false);
-  const [showSuccessPopup, setShowSuccessPopup] = useState<boolean>(false);
-  const [paymentId, setPaymentId] = useState<boolean>(false);
-
-  const [auth] = useAuth();
 
 
-  useEffect(() => {
-    const getPaymentId = async () => {
-      try {
-        let data: any = await fetch(
-          `${import.meta.env.VITE_API_URL}/api/v1/user/getPaymentStatus/${
-            auth.user.email
-          }`,
-          {
-            method: "GET",
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
-        data = await data.json();
-        console.log("data", data);
-        if (data) {
-          console.log("data", data);
-          if(data.paymentId)
-          setPaymentId(true);
-        }
-      } catch (error) {
-        console.log("error while fetching payments data", error);
-      }
-    };
-    getPaymentId();
-  }, [showSuccessPopup]);
+
 
   useLayoutEffect(() => {
   const hash = window.location.hash;
@@ -87,8 +58,6 @@ const Home = () => {
 }, []);
 
 
-  // Auto-slide every 5 seconds
-  console.log("auth values", auth.user);
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrent((prev) => (prev + 1) % images.length);
@@ -98,71 +67,20 @@ const Home = () => {
 
   return (
     <div className=" flex flex-col gap-6 font-open">
-      <div className="flex flex-col p-4">
-        <p className="font-open text-[#F14419] uppercase text-center text-[25px] sm:text-[40px] md:text-[50px] font-bold leading-8 sm:leading-12  md:leading-14">
-          International Olympiad
-        </p>
-        <p className="font-open text-[#03257E] uppercase text-center text-[25px] sm:text-[40px] md:text-[50px] font-bold leading-8 sm:leading-12 md:leading-14">
-          AI & Emerging Technologies (No Code)
-        </p>
-
+      <div className="flex flex-col">
         <div
-          className="mx-auto relative w-full aspect-[16/9] lg:aspect-[16/7] rounded-[8px] bg-cover bg-center mt-3"
+        onClick={() => window.open(urls[current], '_blank')}
+          className="mx-auto relative w-full aspect-[16/9] lg:aspect-[16/8] rounded-[2px] bg-cover bg-center cursor-pointer"
           style={{ backgroundImage: `url(${images[current]})` }}
         >
-          {/* Optional overlay */}
-          <div className="absolute inset-0 bg-black/20 rounded-[8px]"></div>
-
-          {/* Text content on image */}
-          <div className="absolute top-[15px] md:top-[25px] left-[25px] z-10 flex flex-col w-fit">
-            <p className="bg-[#F14419] text-white md:text-[25px] text-[10px] p-2">
-              India | Singapore | Dubai
-            </p>
-            <p className="bg-[#006666] text-white md:text-[25px] text-[10px] p-2">
-              Open for Class 7 to 12
-            </p>
-            {!auth.user && (
-              <Link
-                to="/sign-up"
-                className="absolute top-20 md:top-32  text-[#F14419] bg-[#ffffff] hover:bg-[#F14419] hover:text-white transition-all rounded-4xl py-1 px-2 sm:py-2 sm:px-3 text-[10px] md:text-[26px] z-10 font-bold cursor-pointer"
-              >
-                Sign-Up/Register
-              </Link>
-            )}
-            {auth?.user && (
-              <a
-                href="#register"
-                className={`absolute top-20 md:top-32 text-[#F14419] bg-[#ffffff] hover:bg-[#F14419] hover:text-white transition-all rounded-4xl py-1 px-4 sm:py-2 sm:px-8 text-[12px] md:text-[30px] z-10 font-bold ${
-                  paymentId
-                    ? "pointer-events-none opacity-50  cursor-not-allowed"
-                    : "cursor-pointer"
-                }`}
-              >
-                {paymentId ? "REGISTERED" : "REGISTER"}
-              </a>
-            )}
+          <div className="absolute flex flex-col gap-1 sm:gap-2 top-2/6 md:top-2/5 right-0 mr-1 md:mr-3 lg:mr-4 bg-amber-50 rounded-full p-1">
+          {
+            images.map((_,i)=>(
+              <span key={i} className="p-1 md:p-2 border-2 border-gray-400 rounded-full" style={{background:current===i?"#03257e":""}}></span>
+            ))
+          }
           </div>
-        </div>
-        <p className="text-gray-950 md:text-[22px] text-[10px]">
-          * Students from all streams are eligible
-        </p>
-        {/* Dot navigation */}
-        <div className="flex justify-center mt-4 space-x-2">
-          {images.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => setCurrent(i)}
-              className={`w-4 h-4 rounded-full ${
-                i === 0
-                  ? "bg-[#03257E]"
-                  : i === 1
-                  ? "bg-[#006666]"
-                  : "bg-[#F14419]"
-              } ${
-                current === i ? "scale-110 ring-2 ring-amber-300 shadow-lg" : ""
-              }`}
-            ></button>
-          ))}
+          
         </div>
       </div>
 
@@ -300,55 +218,87 @@ const Home = () => {
           </div>
         </div>
       </div>
+      <div className="flex flex-col justify-center items-center gap-10" id="about-us">
+        <p className=" text-[#03257E] text-[25px] sm:text-[40px] md:text-[50px] font-bold text-center">
+          Why Edubuk
+        </p>
+        <p className=" text-[#03257E] text-[25px] text-center px-5 sm:px-10 md:px-20">Our Platform bridges the gap between education and employment by providing emerging tech courses, veriﬁable academic & professional credentials and intelligent job matching leveraging Al and Blockchain Technology.</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 items-baseline justify-center">
+          <div className="flex flex-col justify-center items-center w-full p-8 gap-4">
+            <img src={vision} className="w-fit h-20"></img>
+            <p className="text-black text-2xl text-center"><span className="text-[#03257e] font-bold">VISION</span><br></br>One-Stop Platform for global academic & professional credentials veriﬁcation</p>
+          </div>
+          <div className="flex flex-col justify-center items-center w-full p-8 gap-4">
+            <img src={mission} className="w-fit h-20"></img>
+            <p className="text-black text-2xl text-center"><span className="text-[#03257e] font-bold">MISSION</span><br></br>To provide a secure platform for global veriﬁcation of academic and professional credentials, thereby eliminating fraud and empowering universities, employers, students and professionals globally.
+            </p>
+          </div>
+          <div>
 
-      <div>
-        <div
-          className="flex flex-col justify-center items-center"
-          id="olympiad"
-        >
-          <p className=" text-[#03257E] text-[25px] sm:text-[40px] md:text-[50px] font-bold text-center">
-            No-Code Olympiad in Emerging Technologies
-          </p>
-          {/* <p className=" text-[#000000] my-4 text-[23px] sm:text-[38px] md:text-[48px] text-center">No-Code Skilling in Emerging Technologies</p> */}
-        </div>
-        <div className="flex justify-center items-center flex-wrap gap-4 mt-4">
-          <div className="flex justify-start items-center border rounded-full border-[#E6E6E6] gap-3 w-[300px] md:w-[521px]">
-            <p className=" text-[#ffffff] bg-[#03257E] rounded-full text-[21px] sm:text-[36px] md:text-[46px] px-3 md:px-5">
-              1
-            </p>
-            <p className="text-[#000000] text-[21px] sm:text-[36px] md:text-[46px]">
-              Artificial Intelligence
-            </p>
-          </div>
-          <div className="flex justify-start items-center border rounded-full border-[#E6E6E6] gap-3 w-[300px] md:w-[521px]">
-            <p className="text-[#ffffff] bg-[#03257E] rounded-full text-[21px] sm:text-[36px] md:text-[46px] px-3 md:px-5">
-              2
-            </p>
-            <p className="text-[#000000] text-[21px] sm:text-[36px] md:text-[46px]">
-              Robotics
-            </p>
-          </div>
-          <div className="flex justify-start items-center border rounded-full border-[#E6E6E6] gap-3 w-[300px] md:w-[521px]">
-            <p className="text-[#ffffff] bg-[#03257E] rounded-full text-[21px] sm:text-[36px] md:text-[46px] px-3 md:px-5">
-              3
-            </p>
-            <p className="text-[#000000] text-[21px] sm:text-[36px] md:text-[46px]">
-              Cybersecurity
-            </p>
-          </div>
-          <div className="flex justify-start items-center border rounded-full border-[#E6E6E6] gap-3 w-[300px] md:w-[521px]">
-            <p className="text-[#ffffff] bg-[#03257E] rounded-full text-[21px] sm:text-[36px] md:text-[46px] px-3 md:px-5">
-              4
-            </p>
-            <p className="text-[#000000] text-[21px] sm:text-[36px] md:text-[46px]">
-              Data Analytics
-            </p>
           </div>
         </div>
       </div>
-      <div className="flex flex-col justify-center items-center" id="olympiad">
+      <div className="flex flex-col justify-center items-center gap-10" id="edubuk-products">
         <p className=" text-[#03257E] text-[25px] sm:text-[40px] md:text-[50px] font-bold text-center">
-          Watch How It Works
+          Our Products
+        </p>
+      <div className="flex justify-evenly items-baseline-last flex-wrap gap-y-10">
+          <div className="flex flex-col justify-center items-center gap-4 w-[300px] sm:w-[350px] rounded-lg border-b-2 border-[#03257e] p-2">
+            <img src={logo1} alt="logo" className="w-fit h-32 "></img>
+            <a 
+            href="https://www.edubukceta.com/" 
+            target="_blank"
+            rel="nonopener noreferrer"
+            className="text-white text-[16px] sm:text-[20px] p-2 rounded-full bg-gradient-to-br from-[#03257e] via-[#006666] to-[#f14419] cursor-pointer">Click to Know More</a>
+          </div>
+          <div className="flex flex-col justify-center items-center gap-4 w-[300px] sm:w-[350px] rounded-lg border-b-2 border-[#03257e] p-2">
+            <img src={logo2} alt="logo" className="w-fit h-24"></img>
+            <a 
+            href="https://www.edubukmiitscreening.com/" 
+            target="_blank"
+            rel="nonopener noreferrer"
+            className="text-white text-[16px] sm:text-[20px]  p-2 rounded-full bg-gradient-to-br from-[#03257e] via-[#006666] to-[#f14419] cursor-pointer">Click to Know More</a>
+          </div>
+          <div className="flex flex-col justify-center items-center gap-4 w-[300px] sm:w-[350px] rounded-lg border-b-2 border-[#03257e] p-2">
+            <img src={logo3} alt="logo" className="w-fit h-32"></img>
+            <a 
+            href="https://www.edubukcetaolympiad.com/" 
+            target="_blank"
+            rel="nonopener noreferrer"
+            className="text-white text-[16px] sm:text-[20px] p-2 rounded-full bg-gradient-to-br from-[#03257e] via-[#006666] to-[#f14419] cursor-pointer">Click to Know More</a>
+          </div>
+          
+          <div className="flex flex-col justify-center items-center gap-4 w-[300px] sm:w-[350px] rounded-lg border-b-2 border-[#03257e] p-2">
+            <img src={logo4} alt="logo" className="w-fit h-28"></img>
+            <a href="https://www.edubuktrucv.com/" 
+            target="_blank"
+            rel="nonopener noreferrer"
+
+            className="text-white text-[16px] sm:text-[20px] p-2 rounded-full bg-gradient-to-br from-[#03257e] via-[#006666] to-[#f14419] cursor-pointer">Click to Know More</a>
+          </div>
+          <div className="flex flex-col justify-center items-center gap-4 w-[300px] sm:w-[350px] rounded-lg border-b-2 border-[#03257e] p-2">
+            <img src={logo5} alt="logo" className="w-fit h-32"></img>
+            <a 
+            href="https://www.edubukeseal.org/" 
+            target="_blank"
+            rel="nonopener noreferrer"
+            className="text-white text-[16px] sm:text-[20px] p-2 rounded-full bg-gradient-to-br from-[#03257e] via-[#006666] to-[#f14419] cursor-pointer">Click to Know More</a>
+          </div>
+          <div className="flex flex-col justify-center items-center gap-2 w-[300px] sm:w-[350px] rounded-lg  border-b-2 border-[#03257e] p-2">
+            <img src={logo6} alt="logo" className="w-fit h-32"></img>
+            <p className="text-[25px] font-bold bg-gradient-to-r from-[#03257e] via-[#006666] to-[#f14419] bg-clip-text text-transparent">EBUK Tokens</p>
+            <a 
+            href="https://www.ebuktokens.com/" 
+            target="_blank"
+            rel="nonopener noreferrer"
+            className="text-white text-[16px] sm:text-[20px] p-2 rounded-full bg-gradient-to-br from-[#03257e] via-[#006666] to-[#f14419] cursor-pointer">Click to Know More</a>
+          </div>
+      </div>
+      </div>
+      <div className="flex flex-col justify-center items-center mt-10" id="olympiad">
+        <p className=" text-[#03257E] text-[25px] sm:text-[40px] md:text-[50px] font-bold text-center">
+          Edubuk in Action<br></br>
+          <span className="text-3xl font-semibold">Our Journey & Global Achievements</span>
         </p>
         {/* <p className=" text-[#000000] my-4 text-[23px] sm:text-[38px] md:text-[48px] text-center">No-Code Skilling in Emerging Technologies</p> */}
       </div>
@@ -366,80 +316,11 @@ const Home = () => {
             </div>
 
       <div>
-        <div className="flex flex-col justify-center items-center bg-[#006666] p-6">
-          <p className="text-[#ffffff] text-[25px] sm:text-[40px] md:text-[50px] font-bold uppercase text-center">
-            Concept By:
-          </p>
-          <p className="text-[#ffffff] pt-4 text-[23px] sm:text-[38px] md:text-[48px] font-light text-center leading-8 sm:leading-12 md:leading-14">
-            IIT, IIM, Alumni, CFA Charterholder, Gold Medalist, Emerging
-            Technologies Consultant, ex-Professors in India & UAE
-          </p>
-        </div>
-        <div className="flex flex-col items-center pt-4 justify-center space-y-0">
-          <p
-            className="text-[#03257E] text-[25px] sm:text-[40px] md:text-[50px] font-bold uppercase text-center"
-            id="award"
-          >
-            Awards to be Won!
-          </p>
-          <div className="flex flex-wrap justify-center items-center gap-6 p-4">
-            <div className="flex flex-col justify-center items-center border-1 border-gray-500 rounded-lg">
-              <div className="w-[300px] h-[300px] p-8">
-                {/* <DotLottieReact
-                  src="https://lottie.host/278f37d4-d700-4952-b7af-e3ad48bc9b50/usKs5I4b4X.lottie"
-                  loop
-                  autoplay
-                /> */}
-                <Lottie loop={true} animationData={awardAni1} height={400} width={400} />
-              </div>
-              <p className="text-white w-full p-4 bg-[#03257E] uppercase text-center text-[20px] sm:text-[30px] md:text-[40px] rounded-b-lg">
-                exciting prizes
-              </p>
-            </div>
-            <div className="flex flex-col justify-center items-center border-1 border-gray-500 rounded-lg">
-              <div className="w-[300px] h-[300px] p-8">
-                {/* <DotLottieReact
-                  src="https://lottie.host/176c2c1d-55f1-4966-8f51-481208bacf00/Hj70UEKuYf.lottie"
-                  loop
-                  autoplay
-                /> */}
-                <Lottie loop={true} animationData={awardAni2} height={400} width={400} />
-              </div>
-              <p className="text-white w-full p-4 bg-[#006666] uppercase text-center text-[20px] sm:text-[30px] md:text-[40px] rounded-b-lg">
-                Certificates
-              </p>
-            </div>
-            <div className="flex flex-col justify-center items-center border-1 border-gray-500 rounded-lg">
-              <div className="w-[300px] h-[300px] p-8">
-                {/* <DotLottieReact
-                  src="https://lottie.host/b2890cb3-db52-437d-9568-d1284c3763ea/W3jB7Zn0fP.lottie"
-                  loop
-                  autoplay
-                /> */}
-                <Lottie loop={true} animationData={awardAni3} height={400} width={400} />
-              </div>
-              <p className="text-white w-full p-4 bg-[#F14419] uppercase text-center text-[20px] sm:text-[30px] md:text-[40px] rounded-b-lg">
-                Medals
-              </p>
-            </div>
-          </div>
-        </div>
+        
+
       </div>
 
-      <div
-        className="flex flex-col justify-center items-center bg-[#006666] p-8"
-        id="about"
-      >
-        <p className="text-[#ffffff] text-[25px] sm:text-[40px] md:text-[50px] font-bold uppercase text-center">
-          About EDUBUK
-        </p>
-        <p className="text-[#ffffff] text-[23px] sm:text-[38px] md:text-[48px] font-light text-center mt-4 leading-8 sm:leading-12 md:leading-14">
-          Our platform bridges the gap between education and employment by
-          providing emerging tech courses, verifiable academic & professional
-          credentials and intelligent job matching leveraging AI and Blockchain
-          Tech
-        </p>
-      </div>
+      
       <div className="flex justify-center items-center gap-3">
         <span className="w-4 h-4 sm:w-8 sm:h-8 rounded-full bg-[#03257E]"></span>
         <span className="w-4 h-4 sm:w-8 sm:h-8 rounded-full bg-[#006666]"></span>
@@ -541,7 +422,7 @@ const Home = () => {
                 rel="noreferrer"
                 className="mb-4"
               >
-                <FaLinkedinIn className="text-[#0077B5] w-7 h-7" />
+              <FaLinkedinIn className="text-[#0077B5] w-7 h-7" />
               </a>
 
               <p className="text-sm text-gray-600 leading-relaxed">
@@ -731,104 +612,9 @@ const Home = () => {
         className="flex flex-wrap items-center justify-center gap-2 p-2 "
         id="register"
       >
-       
-      
-      <Lottie loop={true} animationData={aniJson1} className="w-[350px] h-[350px] md:w-[400px] md:h-[400px]"/>
-     
-
-        {showPopup && (
-          <PaymentPopup
-            showPopup={showPopup}
-            setShowPopup={setShowPopup}
-            setShowSuccessPopup={setShowSuccessPopup}
-          />
-        )}
-        <div className="flex justify-center items-center flex-col gap-2 sm:gap-1">
-          <div className="text-[#000] w-[330px] sm:w-[450px] uppercase text-2xl md:text-4xl lg:text-4xl font-semibold text-center">
-            International <br /> Olympiad
-          </div>
-
-          <div className="bg-[#006666] p-4 w-[330px] sm:w-[450px] text-white text-base md:text-xl text-center rounded-md shadow">
-            Compete in the New-Age International No-Code Emerging Technologies
-            Olympiad!
-          </div>
-
-          {/* PRICING BOX */}
-          <div className="flex justify-center items-center flex-col w-[330px] sm:w-[450px] bg-gray-100 border border-gray-300 shadow-md rounded-lg">
-            <div className="bg-[#006666] text-white px-4 py-2 font-semibold text-lg text-center uppercase">
-              Participation Fee
-            </div>
-            <div className="flex justify-between w-[320px] sm:w-[400px]">
-              <div>
-                <div className="flex flex-col justify-center items-start px-8 sm:px-4 py-2 w-full gap-2">
-                  <p className="text-gray-500 font-bold">1. India</p>
-                  <p className="text-gray-500 font-bold">2. UAE</p>
-                  <p className="text-gray-500 font-bold">3. Singapore</p>
-                  <p className="text-gray-500 font-bold">4. USA</p>
-                </div>
-              </div>
-              <div>
-                <div className="flex flex-col justify-start items-start px-8 sm:px-4 py-2 w-full gap-2">
-                  <p className="font-bold text-gray-500">INR 450</p>
-                  <p className="font-bold text-gray-500">AED 50</p>
-                  <p className="font-bold text-gray-500">SGD 50</p>
-                  <p className="font-bold text-gray-500">USD 30</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="flex justify-center items-center flex-col bg-white text-center max-w-md mx-auto mt-2">
-
-          {auth?.user ? (
-            <button
-              onClick={() => setShowPopup(true)}
-              disabled={paymentId}
-              className={`bg-[#006666] text-white text-2xl px-6 py-2 rounded hover:bg-[#004d4d] transition duration-200 cursor-pointer bg-gradient-to-r w-[330px] sm:w-[450px] from-[#03257e] via-[#006666] to-[#F14419] ${paymentId ? "opacity-50 cursor-not-allowed" : ""}`}
-            >
-              Register Here
-            </button>
-          ) : (
-            <Link
-              className="bg-[#006666] text-white text-2xl px-6 py-2 rounded border-1 hover:bg-white hover:text-[#006666]  transition duration-300 cursor-pointer w-[330px] sm:w-[450px]"
-              to="/sign-up"
-            >
-              Register Here
-            </Link>
-          )}
-        </div>
-        </div>
       </div>
       <Footer />
-      {showSuccessPopup && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-white bg-opacity-30 h-full w-full">
-          <div className="relative w-11/12 max-w-3xl bg-white rounded-lg shadow-lg">
-            <button
-              className="absolute top-3 right-3 text-gray-500 hover:text-gray-800 cursor-pointer"
-              onClick={() => setShowSuccessPopup(false)}
-            >
-              ✕
-            </button>
 
-            <div className="flex flex-col md:flex-row items-start gap-4 p-6 bg-white rounded-lg shadow-md border border-gray-200 max-w-3xl mx-auto">
-              <div className="flex flex-col space-y-2">
-                <h2 className="text-xl md:text-2xl font-bold text-green-600 text-center">
-                  Congratulations!
-                </h2>
-                <p className="text-gray-700 text-center">
-                  You have successfully registered for the Olympiad.
-                </p>
-                <p className="text-gray-600 text-center">
-                  We’ve sent your Olympiad enrollment number to your registered
-                  email address. Please check your inbox or spam folder and save it for future reference.
-                </p>
-                <p className="text-blue-600 text-center text-xl font-bold">
-                  Thank You !
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 };
