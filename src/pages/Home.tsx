@@ -39,7 +39,7 @@ import { FaLinkedinIn } from "react-icons/fa";
 
 
 const images = [hero1, hero2, hero3,hero4,hero5,hero6];
-const urls = ["https://www.edubuktrucv.com/","https://www.edubukeseal.org/","https://www.edubukceta.com","https://www.edubukcetaolympiad.com/","https://www.ebuktokens.com/","https://www.edubukmiitscreening.com/"]
+//const urls = ["https://www.edubuktrucv.com/","https://www.edubukeseal.org/","https://www.edubukceta.com","https://www.edubukcetaolympiad.com/","https://www.ebuktokens.com/","https://www.edubukmiitscreening.com/"]
 
 const Home = () => {
   const [current, setCurrent] = useState(0);
@@ -69,14 +69,19 @@ const Home = () => {
     <div className=" flex flex-col gap-6 font-open">
       <div className="flex flex-col">
         <div
-        onClick={() => window.open(urls[current], '_blank')}
+          // onClick={() => window.open(urls[current], '_blank')}
           className="mx-auto relative w-full aspect-[16/9] lg:aspect-[16/8] rounded-[2px] bg-cover bg-center cursor-pointer"
           style={{ backgroundImage: `url(${images[current]})` }}
         >
-          <div className="absolute flex flex-col gap-1 sm:gap-2 top-2/6 md:top-2/5 right-0 mr-1 md:mr-3 lg:mr-4 bg-amber-50 rounded-full p-1">
+          <div className="absolute flex flex-col gap-1 sm:gap-2 top-2/6 md:top-2/5 right-0 mr-1 md:mr-3 lg:mr-4 bg-white rounded-full p-1">
           {
             images.map((_,i)=>(
-              <span key={i} className="p-1 md:p-2 border-2 border-gray-400 rounded-full" style={{background:current===i?"#03257e":""}}></span>
+              <span 
+              key={i} 
+              className="z-10 p-1 md:p-2 border-2 border-gray-400 rounded-full cursor-pointer" 
+              style={{background:current===i?"#03257e":""}}
+              onClick={()=>setCurrent(i)}
+              ></span>
             ))
           }
           </div>
