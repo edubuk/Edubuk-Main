@@ -160,12 +160,12 @@ export default function WhyEbukTokenSection() {
 
       <div className="mt-12 text-center">
         <a
-          href="#"
+          href="https://www.ebuktokens.com/"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-block bg-[#03257e] text-white hover:bg-white hover:text-[#f14419]  transition-all rounded-full px-6 py-3 text-lg font-semibold shadow-lg"
         >
-          Learn More →
+          Click to Learn More →
         </a>
       </div>
     </section>
