@@ -18,12 +18,12 @@ import blcLogo2 from '../assets/CLOGOS/blcLogo2.png'
 import blcLogo3 from '../assets/CLOGOS/blcLogo3.png'
 import blcLogo4 from '../assets/CLOGOS/blcLogo4.png'
 import blcLogo5 from '../assets/CLOGOS/blcLogo5.png'
-import blcLogo6 from '../assets/CLOGOS/blcLogo6.png'
+// import blcLogo6 from '../assets/CLOGOS/blcLogo6.png'
 import blcLogo7 from '../assets/CLOGOS/blcLogo7.png'
 import blcLogo8 from '../assets/CLOGOS/blcLogo8.png'
 import blcLogo9 from '../assets/CLOGOS/blcLogo9.png'
 import blcLogo10 from '../assets/CLOGOS/blcLogo10.png'
-
+import blcLogo11 from '../assets/CLOGOS/blcLogo11.png'
 import accLogo1 from '../assets/CLOGOS/accLogo1.png'
 import accLogo2 from '../assets/CLOGOS/accLogo2.png'
 import accLogo3 from '../assets/CLOGOS/accLogo3.png'
@@ -46,7 +46,7 @@ import foreignLogo2 from '../assets/CLOGOS/foreignLogo2.png'
 import foreignLogo3 from '../assets/CLOGOS/foreignLogo3.png'
 import foreignLogo4 from '../assets/CLOGOS/foreignLogo4.png'
 import foreignLogo5 from '../assets/CLOGOS/foreignLogo5.png'
-// import foreignLogo6 from '../assets/CLOGOS/foreignLogo6.png'
+//import foreignLogo6 from '../assets/CLOGOS/foreignLogo6.png'
 import foreignLogo7 from '../assets/CLOGOS/foreignLogo7.png'
 
 import finLogo1 from '../assets/CLOGOS/finLogo1.png'
@@ -57,7 +57,8 @@ import finLogo5 from '../assets/CLOGOS/finLogo5.png'
 import finLogo6 from '../assets/CLOGOS/finLogo6.png' 
 
 export const instLogos = [instLogo1,instLogo2,instLogo3,instLogo4,instLogo5,instLogo1,instLogo2,instLogo3,instLogo4,instLogo5,instLogo1,instLogo2,instLogo3,instLogo4,instLogo5];
-export const blcLogos =  [blcLogo1,blcLogo2,blcLogo3,blcLogo4,blcLogo5,blcLogo6,blcLogo7,blcLogo8,blcLogo9,blcLogo10];
+export const blcLogos =  [blcLogo1,blcLogo2,blcLogo3,blcLogo4,blcLogo5,blcLogo11,blcLogo7,blcLogo8,blcLogo9,blcLogo10];
+export const blcLogos2 =  [blcLogo1,blcLogo2,blcLogo3,blcLogo4,blcLogo5,blcLogo11,blcLogo7,blcLogo8,blcLogo9,blcLogo10,blcLogo1,blcLogo2,blcLogo3,blcLogo4,blcLogo5,blcLogo11,blcLogo7,blcLogo8,blcLogo9,blcLogo10];
 export const govLogos =  [govLogo1,govLogo2,govLogo3,govLogo4,govLogo5,govLogo6,govLogo7];
 export const finLogos =  [finLogo1,finLogo2,finLogo3,finLogo4,finLogo5,finLogo6];
 export const foreignLogos = [foreignLogo1,foreignLogo2,foreignLogo3,foreignLogo4,foreignLogo5,foreignLogo7];

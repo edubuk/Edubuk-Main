@@ -44,11 +44,11 @@ html {
 @keyframes slide-in-right {
   
     0% {
-      transform: 'translateX(-100%)';
+      transform: translateX(-50%);
       opacity: '0';
     }
     100% {
-      transform: 'translateX(0)';
+      transform: translateX(0);
       opacity: '1';
     }
 
@@ -74,12 +74,15 @@ html {
 .animate-slide {
   animation: slide 8s linear infinite;
 }
+.animate-slide {
+  animation: slide 8s linear infinite;
+}
 .animate-slideOpposite {
   animation: slideOpposite 10s linear infinite;
 }
 
 .slide-in-right{
-  animation: slide-in-right 2s ease-out forwards;
+  animation: slide-in-right 10s ease-out forwards;
 }
 
 @keyframes bounce-slow {

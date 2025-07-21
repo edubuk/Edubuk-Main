@@ -16,33 +16,28 @@ const products = [
 
 export default function HeroSection() {
   return (
-    <section className="bg-white text-white min-h-screen px-6 md:px-16 pt-16 relative overflow-hidden">
+    <section className="bg-white text-white min-h-screen px-2  sm:px-6 md:px-16 pt-16 relative overflow-hidden">
       <div className="flex flex-col md:flex-row items-center justify-between">
         {/* Left Text Content */}
-        <div className="max-w-xl space-y-2">
-          <p className="text-4xl sm:text-4xl md:text-5xl font-extrabold leading-tight text-[#03257e]">
+        <div className="w-full sm:max-w-xl space-y-2">
+          <p className="text-4xl text-center sm:text-left sm:text-4xl md:text-5xl font-extrabold leading-tight text-[#03257e]">
             Welcome to the future of trust in{" "}
             <span className="text-[#f14419]">Education</span> and{" "}
             <span className="text-[#f14419]">Employment</span>
           </p>
-          <p className="text-lg font-semibold text-[#008888]">
+          <p className="text-lg font-semibold text-[#008888] text-center sm:text-left">
             Edubuk unites cutting-edge blockchain with real-world credentials
             across 6 transformative products — from skill verification with
             eSeal, career-building with TruCV, to AI-powered Olympiads and
             tokenized rewards with EBUK.
-            <br className="hidden md:block" />
-            <span className="text-[#f14419] text-lg font-semibold">
-              Together, we’re reshaping education, employment, and credentialing
-              for the next generation.
-            </span>
           </p>
-          <div className="flex gap-4">
-            <button className="bg-[#006666] text-white font-semibold px-6 py-3 rounded-md hover:bg-[#028080] transition">
+          <div className="flex gap-2 w-full justify-center sm:justify-start">
+            <a href="#about-us" className="bg-[#006666] text-white font-semibold px-2 py-1  sm:px-6 sm:py-3 rounded-md hover:bg-[#028080] transition">
               Get Started →
-            </button>
-            <button className="bg-[#03257e] border border-white/20 text-white font-semibold px-6 py-3 rounded-md hover:bg-[#021f6a] transition">
+            </a>
+            <a href="#edubuk-products" className="bg-[#03257e] border border-white/20 text-white font-semibold px-2 py-1  sm:px-6 sm:py-3 text-sm sm:text-xl rounded-md hover:bg-[#021f6a] transition">
               Explore Our Products
-            </button>
+            </a>
           </div>
         </div>
 

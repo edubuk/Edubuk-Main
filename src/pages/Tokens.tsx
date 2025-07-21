@@ -6,16 +6,10 @@ import {
   Building2,
   ShieldCheck,
 } from "lucide-react";
-// import polygonLogo from "../assets/blockchains/1_polygon.svg";
-// import xdcLogo from "../assets/blockchains/XDC.png";
-// import algorandLogo from "../assets/blockchains/5_algorand.svg";
-// import educhainLogo from "../assets/blockchains/9_educhain.svg";
-// import skale from "../assets/blockchains/6_skale.webp";
-// import BNB from "../svg/BNB";
-// import SOLANA from "../svg/SOLANA";
-// import LISK from "../svg/LISK";
-// //import { motion } from "framer-motion";
-// import React from "react";
+import { motion } from "framer-motion";
+import { blcLogos } from "./Utils";
+
+
 
 export default function WhyEbukTokenSection() {
   const utilities = [
@@ -51,29 +45,28 @@ export default function WhyEbukTokenSection() {
     },
   ];
 
-//   const logos:(string | React.FC<{ className?: string }>)[] = [
-//     polygonLogo,
-//     xdcLogo,
-//     algorandLogo,
-//     educhainLogo,
-//     BNB,
-//     skale,
-//     SOLANA,
-//     LISK,
-//     polygonLogo,
-//     xdcLogo,
-//     algorandLogo,
-//     educhainLogo,
-//     BNB,
-//     SOLANA,
-//   ];
+  //   const logos:(string | React.FC<{ className?: string }>)[] = [
+  //     polygonLogo,
+  //     xdcLogo,
+  //     algorandLogo,
+  //     educhainLogo,
+  //     BNB,
+  //     skale,
+  //     SOLANA,
+  //     LISK,
+  //     polygonLogo,
+  //     xdcLogo,
+  //     algorandLogo,
+  //     educhainLogo,
+  //     BNB,
+  //     SOLANA,
+  //   ];
 
   return (
-    <section className="bg-white px-6 md:px-20 py-6 border-b border-gray-200">
+    <section className="bg-white px-6 md:px-20 py-6 border-b border-gray-200 overflow-hidden">
       <div className="max-w-6xl mx-auto text-center mb-10">
         <h2 className="text-3xl md:text-4xl font-bold text-[#03257e] mb-4">
           EBUK Tokens
-          {/* <span className="text-[#f14419]"> AI & Emerging Tech</span> */}
         </h2>
         <p className="text-xl mb-4 text-[#03257e]">
           <span className="text-[#f14419] font-semibold">EBUK</span> is the
@@ -91,44 +84,49 @@ export default function WhyEbukTokenSection() {
           .
         </p>
       </div>
+      <p className="text-xl text-[#f14419] text-center">
+        Edubuk's eSeal and TruCV dApps are awarded, granted and live on 10
+        Blockchains
+      </p>
+      <div className="flex items-center gap-3 py-10">
+          <div className="flex-none"></div>
+          <div className="flex w-[300px] mx-auto md:w-[700px] lg:w-full  overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_20%,black_80%,transparent)]">
+            <motion.div
+              initial={{
+                x: "0%", // Start at 0
+              }}
+              animate={{
+                x: "-50%", // Move to -50%
+              }}
+              transition={{
+                repeat: Infinity,
+                duration: 30,
+                ease: "linear",
+                repeatType: "loop", // Add this for seamless looping
+              }}
+              className="flex flex-none gap-14 pr-14"
+            >
+              {blcLogos.map((logo, index) => {
 
-      {/* <section className="bg-white py-16 md:py-24">
-        <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <p className="text-center text-[#f14419] text-xl md:text-2xl font-medium mb-12">
-            Edubuk's eSeal and TruCV dApps are awarded, granted, and live
-            on 10 Blockchains
-          </p>
-
-          <div className="relative overflow-hidden">
-            <div className="w-full flex items-center justify-center">
-              <div className="flex w-[300px] md:w-[700px] lg:w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_20%,black_80%,transparent)]">
-                <motion.div
-                  initial={{ x: 0 }}
-                  animate={{ x: "-50%" }}
-                  transition={{
-                    repeat: Infinity,
-                    duration: 30,
-                    ease: "linear",
-                    repeatType: "loop",
-                  }}
-                  className="overflow-hidden sm:py-4"
-                >
-                              <div key={1} className="flex animate-slide whitespace-nowrap">
-                                {logos.concat(logos).map((logo, index) => (
-                                  <img
-                                    key={index}
-                                    src={logo as string}
-                                    alt={`logo-${index}`}
-                                    className="h-9 sm:h-12 w-auto sm:w-auto mx-4 sm:mx-8 shadow-[0_0_20px_5px_rgba(255,255,255,0.7)]"
-                                  />
-                                ))}
-                              </div>
-                </motion.div>
-              </div>
-            </div>
+                return (
+                  <div
+                    key={index}
+                    className="flex items-center justify-center"
+                    data-aos="zoom-in"
+                  >
+                      <img
+                        src={logo}
+                        alt="logo"
+                        className=
+                          "h-6 lg:h-10 w-auto"
+                        draggable={false}
+                      />
+                  </div>
+                );
+              })}
+            </motion.div>
           </div>
         </div>
-      </section> */}
 
       <div className="grid md:grid-cols-3 gap-10">
         {utilities.map((item, i) => (
