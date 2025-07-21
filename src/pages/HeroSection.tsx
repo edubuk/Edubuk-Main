@@ -32,10 +32,10 @@ export default function HeroSection() {
             tokenized rewards with EBUK.
           </p>
           <div className="flex gap-2 w-full justify-center sm:justify-start">
-            <a href="#about-us" className="bg-[#006666] text-white font-semibold px-2 py-1  sm:px-6 sm:py-3 rounded-md hover:bg-[#028080] transition">
+            <a href="#about-us" className="bg-[#006666] text-white font-semibold px-3 py-2  sm:px-6 sm:py-3 rounded-md hover:bg-[#028080] transition">
               Get Started →
             </a>
-            <a href="#edubuk-products" className="bg-[#03257e] border border-white/20 text-white font-semibold px-2 py-1  sm:px-6 sm:py-3 text-sm sm:text-xl rounded-md hover:bg-[#021f6a] transition">
+            <a href="#edubuk-products" className="bg-[#03257e] border border-white/20 text-white font-semibold px-3 py-2  sm:px-6 sm:py-3 text-sm sm:text-xl rounded-md hover:bg-[#021f6a] transition">
               Explore Our Products
             </a>
           </div>
