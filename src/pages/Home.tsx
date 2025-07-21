@@ -1,10 +1,5 @@
-import { useState, useEffect, useLayoutEffect } from "react";
-import hero1 from "../assets/HeroImg/hero1.png";
-import hero2 from "../assets/HeroImg/hero2.png";
-import hero3 from "../assets/HeroImg/hero3.png";
-import hero4 from "../assets/HeroImg/hero4.png";
-import hero5 from "../assets/HeroImg/hero5.png";
-import hero6 from "../assets/HeroImg/hero6.png";
+import { useLayoutEffect } from "react";
+
 import team1 from "../assets/Team/team1.png";
 import team2 from "../assets/Team/team2.png";
 import team3 from "../assets/Team/team3.png";
@@ -16,13 +11,7 @@ import advisor4 from "../assets/Advisor/advisor4.png";
 import Footer from "./Footer";
 import vision from '../assets/vision.png';
 import mission from '../assets/mission.png';
-import logo1 from '../assets/Logos/logo1.png';
-import logo2 from '../assets/Logos/logo2.png';
-import logo3 from '../assets/Logos/logo3.png';
-import logo4 from '../assets/Logos/logo4.png';
-import logo5 from '../assets/Logos/logo5.png';
-import logo6 from '../assets/Logos/logo6.png';
-// import toast from "react-hot-toast";
+
 
 import {
   instLogos,
@@ -35,14 +24,14 @@ import {
 } from "./Utils";
 
 import { FaLinkedinIn } from "react-icons/fa";
+import HeroSection from "./HeroSection";
+import ProductSection from "./OurProducts";
 // import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 
-
-const images = [hero1, hero2, hero3,hero4,hero5,hero6];
 //const urls = ["https://www.edubuktrucv.com/","https://www.edubukeseal.org/","https://www.edubukceta.com","https://www.edubukcetaolympiad.com/","https://www.ebuktokens.com/","https://www.edubukmiitscreening.com/"]
 
 const Home = () => {
-  const [current, setCurrent] = useState(0);
+  // const [current, setCurrent] = useState(0);
 
 
 
@@ -58,16 +47,10 @@ const Home = () => {
 }, []);
 
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % images.length);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, []);
 
   return (
     <div className=" flex flex-col gap-6 font-open">
-      <div className="flex flex-col">
+      {/* <div className="flex flex-col">
         <div
           // onClick={() => window.open(urls[current], '_blank')}
           className="mx-auto relative w-full aspect-[16/9] lg:aspect-[16/8] rounded-[2px] bg-cover bg-center cursor-pointer"
@@ -87,7 +70,8 @@ const Home = () => {
           </div>
           
         </div>
-      </div>
+      </div> */}
+      <HeroSection />
 
       <div className="flex justify-center flex-col items-center w-full overflow-hidden">
         <p className="text-[#03257E] text-[25px] sm:text-[40px] md:text-[50px] font-bold uppercase text-center">
@@ -229,9 +213,9 @@ const Home = () => {
         </p>
         <p className=" text-[#03257E] text-[25px] text-center px-5 sm:px-10 md:px-20">Our Platform bridges the gap between education and employment by providing emerging tech courses, veriﬁable academic & professional credentials and intelligent job matching leveraging Al and Blockchain Technology.</p>
         <div className="grid grid-cols-1 sm:grid-cols-2 items-baseline justify-center">
-          <div className="flex flex-col justify-center items-center w-full p-8 gap-4">
+          <div className="flex flex-col w-full justify-center items-center p-8 gap-4">
             <img src={vision} className="w-fit h-20"></img>
-            <p className="text-black text-2xl text-center"><span className="text-[#03257e] font-bold">VISION</span><br></br>One-Stop Platform for global academic & professional credentials veriﬁcation</p>
+            <p className="text-black text-2xl text-center md:w-[250px]"><span className="text-[#03257e] font-bold">VISION</span><br></br>One-Stop Platform for global academic & professional credentials veriﬁcation</p>
           </div>
           <div className="flex flex-col justify-center items-center w-full p-8 gap-4">
             <img src={mission} className="w-fit h-20"></img>
@@ -245,9 +229,9 @@ const Home = () => {
       </div>
       <div className="flex flex-col justify-center items-center gap-10" id="edubuk-products">
         <p className=" text-[#03257E] text-[25px] sm:text-[40px] md:text-[50px] font-bold text-center">
-          Our Products
+          Explore Our Products
         </p>
-      <div className="flex justify-evenly items-baseline-last flex-wrap gap-y-10">
+      {/* <div className="flex justify-evenly items-baseline-last flex-wrap gap-y-10">
           <div className="flex flex-col justify-center items-center gap-4 w-[300px] sm:w-[350px] rounded-lg border-b-2 border-[#03257e] p-2">
             <img src={logo1} alt="logo" className="w-fit h-32 "></img>
             <a 
@@ -298,7 +282,8 @@ const Home = () => {
             rel="nonopener noreferrer"
             className="text-white text-[16px] sm:text-[20px] p-2 rounded-full bg-gradient-to-br from-[#03257e] via-[#006666] to-[#f14419] cursor-pointer">Click to Know More</a>
           </div>
-      </div>
+      </div> */}
+      <ProductSection />
       </div>
       <div className="flex flex-col justify-center items-center mt-10" id="olympiad">
         <p className=" text-[#03257E] text-[25px] sm:text-[40px] md:text-[50px] font-bold text-center">
@@ -311,7 +296,7 @@ const Home = () => {
               <div className="relative w-full max-w-[800px] aspect-video rounded-xl overflow-hidden border-4 border-gray-300 shadow-lg">
                 <iframe
                   className="absolute top-0 left-0 w-full h-full"
-                  src="https://www.youtube.com/embed/kORadYQBGLY?autoplay=1&mute=1"
+                  src="https://www.youtube.com/embed/RaFvWqkBI4g?autoplay=1&mute=1"
                   title="Edubuk Presents: AI and Emerging Technologies Hackathon for College Student"
                   allow="autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   referrerPolicy="strict-origin-when-cross-origin"
