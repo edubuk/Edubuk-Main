@@ -49,7 +49,7 @@ export default function CETAOlympiadSection() {
           CETA-Olympiad:
           <span className="text-[#f14419]"> AI & Emerging Tech</span>
         </h2>
-        <p className="text-[#03257e] text-xl max-w-3xl mx-auto">
+        <p className="text-[#03257e] text-xl max-w-3xl mx-auto text-justify">
           International No-Code Olympiad for Class 7–12 | Available in India, Singapore & Dubai.
           A visionary concept by IIT, IIM Alumni, CFA Charterholder, Gold Medalist & Industry Experts.
         </p>

@@ -50,7 +50,7 @@ export default function WhyESealSection() {
           eSeal
           {/* <span className="text-[#f14419]"> AI & Emerging Tech</span> */}
         </h2>
-        <p className="text-[#03257e] text-xl max-w-3xl mx-auto">
+        <p className="text-[#03257e] text-xl max-w-3xl mx-auto text-justify">
           <span className="text-[#f14419] font-semibold">eSeal</span> by Edubuk is a blockchain-powered verification system that ensures each certificate—academic or professional—is secure, verifiable, and tamper-proof. Built with cutting-edge AI and blockchain, it enables real-time, fraud-proof verification of credentials globally.
         </p>
       </div>
@@ -70,6 +70,18 @@ export default function WhyESealSection() {
           </div>
         ))}
       </div>
+      <div className="flex justify-center items-center gap-4 p-4 w-full">
+              <div className="relative w-full max-w-[800px] aspect-video rounded-xl overflow-hidden border-4 border-gray-300 shadow-lg">
+                <iframe
+                  className="absolute top-0 left-0 w-full h-full"
+                  src="https://www.youtube.com/embed/e3is_xzlozw?autoplay=1&mute=1"
+                  title="Edubuk Presents: AI and Emerging Technologies Hackathon for College Student"
+                  allow="autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                ></iframe>
+              </div>
+            </div>
       <div className="mt-12 text-center">
       <a
         href="https://edubukeseal.org"

@@ -54,7 +54,7 @@ const miitBenefits = [
            MIIT Screening (Multiple Intelligence & Interest Test)
           {/* <span className="text-[#f14419]"> AI & Emerging Tech</span> */}
         </h2>
-        <p className="text-xl mb-4 text-[#03257e]">
+        <p className="text-xl mb-4 text-[#03257e] text-justify">
                 Choosing the right career shouldn't be guesswork. Every student has a unique combination of intelligences, interests, and natural abilities
             <span className="text-[#f14419] font-semibold"> MIIT Screening by Edubuk</span>, uses a scientific approach to map these traits to the most suitable career paths and job roles—enabling students to make informed, confident, and personalized decisions about their future. Backed by research in Multiple Intelligences and Interest Theory, this tool empowers youth to align their learning and career planning with who they truly are.
             </p>

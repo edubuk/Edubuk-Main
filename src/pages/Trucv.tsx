@@ -54,7 +54,7 @@ export default function WhyTruCVSection() {
           TruCV
           {/* <span className="text-[#f14419]"> AI & Emerging Tech</span> */}
         </h2>
-        <p className="text-[#03257e] text-xl max-w-3xl mx-auto">
+        <p className="text-[#03257e] text-xl max-w-3xl mx-auto text-justify">
           In today’s competitive and global job market, trust and authenticity
           are everything. Employers, universities, and immigration authorities
           increasingly demand verified proof of education, experience, and

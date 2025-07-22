@@ -8,7 +8,7 @@ import {
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { blcLogos } from "./Utils";
-
+import tokenImg from "../assets/metalic.png";
 
 
 export default function WhyEbukTokenSection() {
@@ -68,12 +68,12 @@ export default function WhyEbukTokenSection() {
         <h2 className="text-3xl md:text-4xl font-bold text-[#03257e] mb-4">
           EBUK Tokens
         </h2>
-        <p className="text-xl mb-4 text-[#03257e]">
+        <p className="text-xl mb-4 text-[#03257e] text-justify">
           <span className="text-[#f14419] font-semibold">EBUK</span> is the
           native utility and reward token of the globally awarded Edubuk
           ecosystem— connecting learning, skilling, and employment through Web3.
         </p>
-        <p className="text-[#03257e] text-xl">
+        <p className="text-[#03257e] text-xl text-justify">
           It's a <strong>Utility Token</strong> — not a security. Designed to
           power Edubuk's Learn-to-Earn, Skill-to-Earn, and Verify-to-Earn models
           using AI & Blockchain. With support from chains like Solana, XDC,
@@ -84,7 +84,10 @@ export default function WhyEbukTokenSection() {
           .
         </p>
       </div>
-      <p className="text-xl text-[#f14419] text-center">
+      <div className="flex justify-center items-center w-full">
+      <img src={tokenImg} className="w-fit h-28 pb-4"></img>
+      </div>
+      <p className="text-xl text-[#03257e] text-center">
         Edubuk's eSeal and TruCV dApps are awarded, granted and live on 10
         Blockchains
       </p>

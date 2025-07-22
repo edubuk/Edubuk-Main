@@ -8,6 +8,7 @@ import {
   Bot,
   Sparkles,
   FileEdit,
+  BadgeCheck
 } from "lucide-react";
 
 export default function WhyCETASection() {
@@ -49,6 +50,11 @@ const techSkills = [
     title: "Industry-Aligned Curriculum",
     desc: "Based on real use-cases and modern business tools.",
   },
+  {
+    icon: <BadgeCheck className="w-7 h-7" />,
+    title: "NSDC-Certified Curriculum",
+    desc: "CURRICULUM IS NSDC (National Skills Development Corporation), Certified as under Skill India Mission of Government of India",
+  },
 ];
 
 
@@ -59,7 +65,7 @@ const techSkills = [
 CETA Program (Certified Emerging Technologies Analyst)
           {/* <span className="text-[#f14419]"> AI & Emerging Tech</span> */}
         </h2>
-        <p className="text-[#03257e] text-xl max-w-3xl mx-auto">
+        <p className="text-[#03257e] text-xl max-w-3xl mx-auto text-justify">
             In today’s fast-evolving digital world, technical skills are no longer just for coders. With the rise of no-code platforms and tools, anyone can now build AI-driven solutions, harness the power of Generative AI, and innovate using emerging technologies—without needing to write a single line of code
         </p>
       </div>

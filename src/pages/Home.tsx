@@ -215,12 +215,13 @@ const Home = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 items-baseline justify-center">
           <div className="flex flex-col w-full justify-center items-center p-8 gap-4">
             <img src={vision} className="w-fit h-20"></img>
-            <p className="text-black text-2xl text-center md:w-[250px]"><span className="text-[#03257e] font-bold">VISION</span><br></br>One-Stop Platform for global academic & professional credentials veriﬁcation</p>
+            <p className="text-2xl text-justify text-[#03257e] font-bold">VISION</p>
+            <p className="text-black text-2xl text-justify">To be the world’s leading Skill-Tech + HR-Tech + Ed-Fin-Tech platform for verifiable education and employment, where every skill and credential is trusted, every career path is guided by science, and every opportunity is earned, owned, and on-chain.</p>
           </div>
           <div className="flex flex-col justify-center items-center w-full p-8 gap-4">
             <img src={mission} className="w-fit h-20"></img>
-            <p className="text-black text-2xl text-center"><span className="text-[#03257e] font-bold">MISSION</span><br></br>To provide a secure platform for global veriﬁcation of academic and professional credentials, thereby eliminating fraud and empowering universities, employers, students and professionals globally.
-            </p>
+            <p className="text-2xl text-justify text-[#03257e] font-bold">MISSION</p>
+            <p className="text-black text-2xl text-justify">To empower every learner, educator, and employer with trusted, AI and blockchain-powered solutions that bridge the gap between education, skills, and employment. Through innovative tools like TruCV, eSeal, CETA Program, and MIIT Screening, we strive to make learning verifiable, skilling accessible, and hiring transparent—globally.</p>
           </div>
           <div>
 
@@ -288,7 +289,7 @@ const Home = () => {
       <div className="flex flex-col justify-center items-center mt-10" id="olympiad">
         <p className=" text-[#03257E] text-[25px] sm:text-[40px] md:text-[50px] font-bold text-center">
           Edubuk in Action<br></br>
-          <span className="text-3xl font-semibold">Our Journey & Global Achievements</span>
+          <span className="text-[20px] sm:text-[30px] md:text-[40px] font-semibold">Our Journey & Global Achievements</span>
         </p>
         {/* <p className=" text-[#000000] my-4 text-[23px] sm:text-[38px] md:text-[48px] text-center">No-Code Skilling in Emerging Technologies</p> */}
       </div>

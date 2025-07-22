@@ -21,8 +21,8 @@ const Navbar = ()=> {
 
 
   return (
-    <div className="flex justify-between items-center py-2 px-4 border-b border-gray-200">
-      <img src={logo} className="w-fit h-28 md:w-fit md:h-32"></img>
+    <div className="flex justify-between items-center py-1 px-4 border-b border-gray-200">
+      <img src={logo} className="w-fit h-28"></img>
       
       <div className="flex justify-center items-center">
         <div className="hidden md:flex p-2 gap-6 justify-center items-center">
