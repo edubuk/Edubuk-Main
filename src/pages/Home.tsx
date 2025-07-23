@@ -207,7 +207,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <div className="flex flex-col justify-center items-center gap-10" id="about-us">
+      <div className="flex flex-col justify-center items-center gap-10 border-b-1 border-gray-200" id="about-us">
         <p className=" text-[#03257E] text-[25px] sm:text-[40px] md:text-[50px] font-bold text-center">
           Why Edubuk
         </p>
@@ -227,10 +227,29 @@ const Home = () => {
 
           </div>
         </div>
+        <div className="flex flex-col justify-center items-center mt-10" id="olympiad">
+        <p className=" text-[#03257E] text-[25px] sm:text-[40px] md:text-[50px] font-bold text-center">
+          Edubuk in Action<br></br>
+          <span className="text-[20px] sm:text-[30px] md:text-[40px] font-semibold">Our Journey & Global Achievements</span>
+        </p>
+        {/* <p className=" text-[#000000] my-4 text-[23px] sm:text-[38px] md:text-[48px] text-center">No-Code Skilling in Emerging Technologies</p> */}
+      </div>
+      <div className="flex justify-center items-center gap-4 p-4 w-full">
+              <div className="relative w-full max-w-[800px] aspect-video rounded-xl overflow-hidden border-4 border-gray-300 shadow-lg">
+                <iframe
+                  className="absolute top-0 left-0 w-full h-full"
+                  src="https://www.youtube.com/embed/RaFvWqkBI4g?autoplay=1&mute=1"
+                  title="Edubuk Presents: AI and Emerging Technologies Hackathon for College Student"
+                  allow="autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                ></iframe>
+              </div>
+            </div>
       </div>
       <div className="flex flex-col justify-center items-center gap-10" id="edubuk-products">
         <p className=" text-[#03257E] text-[25px] sm:text-[40px] md:text-[50px] font-bold text-center">
-          Explore Our Products
+          Explore Our Globally Award Winning Products
         </p>
       {/* <div className="flex justify-evenly items-baseline-last flex-wrap gap-y-10">
           <div className="flex flex-col justify-center items-center gap-4 w-[300px] sm:w-[350px] rounded-lg border-b-2 border-[#03257e] p-2">
@@ -286,29 +305,7 @@ const Home = () => {
       </div> */}
       <ProductSection />
       </div>
-      <div className="flex flex-col justify-center items-center mt-10" id="olympiad">
-        <p className=" text-[#03257E] text-[25px] sm:text-[40px] md:text-[50px] font-bold text-center">
-          Edubuk in Action<br></br>
-          <span className="text-[20px] sm:text-[30px] md:text-[40px] font-semibold">Our Journey & Global Achievements</span>
-        </p>
-        {/* <p className=" text-[#000000] my-4 text-[23px] sm:text-[38px] md:text-[48px] text-center">No-Code Skilling in Emerging Technologies</p> */}
-      </div>
-      <div className="flex justify-center items-center gap-4 p-4 w-full">
-              <div className="relative w-full max-w-[800px] aspect-video rounded-xl overflow-hidden border-4 border-gray-300 shadow-lg">
-                <iframe
-                  className="absolute top-0 left-0 w-full h-full"
-                  src="https://www.youtube.com/embed/RaFvWqkBI4g?autoplay=1&mute=1"
-                  title="Edubuk Presents: AI and Emerging Technologies Hackathon for College Student"
-                  allow="autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerPolicy="strict-origin-when-cross-origin"
-                  allowFullScreen
-                ></iframe>
-              </div>
-            </div>
-
       <div>
-        
-
       </div>
 
       
@@ -479,7 +476,7 @@ const Home = () => {
             <div className="flex flex-col items-center flex-grow">
               <p className="text-lg font-bold text-gray-800 mb-1">Ish Anand</p>
               <p className="bg-gradient-to-r from-[#03257e] via-[#006666] to-[#F14419] text-white text-sm font-semibold px-3 py-1 rounded-full mb-3">
-                Serial Entrepreneur, Advisor in Startups, Global Citizen
+                Serial Entrepreneur, Board Member
               </p>
 
               <a
@@ -547,7 +544,7 @@ const Home = () => {
                 Dr. Sindhu Bhaskar
               </p>
               <p className="bg-gradient-to-r from-[#03257e] via-[#006666] to-[#F14419] text-white text-sm font-semibold px-3 py-1 rounded-full mb-3">
-                Co-Founder, EST Global, Forbes Council Member
+                Co-Founder, EST-FAB Global,
               </p>
 
               <a

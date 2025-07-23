@@ -50,7 +50,7 @@ export default function WhyESealSection() {
           eSeal
           {/* <span className="text-[#f14419]"> AI & Emerging Tech</span> */}
         </h2>
-        <p className="text-[#03257e] text-xl max-w-3xl mx-auto text-justify">
+        <p className="text-[#03257e] text-xl max-w-3xl mx-auto text-left sm:text-justify">
           <span className="text-[#f14419] font-semibold">eSeal</span> by Edubuk is a blockchain-powered verification system that ensures each certificate—academic or professional—is secure, verifiable, and tamper-proof. Built with cutting-edge AI and blockchain, it enables real-time, fraud-proof verification of credentials globally.
         </p>
       </div>
@@ -59,7 +59,7 @@ export default function WhyESealSection() {
         {reasons.map((item, i) => (
           <div
             key={item.title}
-            className="bg-white/5 rounded-2xl p-6 backdrop-blur-md border border-white hover:border-cyan-400/30 shadow-lg hover:shadow-cyan-500/20 transition-all duration-300 animate-fade-in-up"
+            className="bg-white/5 rounded-2xl p-6 backdrop-blur-md border border-white hover:border-cyan-400/30 shadow-md shadow-[#03677e] hover:shadow-cyan-500/20 transition-all duration-300 animate-fade-in-up"
             style={{ animationDelay: `${i * 0.05}s` }}
           >
             <div className="w-12 h-12 mb-4 flex items-center justify-center bg-white text-[#03257e] rounded-full shadow-inner shadow-cyan-500/10">
@@ -70,7 +70,7 @@ export default function WhyESealSection() {
           </div>
         ))}
       </div>
-      <div className="flex justify-center items-center gap-4 p-4 w-full">
+      <div className="flex justify-center items-center gap-4 mt-10 w-full">
               <div className="relative w-full max-w-[800px] aspect-video rounded-xl overflow-hidden border-4 border-gray-300 shadow-lg">
                 <iframe
                   className="absolute top-0 left-0 w-full h-full"

@@ -5,7 +5,6 @@ import {
   Presentation,
   GitBranchPlus,
   ListChecks,
-  Users,
 } from "lucide-react";
 
 export default function WhyMIITSection(){
@@ -40,11 +39,7 @@ const miitBenefits = [
     title: "Used by Leading Institutions",
     desc: "Trusted by schools and colleges for effective counselling.",
   },
-  {
-    icon: <Users className="w-7 h-7" />,
-    title: "Supports Parents & Educators",
-    desc: "Provides actionable insights for better guidance.",
-  },
+
 ];
 
   return (
@@ -54,7 +49,7 @@ const miitBenefits = [
            MIIT Screening (Multiple Intelligence & Interest Test)
           {/* <span className="text-[#f14419]"> AI & Emerging Tech</span> */}
         </h2>
-        <p className="text-xl mb-4 text-[#03257e] text-justify">
+        <p className="text-xl mb-4 text-[#03257e] text-left sm:text-justify">
                 Choosing the right career shouldn't be guesswork. Every student has a unique combination of intelligences, interests, and natural abilities
             <span className="text-[#f14419] font-semibold"> MIIT Screening by Edubuk</span>, uses a scientific approach to map these traits to the most suitable career paths and job roles—enabling students to make informed, confident, and personalized decisions about their future. Backed by research in Multiple Intelligences and Interest Theory, this tool empowers youth to align their learning and career planning with who they truly are.
             </p>
@@ -65,7 +60,7 @@ const miitBenefits = [
         {miitBenefits.map((item, i) => (
           <div
             key={item.title}
-            className="bg-white/5 rounded-2xl p-6 backdrop-blur-md border border-white hover:border-cyan-400/30 shadow-lg hover:shadow-cyan-500/20 transition-all duration-300 animate-fade-in-up"
+            className="bg-white/5 rounded-2xl p-6 backdrop-blur-md border border-white hover:border-cyan-400/30 shadow-md shadow-[#03677e] hover:shadow-cyan-500/20 transition-all duration-300 animate-fade-in-up"
             style={{ animationDelay: `${i * 0.05}s` }}
           >
             <div className="w-12 h-12 mb-4 flex items-center justify-center bg-white text-[#03257e] rounded-full shadow-inner shadow-cyan-500/10">
@@ -76,7 +71,7 @@ const miitBenefits = [
           </div>
         ))}
       </div>
-       <div className="flex justify-center items-center gap-4 p-4 w-full">
+       <div className="flex justify-center items-center gap-4 mt-10 w-full">
         <div className="relative w-full max-w-[800px] aspect-video rounded-xl overflow-hidden border-4 border-gray-300 shadow-lg">
           <iframe
             className="absolute top-0 left-0 w-full h-full"

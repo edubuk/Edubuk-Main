@@ -16,8 +16,8 @@ const products = [
 
 export default function HeroSection() {
   return (
-    <section className="bg-white text-white min-h-screen px-2  sm:px-6 md:px-16 pt-1 relative overflow-hidden">
-      <div className="flex flex-col md:flex-row items-center justify-between">
+    <section className="bg-white text-white px-2  sm:px-6 md:px-16 p-16 relative overflow-hidden">
+      <div className="flex flex-col md:flex-row items-center justify-center gap-12">
         {/* Left Text Content */}
         <div className="w-full sm:max-w-xl space-y-2">
           <p className="text-4xl text-center sm:text-left sm:text-4xl md:text-5xl font-extrabold leading-tight text-[#03257e]">
@@ -26,7 +26,8 @@ export default function HeroSection() {
             <span className="text-[#f14419]">Employment</span>
           </p>
           <p className="text-lg font-semibold text-[#000000] text-center sm:text-left">
-            Edubuk is a globally award-winning platform revolutionizing the gap between education and employment through AI and Blockchain. Its flagship products—MIIT Screening, CETA Program, eSeal, TruCV, CETA Olympiad and EBUK utility Tokens—offer services to map intelligence & interests to career paths, no-code AI and Emerging Technologies skilling & assessment, tamper-proof-verifiable CVs & Credentials and Job matching tool to its stakeholders including students, employees, universities and employers globally.
+            Welcome to the future of trust in Education and Employment built
+            using AI & Blockchain.
           </p>
           <div className="flex gap-2 w-full justify-center sm:justify-start">
             <a
@@ -122,33 +123,38 @@ export default function HeroSection() {
           </div>
 
           {/* Product Grid */}
-          <div className="relative grid grid-cols-3 gap-28 lg:gap-30 justify-items-center z-10 ">
+          <div className="relative grid grid-cols-3 gap-28 lg:gap-36 justify-items-center z-10 ">
             {products.map((product, index) => (
               <>
                 <div
                   key={index}
-                  className="w-[160px] h-[120px] rounded-xl 
-  flex flex-col items-center justify-center bg-white border  shadow-md shadow-[#006666] 
-  hover:border-[#f14419] transition duration-300"
+                  className="w-[160px] h-[120px] rounded-xl flex flex-col items-center justify-center bg-white border  shadow-md shadow-[#006666] hover:border-[#f14419] transition duration-300"
                 >
-                  {product.icon===logo6?<div className="flex justify-center items-center flex-col"><img
-                  src={product.icon}
-                  alt={product.name}
-                  className="w-fit h-18 pt-2"
-                /><p className="text-center text-[#008888] font-semibold">EBUK Rewards Utility Token</p></div>
-                :
-                <img
-                  src={product.icon}
-                  alt={product.name}
-                  className="w-fit h-18 mb-2"
-                />}
+                  {product.icon === logo6 ? (
+                    <div className="flex justify-center items-center flex-col">
+                      <img
+                        src={product.icon}
+                        alt={product.name}
+                        className="w-fit h-18 pt-2"
+                      />
+                      <p className="text-center text-[#008888] font-semibold">
+                        EBUK Rewards Utility Token
+                      </p>
+                    </div>
+                  ) : (
+                    <img
+                      src={product.icon}
+                      alt={product.name}
+                      className="w-fit h-18 mb-2"
+                    />
+                  )}
                 </div>
               </>
             ))}
           </div>
         </div>
         {/* Product Grid Container smaller screen */}
-        <div className="relative flex flex-col items-center justify-center w-full py-16 px-4 hide-vertical-design">
+        <div className="relative flex flex-col items-center justify-center w-full py-6 px-4 hide-vertical-design">
           {/* SVG Lines to connect logos to parent */}
           <svg
             className="absolute top-0 left-0 w-full h-full pointer-events-none"
@@ -217,7 +223,8 @@ export default function HeroSection() {
 
           {/* Parent Logo */}
           <div className="z-10 mb-10">
-            logo<img
+            logo
+            <img
               src={logo}
               alt="Parent Logo"
               className="w-fit h-28 bg-white rounded-full shadow-md shadow-[#006666] 
@@ -233,17 +240,24 @@ export default function HeroSection() {
                 className="w-36 h-32 bg-white rounded-xl flex flex-col items-center justify-center text-[#030c2c] font-semibold shadow-md shadow-[#006666] 
   hover:border-[#f14419] transition duration-300 relative z-10"
               >
-                {product.icon===logo6?<div className="flex justify-center items-center flex-col"><img
-                  src={product.icon}
-                  alt={product.name}
-                  className="w-fit h-16"
-                /><p className="text-center text-[#006666]">EBUK Rewards Utility Token</p></div>
-                :
-                <img
-                  src={product.icon}
-                  alt={product.name}
-                  className="w-fit h-16 mb-2"
-                />}
+                {product.icon === logo6 ? (
+                  <div className="flex justify-center items-center flex-col">
+                    <img
+                      src={product.icon}
+                      alt={product.name}
+                      className="w-fit h-16"
+                    />
+                    <p className="text-center text-[#006666]">
+                      EBUK Rewards Utility Token
+                    </p>
+                  </div>
+                ) : (
+                  <img
+                    src={product.icon}
+                    alt={product.name}
+                    className="w-fit h-16 mb-2"
+                  />
+                )}
               </div>
             ))}
           </div>

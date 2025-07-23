@@ -49,7 +49,7 @@ export default function CETAOlympiadSection() {
           CETA-Olympiad:
           <span className="text-[#f14419]"> AI & Emerging Tech</span>
         </h2>
-        <p className="text-[#03257e] text-xl max-w-3xl mx-auto text-justify">
+        <p className="text-[#03257e] text-xl max-w-3xl mx-auto text-left sm:text-justify">
           International No-Code Olympiad for Class 7–12 | Available in India, Singapore & Dubai.
           A visionary concept by IIT, IIM Alumni, CFA Charterholder, Gold Medalist & Industry Experts.
         </p>
@@ -59,7 +59,7 @@ export default function CETAOlympiadSection() {
         {olympiadFeatures.map((item, i) => (
           <div
             key={item.title}
-            className="bg-white/5 rounded-2xl p-6 backdrop-blur-md border border-white hover:border-cyan-400/30 shadow-lg hover:shadow-cyan-500/20 transition-all duration-300 animate-fade-in-up"
+            className="bg-white/5 rounded-2xl p-6 backdrop-blur-md border border-white hover:border-cyan-400/30 shadow-md shadow-[#03677e] hover:shadow-cyan-500/20 transition-all duration-300 animate-fade-in-up"
             style={{ animationDelay: `${i * 0.05}s` }}
           >
             <div className="w-12 h-12 mb-4 flex items-center justify-center bg-white text-[#03257e] rounded-full shadow-inner shadow-cyan-500/10">
@@ -70,7 +70,7 @@ export default function CETAOlympiadSection() {
           </div>
         ))}
       </div>
-      <div className="flex justify-center items-center gap-4 p-4 w-full">
+      <div className="flex justify-center items-center gap-4 mt-10 w-full">
         <div className="relative w-full max-w-[800px] aspect-video rounded-xl overflow-hidden border-4 border-gray-300 shadow-lg">
           <iframe
             className="absolute top-0 left-0 w-full h-full"
