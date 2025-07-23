@@ -73,8 +73,8 @@ const Home = () => {
       </div> */}
       <HeroSection />
 
-      <div className="flex justify-center flex-col items-center w-full overflow-hidden">
-        <p className="text-[#03257E] text-[25px] sm:text-[40px] md:text-[50px] font-bold uppercase text-center">
+      <div className="flex justify-center flex-col items-center w-full overflow-hidden" data-aos="zoom-in">
+        <p className="text-[#03257E] text-[25px] sm:text-[40px] md:text-[50px] font-bold uppercase text-center" data-aos="fade-up">
           Awards & Recognitions
         </p>
 
@@ -208,33 +208,32 @@ const Home = () => {
         </div>
       </div>
       <div className="flex flex-col justify-center items-center gap-10 border-b-1 border-gray-200" id="about-us">
-        <p className=" text-[#03257E] text-[25px] sm:text-[40px] md:text-[50px] font-bold text-center">
+        <p className=" text-[#03257E] text-[25px] sm:text-[40px] md:text-[50px] font-bold text-center" data-aos="fade-up">
           Why Edubuk
         </p>
-        <p className=" text-[#03257E] text-[25px] text-center px-5 sm:px-10 md:px-20">Our Platform bridges the gap between education and employment by providing emerging tech courses, veriﬁable academic & professional credentials and intelligent job matching leveraging Al and Blockchain Technology.</p>
+        <p className=" text-[#03257E] text-[25px] text-center px-5 sm:px-10 md:px-20" data-aos="zoom-in">Our Platform bridges the gap between education and employment by providing emerging tech courses, veriﬁable academic & professional credentials and intelligent job matching leveraging Al and Blockchain Technology.</p>
         <div className="grid grid-cols-1 sm:grid-cols-2 items-baseline justify-center">
           <div className="flex flex-col w-full justify-center items-center p-8 gap-4">
-            <img src={vision} className="w-fit h-20"></img>
-            <p className="text-2xl text-justify text-[#03257e] font-bold">VISION</p>
-            <p className="text-black text-2xl text-justify">To be the world’s leading Skill-Tech + HR-Tech + Ed-Fin-Tech platform for verifiable education and employment, where every skill and credential is trusted, every career path is guided by science, and every opportunity is earned, owned, and on-chain.</p>
+            <img src={vision} className="w-fit h-20" data-aos="zoom-in"></img>
+            <p className="text-2xl text-justify text-[#03257e] font-bold" data-aos="fade-up">VISION</p>
+            <p className="text-black text-2xl text-center sm:text-justify" data-aos="zoom-in">To be the world’s leading Skill-Tech + HR-Tech + Ed-Fin-Tech platform for verifiable education and employment, where every skill and credential is trusted, every career path is guided by science, and every opportunity is earned, owned, and on-chain.</p>
           </div>
           <div className="flex flex-col justify-center items-center w-full p-8 gap-4">
-            <img src={mission} className="w-fit h-20"></img>
-            <p className="text-2xl text-justify text-[#03257e] font-bold">MISSION</p>
-            <p className="text-black text-2xl text-justify">To empower every learner, educator, and employer with trusted, AI and blockchain-powered solutions that bridge the gap between education, skills, and employment. Through innovative tools like TruCV, eSeal, CETA Program, and MIIT Screening, we strive to make learning verifiable, skilling accessible, and hiring transparent—globally.</p>
+            <img src={mission} className="w-fit h-20" data-aos="zoom-in"></img>
+            <p className="text-2xl text-justify text-[#03257e] font-bold" data-aos="fade-up">MISSION</p>
+            <p className="text-black text-2xl text-center sm:text-justify" data-aos="zoom-in">To empower every learner, educator, and employer with trusted, AI and blockchain-powered solutions that bridge the gap between education, skills, and employment. Through innovative tools like TruCV, eSeal, CETA Program, and MIIT Screening, we strive to make learning verifiable, skilling accessible, and hiring transparent globally.</p>
           </div>
           <div>
-
           </div>
         </div>
         <div className="flex flex-col justify-center items-center mt-10" id="olympiad">
-        <p className=" text-[#03257E] text-[25px] sm:text-[40px] md:text-[50px] font-bold text-center">
+        <p className=" text-[#03257E] text-[25px] sm:text-[40px] md:text-[50px] font-bold text-center" data-aos="fade-up">
           Edubuk in Action<br></br>
           <span className="text-[20px] sm:text-[30px] md:text-[40px] font-semibold">Our Journey & Global Achievements</span>
         </p>
         {/* <p className=" text-[#000000] my-4 text-[23px] sm:text-[38px] md:text-[48px] text-center">No-Code Skilling in Emerging Technologies</p> */}
       </div>
-      <div className="flex justify-center items-center gap-4 p-4 w-full">
+      <div className="flex justify-center items-center gap-4 p-4 w-full" data-aos="zoom-in">
               <div className="relative w-full max-w-[800px] aspect-video rounded-xl overflow-hidden border-4 border-gray-300 shadow-lg">
                 <iframe
                   className="absolute top-0 left-0 w-full h-full"
@@ -248,7 +247,7 @@ const Home = () => {
             </div>
       </div>
       <div className="flex flex-col justify-center items-center gap-10" id="edubuk-products">
-        <p className=" text-[#03257E] text-[25px] sm:text-[40px] md:text-[50px] font-bold text-center">
+        <p className=" text-[#03257E] text-[25px] sm:text-[40px] md:text-[50px] font-bold text-center" data-aos="fade-up">
           Explore Our Globally Award Winning Products
         </p>
       {/* <div className="flex justify-evenly items-baseline-last flex-wrap gap-y-10">
@@ -307,15 +306,13 @@ const Home = () => {
       </div>
       <div>
       </div>
-
-      
       <div className="flex justify-center items-center gap-3">
         <span className="w-4 h-4 sm:w-8 sm:h-8 rounded-full bg-[#03257E]"></span>
         <span className="w-4 h-4 sm:w-8 sm:h-8 rounded-full bg-[#006666]"></span>
         <span className="w-4 h-4 sm:w-8 sm:h-8 rounded-full bg-[#F14419]"></span>
       </div>
       <div className="flex flex-col justify-center items-center gap-8">
-        <p className="text-[#03257E] text-[25px] sm:text-[40px] md:text-[50px] font-bold uppercase text-center">
+        <p className="text-[#03257E] text-[25px] sm:text-[40px] md:text-[50px] font-bold uppercase text-center" data-aos="fade-up">
           Meet Our executives
         </p>
         <div className=" flex justify-center items-center flex-wrap gap-3">
@@ -325,9 +322,10 @@ const Home = () => {
                 src={team1}
                 alt="team1"
                 className="w-full h-full rounded-full object-cover"
+                data-aos="zoom-in"
               />
             </div>
-            <div className="flex flex-col items-center flex-grow">
+            <div className="flex flex-col items-center flex-grow" data-aos="fade-up">
               <p className="text-lg font-bold text-gray-800 mb-1">
                 Apoorva Bajaj
               </p>
@@ -358,11 +356,12 @@ const Home = () => {
                 src={team2}
                 alt="team2"
                 className="w-full h-full rounded-full object-cover"
+                data-aos="zoom-in"
               />
             </div>
 
             {/* Content */}
-            <div className="flex flex-col items-center flex-grow">
+            <div className="flex flex-col items-center flex-grow" data-aos="fade-up">
               <p className="text-lg font-bold text-gray-800 mb-1">
                 Shivaani Mehrotra
               </p>
@@ -392,11 +391,12 @@ const Home = () => {
                 src={team3}
                 alt="team3"
                 className="w-full h-full rounded-full object-cover"
+                data-aos="zoom-in"
               />
             </div>
 
             {/* Content */}
-            <div className="flex flex-col items-center flex-grow">
+            <div className="flex flex-col items-center flex-grow" data-aos="fade-up">
               <p className="text-lg font-bold text-gray-800 mb-1">
                 Amit Srivastava
               </p>
@@ -426,11 +426,12 @@ const Home = () => {
                 src={team4}
                 alt="Apoorva Bajaj"
                 className="w-full h-full rounded-full object-cover"
+                data-aos="zoom-in"
               />
             </div>
 
             {/* Content */}
-            <div className="flex flex-col items-center flex-grow">
+            <div className="flex flex-col items-center flex-grow" data-aos="fade-up">
               <p className="text-lg font-bold text-gray-800 mb-1">
                 Ajeet Ram Verma
               </p>
@@ -461,7 +462,7 @@ const Home = () => {
         <span className="w-4 h-4 sm:w-8 sm:h-8 rounded-full bg-[#F14419]"></span>
       </div>
       <div className="flex flex-col justify-center items-center gap-8">
-        <p className="text-[#03257E] text-[25px] sm:text-[40px] md:text-[50px] font-bold uppercase text-center">
+        <p className="text-[#03257E] text-[25px] sm:text-[40px] md:text-[50px] font-bold uppercase text-center" data-aos="fade-up">
           MEET OUR ADVISORS
         </p>
         <div className=" flex justify-center items-center flex-wrap gap-3">
@@ -471,9 +472,10 @@ const Home = () => {
                 src={advisor1}
                 alt="advisor1"
                 className="w-full h-full rounded-full object-cover"
+                data-aos="zoom-in"
               />
             </div>
-            <div className="flex flex-col items-center flex-grow">
+            <div className="flex flex-col items-center flex-grow" data-aos="zoom-in">
               <p className="text-lg font-bold text-gray-800 mb-1">Ish Anand</p>
               <p className="bg-gradient-to-r from-[#03257e] via-[#006666] to-[#F14419] text-white text-sm font-semibold px-3 py-1 rounded-full mb-3">
                 Serial Entrepreneur, Board Member
@@ -501,11 +503,12 @@ const Home = () => {
                 src={advisor2}
                 alt="advisor2"
                 className="w-full h-full rounded-full object-cover"
+                data-aos="zoom-in"
               />
             </div>
 
             {/* Content */}
-            <div className="flex flex-col items-center flex-grow">
+            <div className="flex flex-col items-center flex-grow" data-aos="fade-up">
               <p className="text-lg font-bold text-gray-800 mb-1">
                 Dr. Narsing Rao, GS
               </p>
@@ -535,11 +538,12 @@ const Home = () => {
                 src={advisor3}
                 alt="advisor3"
                 className="w-full h-full rounded-full object-cover"
+                data-aos="zoom-in"
               />
             </div>
 
             {/* Content */}
-            <div className="flex flex-col items-center flex-grow">
+            <div className="flex flex-col items-center flex-grow" data-aos="fade-up">
               <p className="text-lg font-bold text-gray-800 mb-1">
                 Dr. Sindhu Bhaskar
               </p>
@@ -569,11 +573,12 @@ const Home = () => {
                 src={advisor4}
                 alt="advisor4"
                 className="w-full h-full rounded-full object-cover"
+                data-aos="zoom-in"
               />
             </div>
 
             {/* Content */}
-            <div className="flex flex-col items-center flex-grow">
+            <div className="flex flex-col items-center flex-grow" data-aos="fade-up">
               <p className="text-lg font-bold text-gray-800 mb-1">James Wren</p>
               <p className="bg-gradient-to-r from-[#03257e] via-[#006666] to-[#F14419] text-white text-sm font-semibold px-3 py-1 rounded-full mb-3">
                 Lead BD, Liquidium

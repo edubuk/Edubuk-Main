@@ -63,18 +63,18 @@ export default function WhyEbukTokenSection() {
   //   ];
 
   return (
-    <section className="bg-white px-6 md:px-20 py-6 border-b border-gray-200 overflow-hidden">
+    <section className="bg-white px-6 md:px-20 py-6 border-b border-gray-200 overflow-hidden" id="token">
       <div className="max-w-6xl mx-auto text-center mb-10">
-        <h2 className="text-3xl md:text-4xl font-bold text-[#03257e] mb-4">
+        <h2 className="text-3xl md:text-4xl font-bold text-[#03257e] mb-4" data-aos="fade-up">
           EBUK Tokens
         </h2>
-        <p className="text-xl mb-4 text-[#03257e] text-justify">
+        <p className="text-xl mb-4 text-[#03257e] text-left sm:text-justify" data-aos="zoom-in">
           <span className="text-[#f14419] font-semibold">EBUK</span> is the
           native utility and reward token of the globally awarded Edubuk
-          ecosystem— connecting learning, skilling, and employment through Web3.
+          ecosystem- connecting learning, skilling, and employment through Web3.
         </p>
-        <p className="text-[#03257e] text-xl text-justify">
-          It's a <strong>Utility Token</strong> — not a security. Designed to
+        <p className="text-[#03257e] text-xl text-left sm:text-justify" data-aos="zoom-in">
+          It's a <strong>Utility Token</strong> not a security. Designed to
           power Edubuk's Learn-to-Earn, Skill-to-Earn, and Verify-to-Earn models
           using AI & Blockchain. With support from chains like Solana, XDC,
           Concordium, and BNB, it’s the{" "}
@@ -85,9 +85,9 @@ export default function WhyEbukTokenSection() {
         </p>
       </div>
       <div className="flex justify-center items-center w-full">
-      <img src={tokenImg} className="w-fit h-28 pb-4"></img>
+      <img src={tokenImg} className="w-fit h-28 pb-4" data-aos="zoom-in"></img>
       </div>
-      <p className="text-xl text-[#03257e] text-center">
+      <p className="text-xl text-[#03257e] text-center" data-aos="fade-up">
         Edubuk's eSeal and TruCV dApps are awarded, granted and live on 10
         Blockchains
       </p>
@@ -130,7 +130,7 @@ export default function WhyEbukTokenSection() {
             </motion.div>
           </div>
         </div>
-      <p className="text-2xl text-[#03257e] font-semibold text-center pb-10">Utility of EBUK tokens across Edubuk Ecosystem</p>
+      <p className="text-2xl text-[#03257e] font-semibold text-center pb-10" data-aos="fade-up">Utility of EBUK tokens across Edubuk Ecosystem</p>
       <div className="grid md:grid-cols-3 gap-10">
         {utilities.map((item, i) => (
           <div
@@ -138,17 +138,17 @@ export default function WhyEbukTokenSection() {
             className="bg-white/5 rounded-2xl p-6 backdrop-blur-md border border-white hover:border-cyan-400/30 shadow-md shadow-[#03677e] hover:shadow-cyan-500/20 transition-all duration-300 animate-fade-in-up"
             style={{ animationDelay: `${i * 0.05}s` }}
           >
-            <div className="w-12 h-12 mb-4 flex items-center justify-center bg-white text-[#03257e] rounded-full shadow-inner shadow-cyan-500/10">
+            <div className="w-12 h-12 mb-4 flex items-center justify-center bg-white text-[#03257e] rounded-full shadow-inner shadow-cyan-500/10" data-aos="zoom-in">
               {item.icon}
             </div>
-            <h3 className="text-xl text-[#006666] font-semibold mb-2">
+            <h3 className="text-xl text-[#006666] font-semibold mb-2" data-aos="fade-up">
               {item.title}
             </h3>
-            <p className="text-[#f14419] text-lg">{item.desc}</p>
+            <p className="text-[#f14419] text-lg" data-aos="fade-up">{item.desc}</p>
           </div>
         ))}
       </div>
-      <div className="flex justify-center items-center gap-4 pt-10 w-full">
+      <div className="flex justify-center items-center gap-4 pt-10 w-full" data-aos="zoom-in">
         <div className="relative w-full max-w-[800px] aspect-video rounded-xl overflow-hidden border-4 border-gray-300 shadow-lg">
           <iframe
             className="absolute top-0 left-0 w-full h-full"
@@ -167,6 +167,7 @@ export default function WhyEbukTokenSection() {
           target="_blank"
           rel="noopener noreferrer"
           className="inline-block bg-[#03257e] text-white hover:bg-white hover:text-[#f14419]  transition-all rounded-full px-6 py-3 text-lg font-semibold shadow-lg"
+          data-aos="zoom-in"
         >
           Click to Learn More →
         </a>

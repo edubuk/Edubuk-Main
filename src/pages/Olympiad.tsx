@@ -43,13 +43,16 @@ const olympiadFeatures = [
 
 export default function CETAOlympiadSection() {
   return (
-    <section className="bg-white  px-6 md:px-20 py-6 border-b border-gray-200">
-      <div className="max-w-6xl mx-auto text-center mb-10">
-        <h2 className="text-3xl md:text-4xl font-bold text-[#03257e] mb-4">
-          CETA-Olympiad:
+    <section className="bg-white  px-6 md:px-20 py-6 border-b border-gray-200" id="cetaOlympiad">
+      <div className="max-full flex justify-center items-center flex-col mx-auto text-center mb-10">
+        <h2 className="text-3xl md:text-4xl font-bold text-[#03257e] mb-4 hidden sm:flex" data-aos="fade-up">
+          CETA-Olympiad: <span className="text-[#f14419]">AI & Emerging Tech</span>
+        </h2>
+        <h2 className="text-3xl md:text-4xl font-bold text-[#03257e] text-center mb-4 sm:hidden" data-aos="fade-up">
+          CETA-Olympiad:<br></br>
           <span className="text-[#f14419]"> AI & Emerging Tech</span>
         </h2>
-        <p className="text-[#03257e] text-xl max-w-3xl mx-auto text-left sm:text-justify">
+        <p className="text-[#03257e] text-xl max-w-3xl mx-auto text-left sm:text-justify" data-aos="zoom-in">
           International No-Code Olympiad for Class 7–12 | Available in India, Singapore & Dubai.
           A visionary concept by IIT, IIM Alumni, CFA Charterholder, Gold Medalist & Industry Experts.
         </p>
@@ -62,15 +65,15 @@ export default function CETAOlympiadSection() {
             className="bg-white/5 rounded-2xl p-6 backdrop-blur-md border border-white hover:border-cyan-400/30 shadow-md shadow-[#03677e] hover:shadow-cyan-500/20 transition-all duration-300 animate-fade-in-up"
             style={{ animationDelay: `${i * 0.05}s` }}
           >
-            <div className="w-12 h-12 mb-4 flex items-center justify-center bg-white text-[#03257e] rounded-full shadow-inner shadow-cyan-500/10">
+            <div className="w-12 h-12 mb-4 flex items-center justify-center bg-white text-[#03257e] rounded-full shadow-inner shadow-cyan-500/10" data-aos="zoom-in">
               {item.icon}
             </div>
-            <h3 className="text-xl text-[#006666] font-semibold mb-2">{item.title}</h3>
-            <p className="text-[#f14419] text-lg">{item.desc}</p>
+            <h3 className="text-xl text-[#006666] font-semibold mb-2" data-aos="fade-up">{item.title}</h3>
+            <p className="text-[#f14419] text-lg" data-aos="fade-up">{item.desc}</p>
           </div>
         ))}
       </div>
-      <div className="flex justify-center items-center gap-4 mt-10 w-full">
+      <div className="flex justify-center items-center gap-4 mt-10 w-full" data-aos="zoom-in">
         <div className="relative w-full max-w-[800px] aspect-video rounded-xl overflow-hidden border-4 border-gray-300 shadow-lg">
           <iframe
             className="absolute top-0 left-0 w-full h-full"
@@ -89,6 +92,7 @@ export default function CETAOlympiadSection() {
         target="_blank"
         rel="noopener noreferrer"
         className="inline-block bg-[#03257e] text-white hover:bg-white hover:text-[#f14419]  transition-all rounded-full px-6 py-3 text-lg font-semibold shadow-lg"
+        data-aos="zoom-in"
       >
         Click to Learn More →
       </a>

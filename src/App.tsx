@@ -10,9 +10,18 @@ import TermsAndConditions from './components/Legals/TermCond';
 import CancellationPolicy from './components/Legals/CancellationPol';
 import ContactUs from './components/Legals/ContactUs';
 import PrivacyPolicy from './components/Legals/PrivacyPolicy';
-
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from 'react';
 
 function App() {
+
+    useEffect(() => {
+    AOS.init({
+      duration: 1000, // Animation duration
+      once: false,     // Whether animation should happen only once
+    });
+  }, []);
 
   return (
     <>

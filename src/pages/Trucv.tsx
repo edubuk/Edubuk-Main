@@ -42,13 +42,13 @@ export default function WhyTruCVSection() {
   ];
 
   return (
-    <section className="bg-white text-[#006666] px-6 md:px-20 py-6 border-b border-gray-200">
+    <section className="bg-white text-[#006666] px-6 md:px-20 py-6 border-b border-gray-200" id="trucv">
       <div className="max-w-6xl mx-auto text-center mb-10">
-        <h2 className="text-3xl md:text-4xl font-bold text-[#03257e] mb-4">
+        <h2 className="text-3xl md:text-4xl font-bold text-[#03257e] mb-4" data-aos="fade-up">
           TruCV
           {/* <span className="text-[#f14419]"> AI & Emerging Tech</span> */}
         </h2>
-        <p className="text-[#03257e] text-xl max-w-3xl mx-auto text-left sm:text-justify">
+        <p className="text-[#03257e] text-xl max-w-3xl mx-auto text-left sm:text-justify" data-aos="zoom-in">
           In today’s competitive and global job market, trust and authenticity
           are everything. Employers, universities, and immigration authorities
           increasingly demand verified proof of education, experience, and
@@ -66,17 +66,17 @@ export default function WhyTruCVSection() {
             className="bg-white/5 rounded-2xl p-6 backdrop-blur-md border border-white hover:border-cyan-400/30 shadow-md shadow-[#03677e] hover:shadow-cyan-500/20 transition-all duration-300 animate-fade-in-up"
             style={{ animationDelay: `${i * 0.05}s` }}
           >
-            <div className="w-12 h-12 mb-4 flex items-center justify-center bg-white text-[#03257e] rounded-full shadow-inner shadow-cyan-500/10">
+            <div className="w-12 h-12 mb-4 flex items-center justify-center bg-white text-[#03257e] rounded-full shadow-inner shadow-cyan-500/10" data-aos="zoom-in">
               {item.icon}
             </div>
-            <h3 className="text-xl text-[#006666] font-semibold mb-2">
+            <h3 className="text-xl text-[#006666] font-semibold mb-2" data-aos="fade-up">
               {item.title}
             </h3>
-            <p className="text-[#f14419] text-lg">{item.desc}</p>
+            <p className="text-[#f14419] text-lg" data-aos="fade-up">{item.desc}</p>
           </div>
         ))}
       </div>
-      <div className="flex justify-center items-center gap-4 pt-10 w-full">
+      <div className="flex justify-center items-center gap-4 pt-10 w-full" data-aos="zoom-in">
         <div className="relative w-full max-w-[800px] aspect-video rounded-xl overflow-hidden border-4 border-gray-300 shadow-lg">
           <iframe
             className="absolute top-0 left-0 w-full h-full"
@@ -94,6 +94,7 @@ export default function WhyTruCVSection() {
           target="_blank"
           rel="noopener noreferrer"
           className="inline-block bg-[#03257e] text-white hover:bg-white hover:text-[#f14419]  transition-all rounded-full px-6 py-3 text-lg font-semibold shadow-lg"
+          data-aos="zoom-in"
         >
           Click to Learn More →
         </a>

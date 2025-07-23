@@ -1,17 +1,17 @@
 import logo1 from "../assets/Logos/cetabgless.png";
-import logo2 from "../assets/Logos/miitbgless.png";
 import logo3 from "../assets/Logos/logo3.png";
 import logo4 from "../assets/Logos/logo4.png";
 import logo5 from "../assets/Logos/logo5.png";
 import logo6 from "../assets/Logos/logo6.png";
+import logo7 from "../assets/Logos/logo7.png";
 import logo from "../assets/edubuklogo.png";
 const products = [
-  { name: "TruCV", icon: logo4 },
-  { name: "eSeal", icon: logo5 },
-  { name: "CETA", icon: logo1 },
-  { name: "EBUK Token", icon: logo6 },
-  { name: "CETA Olympiad", icon: logo3 },
-  { name: "MIIT Screening", icon: logo2 },
+  { name: "TruCV", icon: logo4, linkId:"#trucv" },
+  { name: "eSeal", icon: logo5, linkId:"#eseal" },
+  { name: "CETA", icon: logo1, linkId:"#ceta" },
+  { name: "EBUK Token", icon: logo6, linkId:"#token" },
+  { name: "CETA Olympiad", icon: logo3, linkId:"#cetaOlympiad" },
+  { name: "MIIT Screening", icon: logo7, linkId:"#miit" },
 ];
 
 export default function HeroSection() {
@@ -20,25 +20,24 @@ export default function HeroSection() {
       <div className="flex flex-col md:flex-row items-center justify-center gap-12">
         {/* Left Text Content */}
         <div className="w-full sm:max-w-xl space-y-2">
-          <p className="text-4xl text-center sm:text-left sm:text-4xl md:text-5xl font-extrabold leading-tight text-[#03257e]">
+          <p className="text-4xl text-center sm:text-left sm:text-4xl md:text-5xl font-extrabold leading-tight text-[#03257e]" data-aos="fade-down">
             Welcome to the future of trust in{" "}
             <span className="text-[#f14419]">Education</span> and{" "}
-            <span className="text-[#f14419]">Employment</span>
+            <span className="text-[#f14419]">Employment</span> built using 
+            <span className="text-[#f14419]"> AI</span> & <span className="text-[#f14419]">Blockchain</span>
           </p>
-          <p className="text-lg font-semibold text-[#000000] text-center sm:text-left">
-            Welcome to the future of trust in Education and Employment built
-            using AI & Blockchain.
-          </p>
-          <div className="flex gap-2 w-full justify-center sm:justify-start">
+          <div className="flex gap-2 w-full justify-center sm:justify-start pt-6">
             <a
               href="#about-us"
-              className="bg-[#006666] text-white font-semibold px-3 py-2  sm:px-6 sm:py-2 rounded-md hover:bg-[#028080] transition"
+              className="bg-[#006666] w-[250px] text-white font-semibold px-3 py-2 text-sm sm:text-xl sm:px-2 sm:py-2 rounded-md hover:bg-[#028080] transition text-center"
+              data-aos="fade-left"
             >
               Get Started →
             </a>
             <a
               href="#edubuk-products"
-              className="bg-[#03257e] border border-white/20 text-white font-semibold px-3 py-2  sm:px-6 sm:py-2 text-sm sm:text-xl rounded-md hover:bg-[#021f6a] transition"
+              className="bg-[#03257e] w-[250px] border border-white/20 text-white font-semibold px-3 py-2  sm:px-2 sm:py-2 text-sm sm:text-xl rounded-md hover:bg-[#021f6a] transition text-center"
+              data-aos="fade-right"
             >
               Explore Our Products
             </a>
@@ -46,7 +45,7 @@ export default function HeroSection() {
         </div>
 
         {/* Product Grid Container larger screen */}
-        <div className="relative mt-10 md:mt-0 md:ml-20 w-full md:w-auto hide-horizontal-design">
+        <div className="relative mt-10 md:mt-0 md:ml-20 w-full md:w-auto hide-horizontal-design" data-aos="zoom-in">
           {/* Background SVG with shiny glowing center */}
           <svg
             viewBox="0 0 300 300"
@@ -131,7 +130,7 @@ export default function HeroSection() {
                   className="w-[160px] h-[120px] rounded-xl flex flex-col items-center justify-center bg-white border  shadow-md shadow-[#006666] hover:border-[#f14419] transition duration-300"
                 >
                   {product.icon === logo6 ? (
-                    <div className="flex justify-center items-center flex-col">
+                    <a href={product.linkId}><div className="flex justify-center items-center flex-col">
                       <img
                         src={product.icon}
                         alt={product.name}
@@ -140,21 +139,30 @@ export default function HeroSection() {
                       <p className="text-center text-[#008888] font-semibold">
                         EBUK Rewards Utility Token
                       </p>
-                    </div>
-                  ) : (
+                    </div></a>
+                  ) : product.icon!== logo7&& (
+                    <a href={product.linkId}>
                     <img
                       src={product.icon}
                       alt={product.name}
                       className="w-fit h-18 mb-2"
-                    />
+                    /></a>
                   )}
+                  {
+                    product.icon === logo7&&<a href={product.linkId}>
+                    <img
+                      src={product.icon}
+                      alt={product.name}
+                      className="w-fit h-10 mb-2"
+                    /></a>
+                  }
                 </div>
               </>
             ))}
           </div>
         </div>
         {/* Product Grid Container smaller screen */}
-        <div className="relative flex flex-col items-center justify-center w-full py-6 px-4 hide-vertical-design">
+        <div className="relative flex flex-col items-center justify-center w-full py-6 px-4 hide-vertical-design" data-aos="zoom-in">
           {/* SVG Lines to connect logos to parent */}
           <svg
             className="absolute top-0 left-0 w-full h-full pointer-events-none"
@@ -241,8 +249,8 @@ export default function HeroSection() {
   hover:border-[#f14419] transition duration-300 relative z-10"
               >
                 {product.icon === logo6 ? (
-                  <div className="flex justify-center items-center flex-col">
-                    <img
+                  <a href={product.linkId}><div className="flex justify-center items-center flex-col">
+                  <img
                       src={product.icon}
                       alt={product.name}
                       className="w-fit h-16"
@@ -250,14 +258,21 @@ export default function HeroSection() {
                     <p className="text-center text-[#006666]">
                       EBUK Rewards Utility Token
                     </p>
-                  </div>
-                ) : (
-                  <img
+                  </div></a>
+                ) : product.icon!==logo7&&(
+                  <a href={product.linkId}><img
                     src={product.icon}
                     alt={product.name}
                     className="w-fit h-16 mb-2"
-                  />
+                  /></a>
                 )}
+                {
+                  product.icon===logo7 && <a href={product.linkId}><img
+                    src={product.icon}
+                    alt={product.name}
+                    className="w-fit h-10 mb-2"
+                  /></a>
+                }
               </div>
             ))}
           </div>
