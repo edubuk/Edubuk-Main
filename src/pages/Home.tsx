@@ -9,31 +9,15 @@ import advisor2 from "../assets/Advisor/advisor2.png";
 import advisor3 from "../assets/Advisor/advisor3.png";
 import advisor4 from "../assets/Advisor/advisor4.png";
 import Footer from "./Footer";
-import vision from '../assets/vision.png';
-import mission from '../assets/mission.png';
 
-
-import {
-  instLogos,
-  govLogos,
-  blcLogos,
-  accLogos,
-  mediaLogos,
-  foreignLogos,
-  finLogos,
-} from "./Utils";
 
 import { FaLinkedinIn } from "react-icons/fa";
 import HeroSection from "./HeroSection";
 import ProductSection from "./OurProducts";
-// import { DotLottieReact } from "@lottiefiles/dotlottie-react";
-
-//const urls = ["https://www.edubuktrucv.com/","https://www.edubukeseal.org/","https://www.edubukceta.com","https://www.edubukcetaolympiad.com/","https://www.ebuktokens.com/","https://www.edubukmiitscreening.com/"]
+import Award from "./Award";
+import About from "./About";
 
 const Home = () => {
-  // const [current, setCurrent] = useState(0);
-
-
 
 
   useLayoutEffect(() => {
@@ -50,258 +34,14 @@ const Home = () => {
 
   return (
     <div className=" flex flex-col gap-6 font-open">
-      {/* <div className="flex flex-col">
-        <div
-          // onClick={() => window.open(urls[current], '_blank')}
-          className="mx-auto relative w-full aspect-[16/9] lg:aspect-[16/8] rounded-[2px] bg-cover bg-center cursor-pointer"
-          style={{ backgroundImage: `url(${images[current]})` }}
-        >
-          <div className="absolute flex flex-col gap-1 sm:gap-2 top-2/6 md:top-2/5 right-0 mr-1 md:mr-3 lg:mr-4 bg-white rounded-full p-1">
-          {
-            images.map((_,i)=>(
-              <span 
-              key={i} 
-              className="z-10 p-1 md:p-2 border-2 border-gray-400 rounded-full cursor-pointer" 
-              style={{background:current===i?"#03257e":""}}
-              onClick={()=>setCurrent(i)}
-              ></span>
-            ))
-          }
-          </div>
-          
-        </div>
-      </div> */}
+      
       <HeroSection />
-
-      <div className="flex justify-center flex-col items-center w-full overflow-hidden" data-aos="zoom-in">
-        <p className="text-[#03257E] text-[25px] sm:text-[40px] md:text-[50px] font-bold uppercase text-center" data-aos="fade-up">
-          Awards & Recognitions
-        </p>
-
-        <div className="flex justify-start items-center p-2 border-b-2 border-gray-300">
-          <p className="absolute left-0 bg-white hidden border-b-4 w-[160px] border-[#03257e] sm:flex sm:ml-0 rounded py-2 px-4 text-[#03257e] text-center font-bold text-[10px] sm:text-[15px] md:text-[20px] uppercase leading-none animate-slide-in-right shadow-gray-800 z-20">
-            Education institutes
-          </p>
-          <div className="overflow-hidden sm:py-4">
-            <div key={1} className="flex animate-slide whitespace-nowrap">
-              {instLogos.concat(instLogos).map((logo, index) => (
-                <img
-                  key={index}
-                  src={logo}
-                  alt={`logo-${index}`}
-                  className="h-9 sm:h-12 w-auto sm:w-auto mx-4 sm:mx-8 shadow-[0_0_20px_5px_rgba(255,255,255,0.7)]"
-                />
-              ))}
-            </div>
-          </div>
-        </div>
-        <div className="flex justify-start items-center p-2 border-b-2 border-gray-300">
-          <div className="overflow-hidden sm:py-4">
-            <div
-              key={2}
-              className="flex animate-slideOpposite whitespace-nowrap"
-            >
-              {govLogos.concat(govLogos).map((logo, index) => (
-                <img
-                  key={index}
-                  src={logo}
-                  alt={`logo-${index}`}
-                  className="h-9 sm:h-6 w-auto sm:w-auto mx-4 sm:mx-8"
-                />
-              ))}
-            </div>
-          </div>
-          <p className="absolute right-0 bg-white hidden border-b-4 border-[#03257e] sm:flex rounded w-[200px] p-2 text-[#03257e] text-center font-bold text-[10px] sm:text-[15px] md:text-[20px] uppercase leading-none animate-slide-in-right shadow-gray-800 z-20">
-            Governments & Regulators
-          </p>
-        </div>
-        <div className="flex justify-start items-center p-2 border-b-2 border-gray-300">
-          <p className="absolute left-0 bg-white hidden border-b-4 p-2 border-[#03257e] sm:flex rounded w-[250px] text-[#03257e] text-center font-bold text-[10px] sm:text-[15px] md:text-[20px] uppercase leading-none animate-slide-in-right shadow-gray-800 z-20">
-            Grants & awards by blockchains
-          </p>
-          <div className="overflow-hidden sm:py-4">
-            <div key={3} className="flex animate-slide whitespace-nowrap">
-              {blcLogos.concat(blcLogos).map((logo, index) => (
-                <img
-                  key={index}
-                  src={logo}
-                  alt={`logo-${index}`}
-                  className="h-9 sm:h-6 w-auto sm:w-auto mx-4 sm:mx-8 shadow-[0_0_20px_5px_rgba(255,255,255,0.7)]"
-                />
-              ))}
-            </div>
-          </div>
-        </div>
-        <div className="flex justify-start items-center p-2 border-b-2 border-gray-300">
-          <div className="overflow-hidden sm:py-4">
-            <div
-              key={4}
-              className="flex animate-slideOpposite whitespace-nowrap"
-            >
-              {accLogos.concat(accLogos).map((logo, index) => (
-                <img
-                  key={index}
-                  src={logo}
-                  alt={`logo-${index}`}
-                  className="h-9 sm:h-6 w-auto sm:w-auto mx-4 sm:mx-8"
-                />
-              ))}
-            </div>
-          </div>
-          <p className="absolute right-0 bg-white hidden border-b-4 border-[#03257e] sm:flex rounded w-[200px] p-2 text-[#03257e] text-center font-bold text-[10px] sm:text-[15px] md:text-[20px] uppercase leading-none animate-slide-in-right shadow-gray-800 z-20">
-            cloud credits & accelerators
-          </p>
-        </div>
-        <div className="flex justify-start items-center p-2 border-b-2 border-gray-300">
-          <p className="absolute left-0 bg-white hidden border-b-4 border-[#03257e] sm:flex sm:ml-0 rounded w-[100px] p-2 text-[#03257e] text-center font-bold text-[10px] sm:text-[15px] md:text-[20px] uppercase leading-none animate-slide-in-right shadow-gray-800 z-20">
-            media houses
-          </p>
-          <div className="overflow-hidden sm:py-4">
-            <div key={5} className="flex animate-slide whitespace-nowrap">
-              {mediaLogos.concat(mediaLogos).map((logo, index) => (
-                <img
-                  key={index}
-                  src={logo}
-                  alt={`logo-${index}`}
-                  className="h-9 sm:h-10 w-auto sm:w-auto mx-4 sm:mx-8 shadow-[0_0_20px_5px_rgba(255,255,255,0.7)]"
-                />
-              ))}
-            </div>
-          </div>
-        </div>
-        <div className="flex justify-start items-center p-2 border-b-2 border-gray-300">
-          <div className="overflow-hidden sm:py-4">
-            <div
-              key={6}
-              className="flex animate-slideOpposite whitespace-nowrap"
-            >
-              {foreignLogos.concat(foreignLogos).map((logo, index) => (
-                <img
-                  key={index}
-                  src={logo}
-                  alt={`logo-${index}`}
-                  className="h-9 sm:h-12 w-auto sm:w-auto mx-4 sm:mx-8"
-                />
-              ))}
-            </div>
-          </div>
-          <p className="absolute right-0 bg-white hidden border-b-4 border-[#03257e] sm:flex rounded w-[180px] p-2 text-[#03257e] text-center font-bold text-[10px] sm:text-[15px] md:text-[20px] uppercase leading-none animate-slide-in-right shadow-gray-800 z-20">
-            international bodies
-          </p>
-        </div>
-        <div className="flex justify-start items-center p-2 border-b-2 border-gray-300">
-          <p className="absolute left-0 bg-white hidden border-b-4 border-[#03257e] sm:flex sm:ml-0 rounded w-[130px] p-2 text-[#03257e] text-center font-bold text-[10px] sm:text-[15px] md:text-[20px] uppercase leading-none animate-slide-in-right shadow-gray-800 z-20">
-            fintech & banking
-          </p>
-          <div className="overflow-hidden sm:py-4">
-            <div key={7} className="flex animate-slide whitespace-nowrap">
-              {finLogos.concat(finLogos).map((logo, index) => (
-                <img
-                  key={index}
-                  src={logo}
-                  alt={`logo-${index}`}
-                  className="h-9 sm:h-12 w-auto sm:w-auto mx-4 sm:mx-8 shadow-[0_0_20px_5px_rgba(255,255,255,0.7)]"
-                />
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="flex flex-col justify-center items-center gap-10 border-b-1 border-gray-200" id="about-us">
-        <p className=" text-[#03257E] text-[25px] sm:text-[40px] md:text-[50px] font-bold text-center" data-aos="fade-up">
-          Why Edubuk
-        </p>
-        <p className=" text-[#03257E] text-[25px] text-center px-5 sm:px-10 md:px-20" data-aos="zoom-in">Our Platform bridges the gap between education and employment by providing emerging tech courses, veriﬁable academic & professional credentials and intelligent job matching leveraging Al and Blockchain Technology.</p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 items-baseline justify-center">
-          <div className="flex flex-col w-full justify-center items-center p-8 gap-4">
-            <img src={vision} className="w-fit h-20" data-aos="zoom-in"></img>
-            <p className="text-2xl text-justify text-[#03257e] font-bold" data-aos="fade-up">VISION</p>
-            <p className="text-black text-2xl text-center sm:text-justify" data-aos="zoom-in">To be the world’s leading Skill-Tech + HR-Tech + Ed-Fin-Tech platform for verifiable education and employment, where every skill and credential is trusted, every career path is guided by science, and every opportunity is earned, owned, and on-chain.</p>
-          </div>
-          <div className="flex flex-col justify-center items-center w-full p-8 gap-4">
-            <img src={mission} className="w-fit h-20" data-aos="zoom-in"></img>
-            <p className="text-2xl text-justify text-[#03257e] font-bold" data-aos="fade-up">MISSION</p>
-            <p className="text-black text-2xl text-center sm:text-justify" data-aos="zoom-in">To empower every learner, educator, and employer with trusted, AI and blockchain-powered solutions that bridge the gap between education, skills, and employment. Through innovative tools like TruCV, eSeal, CETA Program, and MIIT Screening, we strive to make learning verifiable, skilling accessible, and hiring transparent globally.</p>
-          </div>
-          <div>
-          </div>
-        </div>
-        <div className="flex flex-col justify-center items-center mt-10" id="olympiad">
-        <p className=" text-[#03257E] text-[25px] sm:text-[40px] md:text-[50px] font-bold text-center" data-aos="fade-up">
-          Edubuk in Action<br></br>
-          <span className="text-[20px] sm:text-[30px] md:text-[40px] font-semibold">Our Journey & Global Achievements</span>
-        </p>
-        {/* <p className=" text-[#000000] my-4 text-[23px] sm:text-[38px] md:text-[48px] text-center">No-Code Skilling in Emerging Technologies</p> */}
-      </div>
-      <div className="flex justify-center items-center gap-4 p-4 w-full" data-aos="zoom-in">
-              <div className="relative w-full max-w-[800px] aspect-video rounded-xl overflow-hidden border-4 border-gray-300 shadow-lg">
-                <iframe
-                  className="absolute top-0 left-0 w-full h-full"
-                  src="https://www.youtube.com/embed/RaFvWqkBI4g?autoplay=1&mute=1"
-                  title="Edubuk Presents: AI and Emerging Technologies Hackathon for College Student"
-                  allow="autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerPolicy="strict-origin-when-cross-origin"
-                  allowFullScreen
-                ></iframe>
-              </div>
-            </div>
-      </div>
+      <Award />
+      <About />
       <div className="flex flex-col justify-center items-center gap-10" id="edubuk-products">
         <p className=" text-[#03257E] text-[25px] sm:text-[40px] md:text-[50px] font-bold text-center" data-aos="fade-up">
           Explore Our Globally Award Winning Products
         </p>
-      {/* <div className="flex justify-evenly items-baseline-last flex-wrap gap-y-10">
-          <div className="flex flex-col justify-center items-center gap-4 w-[300px] sm:w-[350px] rounded-lg border-b-2 border-[#03257e] p-2">
-            <img src={logo1} alt="logo" className="w-fit h-32 "></img>
-            <a 
-            href="https://www.edubukceta.com/" 
-            target="_blank"
-            rel="nonopener noreferrer"
-            className="text-white text-[16px] sm:text-[20px] p-2 rounded-full bg-gradient-to-br from-[#03257e] via-[#006666] to-[#f14419] cursor-pointer">Click to Know More</a>
-          </div>
-          <div className="flex flex-col justify-center items-center gap-4 w-[300px] sm:w-[350px] rounded-lg border-b-2 border-[#03257e] p-2">
-            <img src={logo2} alt="logo" className="w-fit h-24"></img>
-            <a 
-            href="https://www.edubukmiitscreening.com/" 
-            target="_blank"
-            rel="nonopener noreferrer"
-            className="text-white text-[16px] sm:text-[20px]  p-2 rounded-full bg-gradient-to-br from-[#03257e] via-[#006666] to-[#f14419] cursor-pointer">Click to Know More</a>
-          </div>
-          <div className="flex flex-col justify-center items-center gap-4 w-[300px] sm:w-[350px] rounded-lg border-b-2 border-[#03257e] p-2">
-            <img src={logo3} alt="logo" className="w-fit h-32"></img>
-            <a 
-            href="https://www.edubukcetaolympiad.com/" 
-            target="_blank"
-            rel="nonopener noreferrer"
-            className="text-white text-[16px] sm:text-[20px] p-2 rounded-full bg-gradient-to-br from-[#03257e] via-[#006666] to-[#f14419] cursor-pointer">Click to Know More</a>
-          </div>
-          
-          <div className="flex flex-col justify-center items-center gap-4 w-[300px] sm:w-[350px] rounded-lg border-b-2 border-[#03257e] p-2">
-            <img src={logo4} alt="logo" className="w-fit h-28"></img>
-            <a href="https://www.edubuktrucv.com/" 
-            target="_blank"
-            rel="nonopener noreferrer"
-
-            className="text-white text-[16px] sm:text-[20px] p-2 rounded-full bg-gradient-to-br from-[#03257e] via-[#006666] to-[#f14419] cursor-pointer">Click to Know More</a>
-          </div>
-          <div className="flex flex-col justify-center items-center gap-4 w-[300px] sm:w-[350px] rounded-lg border-b-2 border-[#03257e] p-2">
-            <img src={logo5} alt="logo" className="w-fit h-32"></img>
-            <a 
-            href="https://www.edubukeseal.org/" 
-            target="_blank"
-            rel="nonopener noreferrer"
-            className="text-white text-[16px] sm:text-[20px] p-2 rounded-full bg-gradient-to-br from-[#03257e] via-[#006666] to-[#f14419] cursor-pointer">Click to Know More</a>
-          </div>
-          <div className="flex flex-col justify-center items-center gap-2 w-[300px] sm:w-[350px] rounded-lg  border-b-2 border-[#03257e] p-2">
-            <img src={logo6} alt="logo" className="w-fit h-32"></img>
-            <p className="text-[25px] font-bold bg-gradient-to-r from-[#03257e] via-[#006666] to-[#f14419] bg-clip-text text-transparent">EBUK Tokens</p>
-            <a 
-            href="https://www.ebuktokens.com/" 
-            target="_blank"
-            rel="nonopener noreferrer"
-            className="text-white text-[16px] sm:text-[20px] p-2 rounded-full bg-gradient-to-br from-[#03257e] via-[#006666] to-[#f14419] cursor-pointer">Click to Know More</a>
-          </div>
-      </div> */}
       <ProductSection />
       </div>
       <div>

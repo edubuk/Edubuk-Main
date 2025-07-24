@@ -63,7 +63,7 @@ export default function WhyESealSection() {
             style={{ animationDelay: `${i * 0.05}s` }}
             
           >
-            <div className="w-12 h-12 mb-4 flex items-center justify-center bg-white text-[#03257e] rounded-full shadow-inner shadow-cyan-500/10" data-aos="zoom-in">
+            <div className="w-12 h-12 mb-4 flex items-center justify-center bg-white text-[#03257e] rounded-full shadow-inner shadow-[#03257e]" data-aos="zoom-in">
               {item.icon}
             </div>
             <h3 className="text-xl text-[#006666] font-semibold mb-2" data-aos="fade-up">{item.title}</h3>

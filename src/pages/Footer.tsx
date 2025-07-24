@@ -11,15 +11,15 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <div className="flex flex-col bg-white sm:px-4 gap-4 border-b-8 border-[#006666] w-full" data-aos="fade-up">
+    <div className="flex flex-col bg-white sm:px-4 gap-4 border-b-8 border-[#006666] w-full">
       <div className="flex flex-wrap justify-start sm:justify-between items-center gap-4 border-b-2 border-t-2 border-gray-300 pb-3 " >
-        <img src={logo} alt="logo" className="md:w-[200px] md:h-[200px] w-[152px] h-[152px]"></img>
-        <div className="flex flex-col justify-center gap-4 sm:pl-12 ml-6">
+        <img src={logo} alt="logo" className="md:w-[200px] md:h-[200px] w-[152px] h-[152px]" data-aos="zoom-in"></img>
+        <div className="flex flex-col justify-center gap-4 sm:pl-12 ml-6" data-aos="fade-up">
             <div className="font-semibold text-xl text-black uppercase">Contact Us:</div>
             <div className="flex justify-start gap-2 items-center text-black"><MdEmail />Email: support@edubuk.com</div>
             <div className="flex justify-start gap-2 items-center text-black"><MdPhone />Phone: +91 9250411261</div>
         </div>
-        <div className="flex flex-col sm:flex-row pl-6 gap-4">
+        <div className="flex flex-col sm:flex-row pl-6 gap-4" data-aos="fade-up">
         <div className="flex flex-col justify-center gap-4 sm:pl-12">
             <div className="font-semibold text-xl text-black uppercase">Legals:</div>
             <Link to="/terms-and-conditions" className="flex justify-start gap-2 items-center text-black"><FaRegFileAlt />Terms & Conditions</Link>
@@ -31,7 +31,7 @@ const Footer = () => {
             <Link to="/contact-us" className="flex justify-start gap-2 items-center text-black"><FaPhone />Contact Us</Link>
         </div>
         </div>
-        <div className="flex flex-col justify-center gap-4 pl-6 sm:pl-12">
+        <div className="flex flex-col justify-center gap-4 pl-6 sm:pl-12" data-aos="fade-up">
             <div className="font-semibold text-xl text-black uppercase">Our Offices:</div>
             <div className="flex justify-start gap-2 items-center text-black"><MdLocationPin /> Hyderabad and Lucknow, India</div>
             <div className="flex justify-start gap-2 items-center text-black"><MdLocationPin /> Dubai and RAK, UAE</div>

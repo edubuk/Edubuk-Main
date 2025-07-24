@@ -5,6 +5,7 @@ import logo5 from "../assets/Logos/logo5.png";
 import logo6 from "../assets/Logos/logo6.png";
 import logo7 from "../assets/Logos/logo7.png";
 import logo from "../assets/edubuklogo.png";
+
 const products = [
   { name: "TruCV", icon: logo4, linkId:"#trucv" },
   { name: "eSeal", icon: logo5, linkId:"#eseal" },
@@ -29,14 +30,14 @@ export default function HeroSection() {
           <div className="flex gap-2 w-full justify-center sm:justify-start pt-6">
             <a
               href="#about-us"
-              className="bg-[#006666] w-[250px] text-white font-semibold px-3 py-2 text-sm sm:text-xl sm:px-2 sm:py-2 rounded-md hover:bg-[#028080] transition text-center"
+              className="bg-[#006666] w-[250px] text-white font-semibold px-3 py-3 text-sm sm:text-xl sm:px-2 sm:py-2 rounded-md hover:bg-[#028080] transition text-center"
               data-aos="fade-left"
             >
               Get Started →
             </a>
             <a
               href="#edubuk-products"
-              className="bg-[#03257e] w-[250px] border border-white/20 text-white font-semibold px-3 py-2  sm:px-2 sm:py-2 text-sm sm:text-xl rounded-md hover:bg-[#021f6a] transition text-center"
+              className="bg-[#03257e] w-[250px] border border-white/20 text-white font-semibold px-3 py-3  sm:px-2 sm:py-2 text-sm sm:text-xl rounded-md hover:bg-[#021f6a] transition text-center"
               data-aos="fade-right"
             >
               Explore Our Products

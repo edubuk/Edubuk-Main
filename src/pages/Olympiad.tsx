@@ -45,8 +45,8 @@ export default function CETAOlympiadSection() {
   return (
     <section className="bg-white  px-6 md:px-20 py-6 border-b border-gray-200" id="cetaOlympiad">
       <div className="max-full flex justify-center items-center flex-col mx-auto text-center mb-10">
-        <h2 className="text-3xl md:text-4xl font-bold text-[#03257e] mb-4 hidden sm:flex" data-aos="fade-up">
-          CETA-Olympiad: <span className="text-[#f14419]">AI & Emerging Tech</span>
+        <h2 className="text-3xl md:text-4xl text-center font-bold leading-tight text-[#03257e] mb-4 hidden sm:block" data-aos="fade-up">
+          CETA-Olympiad:<span className="text-[#f14419]"> AI & Emerging Tech</span>
         </h2>
         <h2 className="text-3xl md:text-4xl font-bold text-[#03257e] text-center mb-4 sm:hidden" data-aos="fade-up">
           CETA-Olympiad:<br></br>
@@ -65,7 +65,7 @@ export default function CETAOlympiadSection() {
             className="bg-white/5 rounded-2xl p-6 backdrop-blur-md border border-white hover:border-cyan-400/30 shadow-md shadow-[#03677e] hover:shadow-cyan-500/20 transition-all duration-300 animate-fade-in-up"
             style={{ animationDelay: `${i * 0.05}s` }}
           >
-            <div className="w-12 h-12 mb-4 flex items-center justify-center bg-white text-[#03257e] rounded-full shadow-inner shadow-cyan-500/10" data-aos="zoom-in">
+            <div className="w-12 h-12 mb-4 flex items-center justify-center bg-white text-[#03257e] rounded-full shadow-inner shadow-[#03257e]" data-aos="zoom-in">
               {item.icon}
             </div>
             <h3 className="text-xl text-[#006666] font-semibold mb-2" data-aos="fade-up">{item.title}</h3>
